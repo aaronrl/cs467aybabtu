@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Mail++")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("A.Y.B.A.B.T.U.")]
+[assembly: AssemblyDescription("A full-featured email client.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Mail++")]
+[assembly: AssemblyCompany("GVSU CS 467")]
+[assembly: AssemblyProduct("A.Y.B.A.B.T.U.")]
 [assembly: AssemblyCopyright("Copyright ©  2008")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
