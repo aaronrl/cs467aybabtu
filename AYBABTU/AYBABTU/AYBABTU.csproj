@@ -8,8 +8,8 @@
     <ProjectGuid>{3E01D892-1290-4FAC-9DC1-629E41F8A41F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Mail__</RootNamespace>
-    <AssemblyName>Mail++</AssemblyName>
+    <RootNamespace>AYBABTU</RootNamespace>
+    <AssemblyName>AYBABTU</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -85,6 +85,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
