@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Mail__
+namespace AYBABTU
 {
     public partial class Main : Form
     {
@@ -32,6 +32,12 @@ namespace Mail__
         {
             ReadWindow readdow = new ReadWindow();
             readdow.Show();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Splashscreen splash = new Splashscreen();
+            splash.Show();
         }
     }
 }

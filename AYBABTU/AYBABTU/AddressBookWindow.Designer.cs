@@ -1,4 +1,4 @@
-﻿namespace Mail__
+﻿namespace AYBABTU
 {
     partial class AddressBookWindow
     {

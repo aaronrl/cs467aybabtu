@@ -1,4 +1,4 @@
-﻿namespace Mail__
+﻿namespace AYBABTU
 {
     partial class Main
     {
@@ -186,6 +186,7 @@
             this.button9.Size = new System.Drawing.Size(60, 55);
             this.button9.TabIndex = 8;
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button8
             // 
@@ -331,7 +332,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
-            this.Text = "Mail.NET";
+            this.Text = "AYBABTU";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
