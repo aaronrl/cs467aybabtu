@@ -11,6 +11,7 @@
   * read in account information from an account
   * setup receiving functionality
   * create receiving/sending window
+  * show received messages
   
 
 == Milestone 2 ==
