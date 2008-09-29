@@ -5,6 +5,7 @@ using System.Text;
 
 namespace AYBABTU
 {
+    /* Class to handle the contents of individual messages */
     class Message
     {
         private string to;
