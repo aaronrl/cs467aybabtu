@@ -366,7 +366,7 @@
             this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button9.FlatAppearance.BorderSize = 0;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Location = new System.Drawing.Point(531, 5);
+            this.button9.Location = new System.Drawing.Point(878, 3);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(60, 55);
             this.button9.TabIndex = 8;
@@ -391,7 +391,7 @@
             this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button7.FlatAppearance.BorderSize = 0;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Location = new System.Drawing.Point(465, 5);
+            this.button7.Location = new System.Drawing.Point(812, 3);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(60, 55);
             this.button7.TabIndex = 6;
