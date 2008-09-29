@@ -20,5 +20,10 @@ namespace AYBABTU
         {
             this.Close();
         }
+
+        private void EmailAccountsWindow_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
