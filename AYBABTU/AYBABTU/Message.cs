@@ -34,6 +34,7 @@ namespace AYBABTU
             subject = pSubject;
             messageBody = pMessageBody;
         }
+        #region Accessor and Mutator Methods
 
         public string To
         {
@@ -106,5 +107,6 @@ namespace AYBABTU
                 messageBody = value;
             }
         }
+        #endregion
     }
 }
