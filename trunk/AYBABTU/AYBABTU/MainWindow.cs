@@ -57,5 +57,10 @@ namespace AYBABTU
             EmailAccountsWindow accounts = new EmailAccountsWindow();
             accounts.Show();
         }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

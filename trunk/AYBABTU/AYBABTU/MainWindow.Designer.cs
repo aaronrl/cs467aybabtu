@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Inbox");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Outbox");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Drafts");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Trash");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Mail", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4});
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Inbox");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Outbox");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Drafts");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Trash");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Mail", new System.Windows.Forms.TreeNode[] {
+            treeNode6,
+            treeNode7,
+            treeNode8,
+            treeNode9});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -318,18 +318,18 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(12, 94);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Inbox";
-            treeNode1.Text = "Inbox";
-            treeNode2.Name = "Outbox";
-            treeNode2.Text = "Outbox";
-            treeNode3.Name = "Drafts";
-            treeNode3.Text = "Drafts";
-            treeNode4.Name = "Trash";
-            treeNode4.Text = "Trash";
-            treeNode5.Name = "Mail";
-            treeNode5.Text = "Mail";
+            treeNode6.Name = "Inbox";
+            treeNode6.Text = "Inbox";
+            treeNode7.Name = "Outbox";
+            treeNode7.Text = "Outbox";
+            treeNode8.Name = "Drafts";
+            treeNode8.Text = "Drafts";
+            treeNode9.Name = "Trash";
+            treeNode9.Text = "Trash";
+            treeNode10.Name = "Mail";
+            treeNode10.Text = "Mail";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode5});
+            treeNode10});
             this.treeView1.Size = new System.Drawing.Size(165, 509);
             this.treeView1.TabIndex = 2;
             // 
@@ -539,6 +539,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
             this.Text = "AYBABTU";
+            this.Load += new System.EventHandler(this.Main_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
