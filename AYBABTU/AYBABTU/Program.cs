@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Mail__
+namespace AYBABTU
 {
     static class Program
     {

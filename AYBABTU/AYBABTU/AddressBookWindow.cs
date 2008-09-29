@@ -7,13 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Mail__
+namespace AYBABTU
 {
     public partial class AddressBookWindow : Form
     {
         public AddressBookWindow()
         {
             InitializeComponent();
+        }
+
+        private void AddressBookWindow_Load(object sender, EventArgs e)
+        {
+
         }
 
     }
