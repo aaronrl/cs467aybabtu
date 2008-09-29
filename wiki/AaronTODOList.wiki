@@ -1,13 +1,19 @@
-#labels Aaron,Todolist
+#labels Todolist
 = Todo List =
 
 == Milestone 1 ==
   * SMTP routines
+  * setup write window interaction with SMTP
   * Read message contents from Nicole's MIME parser and display in window
   * set up basic folder listing
   * add multi-account functionality
   * write load routines
-  * 
+  * read in account information from an account
+  * setup receiving functionality
+  * create receiving/sending window
+  
 
 == Milestone 2 ==
   * Installer
+  * populate options screen
+  * elaborate on accounts options screen
