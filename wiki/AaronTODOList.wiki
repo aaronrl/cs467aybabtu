@@ -18,3 +18,6 @@
   * Installer
   * populate options screen
   * elaborate on accounts options screen
+
+== Milestone 3 ==
+  * Searchable messages (http://msdn.microsoft.com/en-us/library/bb308959.aspx)
