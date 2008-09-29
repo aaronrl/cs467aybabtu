@@ -45,5 +45,17 @@ namespace AYBABTU
             AboutWindow about = new AboutWindow();
             about.Show();
         }
+
+        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OptionsWindow options = new OptionsWindow();
+            options.Show();
+        }
+
+        private void emailAccountsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EmailAccountsWindow accounts = new EmailAccountsWindow();
+            accounts.Show();
+        }
     }
 }
