@@ -1,0 +1,13 @@
+#labels Aaron,Todolist
+= Todo List =
+
+== Milestone 1 ==
+* SMTP routines
+* Read message contents from Nicole's MIME parser and display in window
+* set up basic folder listing
+* add multi-account functionality
+* write load routines
+* 
+
+== Milestone 2 ==
+* Installer
