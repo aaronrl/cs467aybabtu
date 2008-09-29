@@ -56,6 +56,28 @@
             this.getAndSendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.getMessagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendMessagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newMessageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.messageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.folderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAttachmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkForMessagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newMessageToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.replyToSenderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.replyToAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.forwardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.optionsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutAYBABTUToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -86,12 +108,24 @@
             // 
             // fileToolStripMenuItem
             // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newMessageToolStripMenuItem,
+            this.openToolStripMenuItem,
+            this.saveAsToolStripMenuItem,
+            this.saveAttachmentToolStripMenuItem,
+            this.quitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // editToolStripMenuItem
             // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cutToolStripMenuItem,
+            this.copyToolStripMenuItem,
+            this.pasteToolStripMenuItem,
+            this.selectAllToolStripMenuItem,
+            this.deleteToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.editToolStripMenuItem.Text = "Edit";
@@ -104,18 +138,30 @@
             // 
             // messagesToolStripMenuItem
             // 
+            this.messagesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.checkForMessagesToolStripMenuItem,
+            this.newMessageToolStripMenuItem1,
+            this.replyToSenderToolStripMenuItem,
+            this.replyToAllToolStripMenuItem,
+            this.forwardToolStripMenuItem});
             this.messagesToolStripMenuItem.Name = "messagesToolStripMenuItem";
             this.messagesToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.messagesToolStripMenuItem.Text = "Messages";
             // 
             // toolsToolStripMenuItem
             // 
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.optionsToolStripMenuItem,
+            this.optionsToolStripMenuItem1});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.toolsToolStripMenuItem.Text = "Tools";
             // 
             // helpToolStripMenuItem
             // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewHelpToolStripMenuItem,
+            this.aboutAYBABTUToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
             this.helpToolStripMenuItem.Text = "Help";
@@ -319,6 +365,143 @@
             this.sendMessagesToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.sendMessagesToolStripMenuItem.Text = "Send Messages";
             // 
+            // newMessageToolStripMenuItem
+            // 
+            this.newMessageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.messageToolStripMenuItem,
+            this.contactToolStripMenuItem,
+            this.folderToolStripMenuItem});
+            this.newMessageToolStripMenuItem.Name = "newMessageToolStripMenuItem";
+            this.newMessageToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.newMessageToolStripMenuItem.Text = "New";
+            // 
+            // messageToolStripMenuItem
+            // 
+            this.messageToolStripMenuItem.Name = "messageToolStripMenuItem";
+            this.messageToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.messageToolStripMenuItem.Text = "Message";
+            // 
+            // contactToolStripMenuItem
+            // 
+            this.contactToolStripMenuItem.Name = "contactToolStripMenuItem";
+            this.contactToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.contactToolStripMenuItem.Text = "Contact";
+            // 
+            // folderToolStripMenuItem
+            // 
+            this.folderToolStripMenuItem.Name = "folderToolStripMenuItem";
+            this.folderToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.folderToolStripMenuItem.Text = "Folder";
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.openToolStripMenuItem.Text = "Open";
+            // 
+            // saveAsToolStripMenuItem
+            // 
+            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.saveAsToolStripMenuItem.Text = "Save As";
+            // 
+            // saveAttachmentToolStripMenuItem
+            // 
+            this.saveAttachmentToolStripMenuItem.Name = "saveAttachmentToolStripMenuItem";
+            this.saveAttachmentToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.saveAttachmentToolStripMenuItem.Text = "Save Attachment";
+            // 
+            // quitToolStripMenuItem
+            // 
+            this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.quitToolStripMenuItem.Text = "Quit";
+            // 
+            // cutToolStripMenuItem
+            // 
+            this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cutToolStripMenuItem.Text = "Cut";
+            // 
+            // copyToolStripMenuItem
+            // 
+            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.copyToolStripMenuItem.Text = "Copy";
+            // 
+            // pasteToolStripMenuItem
+            // 
+            this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pasteToolStripMenuItem.Text = "Paste";
+            // 
+            // selectAllToolStripMenuItem
+            // 
+            this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
+            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.selectAllToolStripMenuItem.Text = "Select All";
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            // 
+            // checkForMessagesToolStripMenuItem
+            // 
+            this.checkForMessagesToolStripMenuItem.Name = "checkForMessagesToolStripMenuItem";
+            this.checkForMessagesToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.checkForMessagesToolStripMenuItem.Text = "Check for Messages";
+            // 
+            // newMessageToolStripMenuItem1
+            // 
+            this.newMessageToolStripMenuItem1.Name = "newMessageToolStripMenuItem1";
+            this.newMessageToolStripMenuItem1.Size = new System.Drawing.Size(170, 22);
+            this.newMessageToolStripMenuItem1.Text = "New Message";
+            // 
+            // replyToSenderToolStripMenuItem
+            // 
+            this.replyToSenderToolStripMenuItem.Name = "replyToSenderToolStripMenuItem";
+            this.replyToSenderToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.replyToSenderToolStripMenuItem.Text = "Reply to Sender";
+            // 
+            // replyToAllToolStripMenuItem
+            // 
+            this.replyToAllToolStripMenuItem.Name = "replyToAllToolStripMenuItem";
+            this.replyToAllToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.replyToAllToolStripMenuItem.Text = "Reply to All";
+            // 
+            // forwardToolStripMenuItem
+            // 
+            this.forwardToolStripMenuItem.Name = "forwardToolStripMenuItem";
+            this.forwardToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.forwardToolStripMenuItem.Text = "Forward";
+            // 
+            // optionsToolStripMenuItem
+            // 
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.optionsToolStripMenuItem.Text = "Email Accounts";
+            // 
+            // optionsToolStripMenuItem1
+            // 
+            this.optionsToolStripMenuItem1.Name = "optionsToolStripMenuItem1";
+            this.optionsToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.optionsToolStripMenuItem1.Text = "Options";
+            // 
+            // viewHelpToolStripMenuItem
+            // 
+            this.viewHelpToolStripMenuItem.Name = "viewHelpToolStripMenuItem";
+            this.viewHelpToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.viewHelpToolStripMenuItem.Text = "View Help";
+            // 
+            // aboutAYBABTUToolStripMenuItem
+            // 
+            this.aboutAYBABTUToolStripMenuItem.Name = "aboutAYBABTUToolStripMenuItem";
+            this.aboutAYBABTUToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.aboutAYBABTUToolStripMenuItem.Text = "About A.Y.B.A.B.T.U.";
+            this.aboutAYBABTUToolStripMenuItem.Click += new System.EventHandler(this.aboutAYBABTUToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -370,6 +553,28 @@
         private System.Windows.Forms.ToolStripMenuItem getMessagesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sendMessagesToolStripMenuItem;
         private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.ToolStripMenuItem newMessageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem messageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem contactToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem folderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveAttachmentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem selectAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem checkForMessagesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newMessageToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem replyToSenderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem replyToAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem forwardToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem viewHelpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutAYBABTUToolStripMenuItem;
     }
 }
 

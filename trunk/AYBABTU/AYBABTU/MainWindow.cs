@@ -39,5 +39,11 @@ namespace AYBABTU
             Splashscreen splash = new Splashscreen();
             splash.Show();
         }
+
+        private void aboutAYBABTUToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutWindow about = new AboutWindow();
+            about.Show();
+        }
     }
 }
