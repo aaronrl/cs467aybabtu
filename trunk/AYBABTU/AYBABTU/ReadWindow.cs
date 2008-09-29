@@ -7,13 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Mail__
+namespace AYBABTU
 {
     public partial class ReadWindow : Form
     {
         public ReadWindow()
         {
             InitializeComponent();
+        }
+
+        private void ReadWindow_Load(object sender, EventArgs e)
+        {
+
         }
 
     }
