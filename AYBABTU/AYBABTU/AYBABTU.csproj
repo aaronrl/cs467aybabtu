@@ -161,6 +161,7 @@
     <Compile Include="ReadWindow.Designer.cs">
       <DependentUpon>ReadWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="SMTP.cs" />
     <Compile Include="Splashscreen.cs">
       <SubType>Form</SubType>
     </Compile>
