@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Net.Mail;
 
 namespace AYBABTU
 {
@@ -18,7 +19,20 @@ namespace AYBABTU
 
         private void WriteWindow_Load(object sender, EventArgs e)
         {
+            
+        }
 
+        private void sendBtn_Click(object sender, EventArgs e)
+        {
+            MailMessage msg = new MailMessage(fromTxtBox.Text, toTxtBox.Text, subjectTxtBox.Text, messageBodyTxtBox.Text);
+            if (SMTP.sendMessage(msg))
+            {
+
+            }
+            else
+            {
+
+            }
         }
 
     }

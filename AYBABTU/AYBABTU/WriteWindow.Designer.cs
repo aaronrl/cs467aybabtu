@@ -37,24 +37,24 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.attachBtn = new System.Windows.Forms.Button();
+            this.redoBtn = new System.Windows.Forms.Button();
+            this.undoBtn = new System.Windows.Forms.Button();
+            this.saveBtn = new System.Windows.Forms.Button();
+            this.addressBookBtn = new System.Windows.Forms.Button();
+            this.spellCheckBtn = new System.Windows.Forms.Button();
+            this.sendBtn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.toTxtBox = new System.Windows.Forms.TextBox();
+            this.ccTxtBox = new System.Windows.Forms.TextBox();
+            this.subjectTxtBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.messageBodyTxtBox = new System.Windows.Forms.RichTextBox();
+            this.attachmentsListBox = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.fromTxtBox = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -113,101 +113,102 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button7);
-            this.panel1.Controls.Add(this.button6);
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.attachBtn);
+            this.panel1.Controls.Add(this.redoBtn);
+            this.panel1.Controls.Add(this.undoBtn);
+            this.panel1.Controls.Add(this.saveBtn);
+            this.panel1.Controls.Add(this.addressBookBtn);
+            this.panel1.Controls.Add(this.spellCheckBtn);
+            this.panel1.Controls.Add(this.sendBtn);
             this.panel1.Location = new System.Drawing.Point(12, 27);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(668, 61);
             this.panel1.TabIndex = 2;
             // 
-            // button7
+            // attachBtn
             // 
-            this.button7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button7.BackgroundImage")));
-            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Location = new System.Drawing.Point(333, 3);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(60, 55);
-            this.button7.TabIndex = 6;
-            this.button7.UseVisualStyleBackColor = true;
+            this.attachBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("attachBtn.BackgroundImage")));
+            this.attachBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.attachBtn.FlatAppearance.BorderSize = 0;
+            this.attachBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.attachBtn.Location = new System.Drawing.Point(333, 3);
+            this.attachBtn.Name = "attachBtn";
+            this.attachBtn.Size = new System.Drawing.Size(60, 55);
+            this.attachBtn.TabIndex = 5;
+            this.attachBtn.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // redoBtn
             // 
-            this.button6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button6.BackgroundImage")));
-            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Location = new System.Drawing.Point(267, 3);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(60, 55);
-            this.button6.TabIndex = 5;
-            this.button6.UseVisualStyleBackColor = true;
+            this.redoBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("redoBtn.BackgroundImage")));
+            this.redoBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.redoBtn.FlatAppearance.BorderSize = 0;
+            this.redoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.redoBtn.Location = new System.Drawing.Point(267, 3);
+            this.redoBtn.Name = "redoBtn";
+            this.redoBtn.Size = new System.Drawing.Size(60, 55);
+            this.redoBtn.TabIndex = 4;
+            this.redoBtn.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // undoBtn
             // 
-            this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(201, 3);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(60, 55);
-            this.button5.TabIndex = 4;
-            this.button5.UseVisualStyleBackColor = true;
+            this.undoBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("undoBtn.BackgroundImage")));
+            this.undoBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.undoBtn.FlatAppearance.BorderSize = 0;
+            this.undoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.undoBtn.Location = new System.Drawing.Point(201, 3);
+            this.undoBtn.Name = "undoBtn";
+            this.undoBtn.Size = new System.Drawing.Size(60, 55);
+            this.undoBtn.TabIndex = 3;
+            this.undoBtn.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // saveBtn
             // 
-            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(69, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(60, 55);
-            this.button4.TabIndex = 3;
-            this.button4.UseVisualStyleBackColor = true;
+            this.saveBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("saveBtn.BackgroundImage")));
+            this.saveBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.saveBtn.FlatAppearance.BorderSize = 0;
+            this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveBtn.Location = new System.Drawing.Point(69, 3);
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.Size = new System.Drawing.Size(60, 55);
+            this.saveBtn.TabIndex = 1;
+            this.saveBtn.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // addressBookBtn
             // 
-            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(135, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(60, 55);
-            this.button3.TabIndex = 2;
-            this.button3.UseVisualStyleBackColor = true;
+            this.addressBookBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addressBookBtn.BackgroundImage")));
+            this.addressBookBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.addressBookBtn.FlatAppearance.BorderSize = 0;
+            this.addressBookBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addressBookBtn.Location = new System.Drawing.Point(135, 3);
+            this.addressBookBtn.Name = "addressBookBtn";
+            this.addressBookBtn.Size = new System.Drawing.Size(60, 55);
+            this.addressBookBtn.TabIndex = 2;
+            this.addressBookBtn.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // spellCheckBtn
             // 
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(399, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(60, 55);
-            this.button2.TabIndex = 1;
-            this.button2.UseVisualStyleBackColor = true;
+            this.spellCheckBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("spellCheckBtn.BackgroundImage")));
+            this.spellCheckBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.spellCheckBtn.FlatAppearance.BorderSize = 0;
+            this.spellCheckBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.spellCheckBtn.Location = new System.Drawing.Point(399, 3);
+            this.spellCheckBtn.Name = "spellCheckBtn";
+            this.spellCheckBtn.Size = new System.Drawing.Size(60, 55);
+            this.spellCheckBtn.TabIndex = 6;
+            this.spellCheckBtn.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // sendBtn
             // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(60, 55);
-            this.button1.TabIndex = 0;
-            this.button1.UseVisualStyleBackColor = true;
+            this.sendBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sendBtn.BackgroundImage")));
+            this.sendBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.sendBtn.FlatAppearance.BorderSize = 0;
+            this.sendBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sendBtn.Location = new System.Drawing.Point(3, 3);
+            this.sendBtn.Name = "sendBtn";
+            this.sendBtn.Size = new System.Drawing.Size(60, 55);
+            this.sendBtn.TabIndex = 0;
+            this.sendBtn.UseVisualStyleBackColor = true;
+            this.sendBtn.Click += new System.EventHandler(this.sendBtn_Click);
             // 
             // label3
             // 
@@ -237,26 +238,26 @@
             this.label1.Text = "To:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox1
+            // toTxtBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(66, 122);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(405, 20);
-            this.textBox1.TabIndex = 10;
+            this.toTxtBox.Location = new System.Drawing.Point(66, 122);
+            this.toTxtBox.Name = "toTxtBox";
+            this.toTxtBox.Size = new System.Drawing.Size(405, 20);
+            this.toTxtBox.TabIndex = 19;
             // 
-            // textBox2
+            // ccTxtBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(66, 148);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(405, 20);
-            this.textBox2.TabIndex = 11;
+            this.ccTxtBox.Location = new System.Drawing.Point(66, 148);
+            this.ccTxtBox.Name = "ccTxtBox";
+            this.ccTxtBox.Size = new System.Drawing.Size(405, 20);
+            this.ccTxtBox.TabIndex = 20;
             // 
-            // textBox3
+            // subjectTxtBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(66, 174);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(405, 20);
-            this.textBox3.TabIndex = 12;
+            this.subjectTxtBox.Location = new System.Drawing.Point(66, 174);
+            this.subjectTxtBox.Name = "subjectTxtBox";
+            this.subjectTxtBox.Size = new System.Drawing.Size(405, 20);
+            this.subjectTxtBox.TabIndex = 21;
             // 
             // label4
             // 
@@ -267,29 +268,21 @@
             this.label4.TabIndex = 13;
             this.label4.Text = "From:";
             // 
-            // comboBox1
+            // messageBodyTxtBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(66, 95);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(405, 21);
-            this.comboBox1.TabIndex = 14;
+            this.messageBodyTxtBox.Location = new System.Drawing.Point(12, 200);
+            this.messageBodyTxtBox.Name = "messageBodyTxtBox";
+            this.messageBodyTxtBox.Size = new System.Drawing.Size(668, 348);
+            this.messageBodyTxtBox.TabIndex = 22;
+            this.messageBodyTxtBox.Text = "";
             // 
-            // richTextBox1
+            // attachmentsListBox
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 200);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(668, 348);
-            this.richTextBox1.TabIndex = 15;
-            this.richTextBox1.Text = "";
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(477, 112);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(203, 82);
-            this.listBox1.TabIndex = 16;
+            this.attachmentsListBox.FormattingEnabled = true;
+            this.attachmentsListBox.Location = new System.Drawing.Point(477, 112);
+            this.attachmentsListBox.Name = "attachmentsListBox";
+            this.attachmentsListBox.Size = new System.Drawing.Size(203, 82);
+            this.attachmentsListBox.TabIndex = 23;
             // 
             // label5
             // 
@@ -300,19 +293,26 @@
             this.label5.TabIndex = 17;
             this.label5.Text = "Attachments:";
             // 
+            // fromTxtBox
+            // 
+            this.fromTxtBox.Location = new System.Drawing.Point(66, 95);
+            this.fromTxtBox.Name = "fromTxtBox";
+            this.fromTxtBox.Size = new System.Drawing.Size(405, 20);
+            this.fromTxtBox.TabIndex = 18;
+            // 
             // WriteWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(692, 573);
+            this.Controls.Add(this.fromTxtBox);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.attachmentsListBox);
+            this.Controls.Add(this.messageBodyTxtBox);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.subjectTxtBox);
+            this.Controls.Add(this.ccTxtBox);
+            this.Controls.Add(this.toTxtBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -321,7 +321,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "WriteWindow";
-            this.Text = "WriteWindow";
+            this.Text = "Write";
             this.Load += new System.EventHandler(this.WriteWindow_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -344,20 +344,20 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox toTxtBox;
+        private System.Windows.Forms.TextBox ccTxtBox;
+        private System.Windows.Forms.TextBox subjectTxtBox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.RichTextBox messageBodyTxtBox;
+        private System.Windows.Forms.Button sendBtn;
+        private System.Windows.Forms.Button addressBookBtn;
+        private System.Windows.Forms.Button spellCheckBtn;
+        private System.Windows.Forms.Button saveBtn;
+        private System.Windows.Forms.Button attachBtn;
+        private System.Windows.Forms.Button redoBtn;
+        private System.Windows.Forms.Button undoBtn;
+        private System.Windows.Forms.ListBox attachmentsListBox;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox fromTxtBox;
     }
 }
