@@ -3,6 +3,7 @@
 
 == Milestone 1 ==
   * SMTP routines
+  * how to store information on the client machine
   * setup write window interaction with SMTP
   * Read message contents from Nicole's MIME parser and display in window
   * set up basic folder listing
