@@ -38,11 +38,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.emailAddressTxtBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // OKButton
             // 
-            this.OKButton.Location = new System.Drawing.Point(172, 140);
+            this.OKButton.Location = new System.Drawing.Point(172, 143);
             this.OKButton.Name = "OKButton";
             this.OKButton.Size = new System.Drawing.Size(75, 23);
             this.OKButton.TabIndex = 0;
@@ -52,7 +54,7 @@
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(253, 140);
+            this.CancelButton.Location = new System.Drawing.Point(253, 143);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(75, 23);
             this.CancelButton.TabIndex = 1;
@@ -76,14 +78,14 @@
             // 
             // usernameTxtBox
             // 
-            this.usernameTxtBox.Location = new System.Drawing.Point(103, 65);
+            this.usernameTxtBox.Location = new System.Drawing.Point(103, 91);
             this.usernameTxtBox.Name = "usernameTxtBox";
             this.usernameTxtBox.Size = new System.Drawing.Size(225, 20);
             this.usernameTxtBox.TabIndex = 4;
             // 
             // passwordTxtBox
             // 
-            this.passwordTxtBox.Location = new System.Drawing.Point(103, 91);
+            this.passwordTxtBox.Location = new System.Drawing.Point(103, 117);
             this.passwordTxtBox.Name = "passwordTxtBox";
             this.passwordTxtBox.Size = new System.Drawing.Size(225, 20);
             this.passwordTxtBox.TabIndex = 6;
@@ -109,7 +111,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(39, 68);
+            this.label3.Location = new System.Drawing.Point(39, 94);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 13);
             this.label3.TabIndex = 9;
@@ -118,17 +120,35 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(41, 94);
+            this.label4.Location = new System.Drawing.Point(41, 120);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 13);
             this.label4.TabIndex = 10;
             this.label4.Text = "Password:";
             // 
+            // emailAddressTxtBox
+            // 
+            this.emailAddressTxtBox.Location = new System.Drawing.Point(103, 65);
+            this.emailAddressTxtBox.Name = "emailAddressTxtBox";
+            this.emailAddressTxtBox.Size = new System.Drawing.Size(225, 20);
+            this.emailAddressTxtBox.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(21, 68);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(76, 13);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Email Address:";
+            // 
             // EmailAccountsWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(344, 175);
+            this.ClientSize = new System.Drawing.Size(344, 174);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.emailAddressTxtBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -159,5 +179,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox emailAddressTxtBox;
+        private System.Windows.Forms.Label label5;
     }
 }
