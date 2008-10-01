@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.optionTabs = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -43,7 +43,7 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.optionTabs);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
@@ -55,22 +55,22 @@
             this.tabControl1.Size = new System.Drawing.Size(462, 321);
             this.tabControl1.TabIndex = 0;
             // 
-            // tabPage1
+            // optionTabs
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(454, 295);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "General";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.optionTabs.Location = new System.Drawing.Point(4, 22);
+            this.optionTabs.Name = "optionTabs";
+            this.optionTabs.Padding = new System.Windows.Forms.Padding(3);
+            this.optionTabs.Size = new System.Drawing.Size(454, 295);
+            this.optionTabs.TabIndex = 0;
+            this.optionTabs.Text = "General";
+            this.optionTabs.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(454, 324);
+            this.tabPage2.Size = new System.Drawing.Size(454, 295);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Sending";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -79,7 +79,7 @@
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(454, 324);
+            this.tabPage3.Size = new System.Drawing.Size(454, 295);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Receiving";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -88,7 +88,7 @@
             // 
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(454, 324);
+            this.tabPage4.Size = new System.Drawing.Size(454, 295);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Reading";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -97,7 +97,7 @@
             // 
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(454, 324);
+            this.tabPage5.Size = new System.Drawing.Size(454, 295);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Security";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -106,7 +106,7 @@
             // 
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(454, 324);
+            this.tabPage6.Size = new System.Drawing.Size(454, 295);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Advanced";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -158,7 +158,7 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage optionTabs;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
