@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Inbox");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Outbox");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Drafts");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Trash");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Mail", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4});
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Inbox");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Outbox");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Drafts");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Trash");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Mail", new System.Windows.Forms.TreeNode[] {
+            treeNode6,
+            treeNode7,
+            treeNode8,
+            treeNode9});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -69,26 +69,26 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutAYBABTUToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.treeView1 = new System.Windows.Forms.TreeView();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.folderList = new System.Windows.Forms.TreeView();
+            this.messageList = new System.Windows.Forms.ListBox();
+            this.messageViewer = new System.Windows.Forms.TextBox();
+            this.userButtonPanel = new System.Windows.Forms.Panel();
+            this.findBtn = new System.Windows.Forms.Button();
+            this.notSpamBtn = new System.Windows.Forms.Button();
+            this.deleteBtn = new System.Windows.Forms.Button();
+            this.spamBtn = new System.Windows.Forms.Button();
+            this.forwardBtn = new System.Windows.Forms.Button();
+            this.replyAllBtn = new System.Windows.Forms.Button();
+            this.replyBtn = new System.Windows.Forms.Button();
+            this.writeMessageBtn = new System.Windows.Forms.Button();
+            this.addressBookBtn = new System.Windows.Forms.Button();
+            this.getMessageBtn = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.getAndSendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.getMessagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendMessagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.userButtonPanel.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -314,189 +314,189 @@
             this.aboutAYBABTUToolStripMenuItem.Text = "About A.Y.B.A.B.T.U.";
             this.aboutAYBABTUToolStripMenuItem.Click += new System.EventHandler(this.aboutAYBABTUToolStripMenuItem_Click);
             // 
-            // treeView1
+            // folderList
             // 
-            this.treeView1.Location = new System.Drawing.Point(12, 94);
-            this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Inbox";
-            treeNode1.Text = "Inbox";
-            treeNode2.Name = "Outbox";
-            treeNode2.Text = "Outbox";
-            treeNode3.Name = "Drafts";
-            treeNode3.Text = "Drafts";
-            treeNode4.Name = "Trash";
-            treeNode4.Text = "Trash";
-            treeNode5.Checked = true;
-            treeNode5.Name = "Mail";
-            treeNode5.Text = "Mail";
-            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode5});
-            this.treeView1.Size = new System.Drawing.Size(165, 509);
-            this.treeView1.TabIndex = 2;
+            this.folderList.Location = new System.Drawing.Point(12, 94);
+            this.folderList.Name = "folderList";
+            treeNode6.Name = "Inbox";
+            treeNode6.Text = "Inbox";
+            treeNode7.Name = "Outbox";
+            treeNode7.Text = "Outbox";
+            treeNode8.Name = "Drafts";
+            treeNode8.Text = "Drafts";
+            treeNode9.Name = "Trash";
+            treeNode9.Text = "Trash";
+            treeNode10.Checked = true;
+            treeNode10.Name = "Mail";
+            treeNode10.Text = "Mail";
+            this.folderList.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode10});
+            this.folderList.Size = new System.Drawing.Size(165, 509);
+            this.folderList.TabIndex = 2;
             // 
-            // listBox1
+            // messageList
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(183, 96);
-            this.listBox1.MultiColumn = true;
-            this.listBox1.Name = "listBox1";
-            this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.listBox1.Size = new System.Drawing.Size(848, 225);
-            this.listBox1.TabIndex = 3;
+            this.messageList.FormattingEnabled = true;
+            this.messageList.Location = new System.Drawing.Point(183, 96);
+            this.messageList.MultiColumn = true;
+            this.messageList.Name = "messageList";
+            this.messageList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.messageList.Size = new System.Drawing.Size(848, 225);
+            this.messageList.TabIndex = 3;
             // 
-            // textBox1
+            // messageViewer
             // 
-            this.textBox1.Location = new System.Drawing.Point(183, 327);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(848, 276);
-            this.textBox1.TabIndex = 4;
+            this.messageViewer.Location = new System.Drawing.Point(183, 327);
+            this.messageViewer.Multiline = true;
+            this.messageViewer.Name = "messageViewer";
+            this.messageViewer.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.messageViewer.Size = new System.Drawing.Size(848, 276);
+            this.messageViewer.TabIndex = 4;
             // 
-            // panel1
+            // userButtonPanel
             // 
-            this.panel1.Controls.Add(this.button10);
-            this.panel1.Controls.Add(this.button9);
-            this.panel1.Controls.Add(this.button8);
-            this.panel1.Controls.Add(this.button7);
-            this.panel1.Controls.Add(this.button6);
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Location = new System.Drawing.Point(12, 27);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1019, 61);
-            this.panel1.TabIndex = 5;
+            this.userButtonPanel.Controls.Add(this.findBtn);
+            this.userButtonPanel.Controls.Add(this.notSpamBtn);
+            this.userButtonPanel.Controls.Add(this.deleteBtn);
+            this.userButtonPanel.Controls.Add(this.spamBtn);
+            this.userButtonPanel.Controls.Add(this.forwardBtn);
+            this.userButtonPanel.Controls.Add(this.replyAllBtn);
+            this.userButtonPanel.Controls.Add(this.replyBtn);
+            this.userButtonPanel.Controls.Add(this.writeMessageBtn);
+            this.userButtonPanel.Controls.Add(this.addressBookBtn);
+            this.userButtonPanel.Controls.Add(this.getMessageBtn);
+            this.userButtonPanel.Location = new System.Drawing.Point(12, 27);
+            this.userButtonPanel.Name = "userButtonPanel";
+            this.userButtonPanel.Size = new System.Drawing.Size(1019, 61);
+            this.userButtonPanel.TabIndex = 5;
             // 
-            // button10
+            // findBtn
             // 
-            this.button10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button10.BackgroundImage")));
-            this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button10.FlatAppearance.BorderSize = 0;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Location = new System.Drawing.Point(944, 3);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(60, 55);
-            this.button10.TabIndex = 9;
-            this.button10.UseVisualStyleBackColor = true;
+            this.findBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("findBtn.BackgroundImage")));
+            this.findBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.findBtn.FlatAppearance.BorderSize = 0;
+            this.findBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.findBtn.Location = new System.Drawing.Point(944, 3);
+            this.findBtn.Name = "findBtn";
+            this.findBtn.Size = new System.Drawing.Size(60, 55);
+            this.findBtn.TabIndex = 9;
+            this.findBtn.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // notSpamBtn
             // 
-            this.button9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button9.BackgroundImage")));
-            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Location = new System.Drawing.Point(878, 3);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(60, 55);
-            this.button9.TabIndex = 8;
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.notSpamBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("notSpamBtn.BackgroundImage")));
+            this.notSpamBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.notSpamBtn.FlatAppearance.BorderSize = 0;
+            this.notSpamBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.notSpamBtn.Location = new System.Drawing.Point(878, 3);
+            this.notSpamBtn.Name = "notSpamBtn";
+            this.notSpamBtn.Size = new System.Drawing.Size(60, 55);
+            this.notSpamBtn.TabIndex = 8;
+            this.notSpamBtn.UseVisualStyleBackColor = true;
+            this.notSpamBtn.Click += new System.EventHandler(this.button9_Click);
             // 
-            // button8
+            // deleteBtn
             // 
-            this.button8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button8.BackgroundImage")));
-            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Location = new System.Drawing.Point(399, 5);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(60, 55);
-            this.button8.TabIndex = 7;
-            this.button8.UseVisualStyleBackColor = true;
+            this.deleteBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("deleteBtn.BackgroundImage")));
+            this.deleteBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.deleteBtn.FlatAppearance.BorderSize = 0;
+            this.deleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteBtn.Location = new System.Drawing.Point(399, 5);
+            this.deleteBtn.Name = "deleteBtn";
+            this.deleteBtn.Size = new System.Drawing.Size(60, 55);
+            this.deleteBtn.TabIndex = 7;
+            this.deleteBtn.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // spamBtn
             // 
-            this.button7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button7.BackgroundImage")));
-            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Location = new System.Drawing.Point(812, 3);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(60, 55);
-            this.button7.TabIndex = 6;
-            this.button7.UseVisualStyleBackColor = true;
+            this.spamBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("spamBtn.BackgroundImage")));
+            this.spamBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.spamBtn.FlatAppearance.BorderSize = 0;
+            this.spamBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.spamBtn.Location = new System.Drawing.Point(812, 3);
+            this.spamBtn.Name = "spamBtn";
+            this.spamBtn.Size = new System.Drawing.Size(60, 55);
+            this.spamBtn.TabIndex = 6;
+            this.spamBtn.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // forwardBtn
             // 
-            this.button6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button6.BackgroundImage")));
-            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Location = new System.Drawing.Point(333, 5);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(60, 55);
-            this.button6.TabIndex = 5;
-            this.button6.UseVisualStyleBackColor = true;
+            this.forwardBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("forwardBtn.BackgroundImage")));
+            this.forwardBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.forwardBtn.FlatAppearance.BorderSize = 0;
+            this.forwardBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.forwardBtn.Location = new System.Drawing.Point(333, 5);
+            this.forwardBtn.Name = "forwardBtn";
+            this.forwardBtn.Size = new System.Drawing.Size(60, 55);
+            this.forwardBtn.TabIndex = 5;
+            this.forwardBtn.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // replyAllBtn
             // 
-            this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(267, 5);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(60, 55);
-            this.button5.TabIndex = 4;
-            this.button5.UseVisualStyleBackColor = true;
+            this.replyAllBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("replyAllBtn.BackgroundImage")));
+            this.replyAllBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.replyAllBtn.FlatAppearance.BorderSize = 0;
+            this.replyAllBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.replyAllBtn.Location = new System.Drawing.Point(267, 5);
+            this.replyAllBtn.Name = "replyAllBtn";
+            this.replyAllBtn.Size = new System.Drawing.Size(60, 55);
+            this.replyAllBtn.TabIndex = 4;
+            this.replyAllBtn.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // replyBtn
             // 
-            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(201, 5);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(60, 55);
-            this.button4.TabIndex = 3;
-            this.button4.UseVisualStyleBackColor = true;
+            this.replyBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("replyBtn.BackgroundImage")));
+            this.replyBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.replyBtn.FlatAppearance.BorderSize = 0;
+            this.replyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.replyBtn.Location = new System.Drawing.Point(201, 5);
+            this.replyBtn.Name = "replyBtn";
+            this.replyBtn.Size = new System.Drawing.Size(60, 55);
+            this.replyBtn.TabIndex = 3;
+            this.replyBtn.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // writeMessageBtn
             // 
-            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(69, 5);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(60, 55);
-            this.button3.TabIndex = 2;
-            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.writeMessageBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("writeMessageBtn.BackgroundImage")));
+            this.writeMessageBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.writeMessageBtn.FlatAppearance.BorderSize = 0;
+            this.writeMessageBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.writeMessageBtn.Location = new System.Drawing.Point(69, 5);
+            this.writeMessageBtn.Name = "writeMessageBtn";
+            this.writeMessageBtn.Size = new System.Drawing.Size(60, 55);
+            this.writeMessageBtn.TabIndex = 2;
+            this.writeMessageBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.writeMessageBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.writeMessageBtn.UseVisualStyleBackColor = true;
+            this.writeMessageBtn.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button2
+            // addressBookBtn
             // 
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(135, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(60, 55);
-            this.button2.TabIndex = 1;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.addressBookBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addressBookBtn.BackgroundImage")));
+            this.addressBookBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.addressBookBtn.FlatAppearance.BorderSize = 0;
+            this.addressBookBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addressBookBtn.Location = new System.Drawing.Point(135, 3);
+            this.addressBookBtn.Name = "addressBookBtn";
+            this.addressBookBtn.Size = new System.Drawing.Size(60, 55);
+            this.addressBookBtn.TabIndex = 1;
+            this.addressBookBtn.UseVisualStyleBackColor = true;
+            this.addressBookBtn.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // getMessageBtn
             // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.ContextMenuStrip = this.contextMenuStrip1;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(60, 55);
-            this.button1.TabIndex = 0;
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.getMessageBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("getMessageBtn.BackgroundImage")));
+            this.getMessageBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.getMessageBtn.ContextMenuStrip = this.contextMenuStrip1;
+            this.getMessageBtn.FlatAppearance.BorderSize = 0;
+            this.getMessageBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.getMessageBtn.Location = new System.Drawing.Point(3, 3);
+            this.getMessageBtn.Name = "getMessageBtn";
+            this.getMessageBtn.Size = new System.Drawing.Size(60, 55);
+            this.getMessageBtn.TabIndex = 0;
+            this.getMessageBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.getMessageBtn.UseVisualStyleBackColor = true;
+            this.getMessageBtn.Click += new System.EventHandler(this.button1_Click);
             // 
             // contextMenuStrip1
             // 
@@ -531,10 +531,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1028, 628);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.treeView1);
+            this.Controls.Add(this.userButtonPanel);
+            this.Controls.Add(this.messageViewer);
+            this.Controls.Add(this.messageList);
+            this.Controls.Add(this.folderList);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -543,7 +543,7 @@
             this.Load += new System.EventHandler(this.Main_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.panel1.ResumeLayout(false);
+            this.userButtonPanel.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -557,27 +557,27 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
-        private System.Windows.Forms.TreeView treeView1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TreeView folderList;
+        private System.Windows.Forms.ListBox messageList;
+        private System.Windows.Forms.TextBox messageViewer;
+        private System.Windows.Forms.Panel userButtonPanel;
         private System.Windows.Forms.ToolStripMenuItem messagesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button getMessageBtn;
+        private System.Windows.Forms.Button addressBookBtn;
+        private System.Windows.Forms.Button writeMessageBtn;
+        private System.Windows.Forms.Button notSpamBtn;
+        private System.Windows.Forms.Button deleteBtn;
+        private System.Windows.Forms.Button spamBtn;
+        private System.Windows.Forms.Button forwardBtn;
+        private System.Windows.Forms.Button replyAllBtn;
+        private System.Windows.Forms.Button replyBtn;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem getAndSendToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem getMessagesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sendMessagesToolStripMenuItem;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button findBtn;
         private System.Windows.Forms.ToolStripMenuItem newMessageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem messageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem contactToolStripMenuItem;

@@ -35,8 +35,8 @@
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.contactList = new System.Windows.Forms.ListBox();
+            this.contactInformationBox = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,30 +93,30 @@
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // listBox1
+            // contactList
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 39);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 433);
-            this.listBox1.TabIndex = 2;
+            this.contactList.FormattingEnabled = true;
+            this.contactList.Location = new System.Drawing.Point(12, 39);
+            this.contactList.Name = "contactList";
+            this.contactList.Size = new System.Drawing.Size(120, 433);
+            this.contactList.TabIndex = 2;
             // 
-            // groupBox1
+            // contactInformationBox
             // 
-            this.groupBox1.Location = new System.Drawing.Point(138, 39);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(434, 433);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Contact Information";
+            this.contactInformationBox.Location = new System.Drawing.Point(138, 39);
+            this.contactInformationBox.Name = "contactInformationBox";
+            this.contactInformationBox.Size = new System.Drawing.Size(434, 433);
+            this.contactInformationBox.TabIndex = 3;
+            this.contactInformationBox.TabStop = false;
+            this.contactInformationBox.Text = "Contact Information";
             // 
             // AddressBookWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 511);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.contactInformationBox);
+            this.Controls.Add(this.contactList);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -139,7 +139,7 @@
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ListBox contactList;
+        private System.Windows.Forms.GroupBox contactInformationBox;
     }
 }
