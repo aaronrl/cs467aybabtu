@@ -29,15 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Inbox");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Outbox");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Drafts");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Trash");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Mail", new System.Windows.Forms.TreeNode[] {
-            treeNode6,
-            treeNode7,
-            treeNode8,
-            treeNode9});
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Inbox");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Outbox");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -70,7 +63,6 @@
             this.viewHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutAYBABTUToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.folderList = new System.Windows.Forms.TreeView();
-            this.messageList = new System.Windows.Forms.ListBox();
             this.messageViewer = new System.Windows.Forms.TextBox();
             this.userButtonPanel = new System.Windows.Forms.Panel();
             this.findBtn = new System.Windows.Forms.Button();
@@ -87,9 +79,17 @@
             this.getAndSendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.getMessagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendMessagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.messageList = new System.Windows.Forms.ListView();
+            this.fromHeader = new System.Windows.Forms.ColumnHeader();
+            this.subjectHeader = new System.Windows.Forms.ColumnHeader();
+            this.dateHeader = new System.Windows.Forms.ColumnHeader();
+            this.messages = new System.Data.DataSet();
+            this.dataTable1 = new System.Data.DataTable();
             this.menuStrip1.SuspendLayout();
             this.userButtonPanel.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.messages)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTable1)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -318,31 +318,15 @@
             // 
             this.folderList.Location = new System.Drawing.Point(12, 94);
             this.folderList.Name = "folderList";
-            treeNode6.Name = "Inbox";
-            treeNode6.Text = "Inbox";
-            treeNode7.Name = "Outbox";
-            treeNode7.Text = "Outbox";
-            treeNode8.Name = "Drafts";
-            treeNode8.Text = "Drafts";
-            treeNode9.Name = "Trash";
-            treeNode9.Text = "Trash";
-            treeNode10.Checked = true;
-            treeNode10.Name = "Mail";
-            treeNode10.Text = "Mail";
+            treeNode3.Name = "Inbox";
+            treeNode3.Text = "Inbox";
+            treeNode4.Name = "Outbox";
+            treeNode4.Text = "Outbox";
             this.folderList.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode10});
+            treeNode3,
+            treeNode4});
             this.folderList.Size = new System.Drawing.Size(165, 509);
             this.folderList.TabIndex = 2;
-            // 
-            // messageList
-            // 
-            this.messageList.FormattingEnabled = true;
-            this.messageList.Location = new System.Drawing.Point(183, 96);
-            this.messageList.MultiColumn = true;
-            this.messageList.Name = "messageList";
-            this.messageList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.messageList.Size = new System.Drawing.Size(848, 225);
-            this.messageList.TabIndex = 3;
             // 
             // messageViewer
             // 
@@ -350,7 +334,7 @@
             this.messageViewer.Multiline = true;
             this.messageViewer.Name = "messageViewer";
             this.messageViewer.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.messageViewer.Size = new System.Drawing.Size(848, 276);
+            this.messageViewer.Size = new System.Drawing.Size(833, 276);
             this.messageViewer.TabIndex = 4;
             // 
             // userButtonPanel
@@ -367,7 +351,7 @@
             this.userButtonPanel.Controls.Add(this.getMessageBtn);
             this.userButtonPanel.Location = new System.Drawing.Point(12, 27);
             this.userButtonPanel.Name = "userButtonPanel";
-            this.userButtonPanel.Size = new System.Drawing.Size(1019, 61);
+            this.userButtonPanel.Size = new System.Drawing.Size(1004, 61);
             this.userButtonPanel.TabIndex = 5;
             // 
             // findBtn
@@ -376,7 +360,7 @@
             this.findBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.findBtn.FlatAppearance.BorderSize = 0;
             this.findBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.findBtn.Location = new System.Drawing.Point(944, 3);
+            this.findBtn.Location = new System.Drawing.Point(941, 3);
             this.findBtn.Name = "findBtn";
             this.findBtn.Size = new System.Drawing.Size(60, 55);
             this.findBtn.TabIndex = 9;
@@ -388,7 +372,7 @@
             this.notSpamBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.notSpamBtn.FlatAppearance.BorderSize = 0;
             this.notSpamBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.notSpamBtn.Location = new System.Drawing.Point(878, 3);
+            this.notSpamBtn.Location = new System.Drawing.Point(875, 3);
             this.notSpamBtn.Name = "notSpamBtn";
             this.notSpamBtn.Size = new System.Drawing.Size(60, 55);
             this.notSpamBtn.TabIndex = 8;
@@ -413,7 +397,7 @@
             this.spamBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.spamBtn.FlatAppearance.BorderSize = 0;
             this.spamBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.spamBtn.Location = new System.Drawing.Point(812, 3);
+            this.spamBtn.Location = new System.Drawing.Point(809, 3);
             this.spamBtn.Name = "spamBtn";
             this.spamBtn.Size = new System.Drawing.Size(60, 55);
             this.spamBtn.TabIndex = 6;
@@ -526,14 +510,53 @@
             this.sendMessagesToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.sendMessagesToolStripMenuItem.Text = "Send Messages";
             // 
+            // messageList
+            // 
+            this.messageList.AllowColumnReorder = true;
+            this.messageList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.fromHeader,
+            this.subjectHeader,
+            this.dateHeader});
+            this.messageList.Location = new System.Drawing.Point(183, 96);
+            this.messageList.Name = "messageList";
+            this.messageList.Size = new System.Drawing.Size(833, 225);
+            this.messageList.TabIndex = 6;
+            this.messageList.UseCompatibleStateImageBehavior = false;
+            this.messageList.View = System.Windows.Forms.View.Details;
+            // 
+            // fromHeader
+            // 
+            this.fromHeader.Text = "From";
+            this.fromHeader.Width = 150;
+            // 
+            // subjectHeader
+            // 
+            this.subjectHeader.Text = "Subject";
+            this.subjectHeader.Width = 300;
+            // 
+            // dateHeader
+            // 
+            this.dateHeader.Text = "Date";
+            this.dateHeader.Width = 120;
+            // 
+            // messages
+            // 
+            this.messages.DataSetName = "messages";
+            this.messages.Tables.AddRange(new System.Data.DataTable[] {
+            this.dataTable1});
+            // 
+            // dataTable1
+            // 
+            this.dataTable1.TableName = "Table1";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1028, 628);
+            this.Controls.Add(this.messageList);
             this.Controls.Add(this.userButtonPanel);
             this.Controls.Add(this.messageViewer);
-            this.Controls.Add(this.messageList);
             this.Controls.Add(this.folderList);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -545,6 +568,8 @@
             this.menuStrip1.PerformLayout();
             this.userButtonPanel.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.messages)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTable1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -558,7 +583,6 @@
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.TreeView folderList;
-        private System.Windows.Forms.ListBox messageList;
         private System.Windows.Forms.TextBox messageViewer;
         private System.Windows.Forms.Panel userButtonPanel;
         private System.Windows.Forms.ToolStripMenuItem messagesToolStripMenuItem;
@@ -600,6 +624,12 @@
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewHelpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutAYBABTUToolStripMenuItem;
+        private System.Windows.Forms.ListView messageList;
+        private System.Windows.Forms.ColumnHeader fromHeader;
+        private System.Windows.Forms.ColumnHeader subjectHeader;
+        private System.Windows.Forms.ColumnHeader dateHeader;
+        private System.Data.DataSet messages;
+        private System.Data.DataTable dataTable1;
     }
 }
 

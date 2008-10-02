@@ -47,7 +47,7 @@
             this.OKButton.Location = new System.Drawing.Point(172, 143);
             this.OKButton.Name = "OKButton";
             this.OKButton.Size = new System.Drawing.Size(75, 23);
-            this.OKButton.TabIndex = 0;
+            this.OKButton.TabIndex = 7;
             this.OKButton.Text = "OK";
             this.OKButton.UseVisualStyleBackColor = true;
             this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
@@ -57,7 +57,7 @@
             this.CancelButton.Location = new System.Drawing.Point(253, 143);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(75, 23);
-            this.CancelButton.TabIndex = 1;
+            this.CancelButton.TabIndex = 8;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
@@ -81,7 +81,7 @@
             this.usernameTxtBox.Location = new System.Drawing.Point(103, 91);
             this.usernameTxtBox.Name = "usernameTxtBox";
             this.usernameTxtBox.Size = new System.Drawing.Size(225, 20);
-            this.usernameTxtBox.TabIndex = 4;
+            this.usernameTxtBox.TabIndex = 5;
             // 
             // passwordTxtBox
             // 
@@ -131,7 +131,7 @@
             this.emailAddressTxtBox.Location = new System.Drawing.Point(103, 65);
             this.emailAddressTxtBox.Name = "emailAddressTxtBox";
             this.emailAddressTxtBox.Size = new System.Drawing.Size(225, 20);
-            this.emailAddressTxtBox.TabIndex = 11;
+            this.emailAddressTxtBox.TabIndex = 4;
             // 
             // label5
             // 
