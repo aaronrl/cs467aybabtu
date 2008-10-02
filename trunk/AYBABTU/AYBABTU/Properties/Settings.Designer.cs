@@ -25,7 +25,7 @@ namespace AYBABTU.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("mail.i2k.com")]
         public string SMTPServer {
             get {
                 return ((string)(this["SMTPServer"]));
@@ -37,7 +37,7 @@ namespace AYBABTU.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("mail.i2k.com")]
         public string POPServer {
             get {
                 return ((string)(this["POPServer"]));
@@ -49,7 +49,7 @@ namespace AYBABTU.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("alindstrom")]
         public string Username {
             get {
                 return ((string)(this["Username"]));
@@ -73,13 +73,25 @@ namespace AYBABTU.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("alindstrom@i2k.com")]
         public string EmailAddress {
             get {
                 return ((string)(this["EmailAddress"]));
             }
             set {
                 this["EmailAddress"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("25")]
+        public int SMTPServerPort {
+            get {
+                return ((int)(this["SMTPServerPort"]));
+            }
+            set {
+                this["SMTPServerPort"] = value;
             }
         }
     }

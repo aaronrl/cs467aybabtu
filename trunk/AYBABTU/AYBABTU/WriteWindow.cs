@@ -19,7 +19,7 @@ namespace AYBABTU
 
         private void WriteWindow_Load(object sender, EventArgs e)
         {
-            
+            fromTxtBox.Text = Properties.Settings.Default.EmailAddress;
         }
 
         private void sendBtn_Click(object sender, EventArgs e)
@@ -27,7 +27,7 @@ namespace AYBABTU
             MailMessage msg = new MailMessage(fromTxtBox.Text, toTxtBox.Text, subjectTxtBox.Text, messageBodyTxtBox.Text);
             if (SMTP.sendMessage(msg))
             {
-
+                this.Close();
             }
             else
             {
