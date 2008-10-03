@@ -105,8 +105,8 @@ namespace AYBABTU
 
         private void Main_Load(object sender, EventArgs e)
         {
-            Splashscreen splash = new Splashscreen();
-            splash.Show();
+            //Splashscreen splash = new Splashscreen();
+            //splash.Show();
             for (int i = 0; i < 40; i++)
             {
                 MailMessage msg =new MailMessage("aaron@mail.com", "aaron@mail.com", "Hello "+i, "This is a test message, hopefully it works!  \nTest "+i);
@@ -130,10 +130,10 @@ namespace AYBABTU
             UserSettings.loadUserSettingsFromSystem();
 
             messageViewer.Text = ((MailMessage)((ArrayList)inbox[0])[1]).Body;
-
+/*
             Thread.Sleep(2000);
             splash.Close();
-            splash.Dispose();
+            splash.Dispose();*/
         }
 
 

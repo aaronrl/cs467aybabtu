@@ -15,51 +15,24 @@ namespace AYBABTU
         {
             // create an XmlWriter to write the data stored from the Properties.Settings.Default object
 
-            XmlTextReader reader = null;
             XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.PreserveWhitespace = true;
             string filename = Application.UserAppDataPath + "\\serverinfo.xml";
             try
             {
                 xmlDoc.Load(filename);
-
-                Properties.Settings.Default.POPServer = xmlDoc.GetElementsByTagName("popserver")[0].Value;
-                Properties.Settings.Default.SMTPServer = xmlDoc.GetElementsByTagName("smtpserver")[0].Value;
-                Properties.Settings.Default.EmailAddress = xmlDoc.GetElementsByTagName("emailaddress")[0].Value;
-                Properties.Settings.Default.Username = xmlDoc.GetElementsByTagName("username")[0].Value;
-                Properties.Settings.Default.Password = xmlDoc.GetElementsByTagName("password")[0].Value;
-
+                
+                Properties.Settings.Default.POPServer = xmlDoc.GetElementsByTagName("popserver")[0].InnerText;
+                Properties.Settings.Default.SMTPServer = xmlDoc.GetElementsByTagName("smtpserver")[0].InnerText;
+                Properties.Settings.Default.EmailAddress = xmlDoc.GetElementsByTagName("emailaddress")[0].InnerText;
+                Properties.Settings.Default.Username = xmlDoc.GetElementsByTagName("username")[0].InnerText;
+                Properties.Settings.Default.Password = xmlDoc.GetElementsByTagName("password")[0].InnerText;
+                
+                //MessageBox.Show(xmlDoc.GetElementsByTagName("popserver").Item(0).InnerText);
                 xmlDoc.Save(filename);
 
-                /*
-                reader = new XmlTextReader(new FileStream(Application.UserAppDataPath + "\\serverinfo.xml", System.IO.FileMode.OpenOrCreate));
-
-                while (reader.Read())
-                {
-                    if (reader.Name == "popserver")
-                    {
-                        Properties.Settings.Default.POPServer = reader.Value;
-                    }
-                    if (reader.Name == "smtpserver")
-                    {
-                        Properties.Settings.Default.SMTPServer = reader.Value;
-                    }
-                    if (reader.Name == "emailaddress")
-                    {
-                        Properties.Settings.Default.EmailAddress = reader.Value;
-                    }
-                    if (reader.Name == "username")
-                    {
-                        Properties.Settings.Default.Username = reader.Value;
-                    }
-                    if (reader.Name == "password")
-                    {
-                        Properties.Settings.Default.Password = reader.Value;
-                    }
-                }
-                reader.Close();
-                */
             }
-            catch (Exception e)
+            catch (System.IO.FileNotFoundException e)
             {
                 //if file is not found, create a new xml file
                 XmlTextWriter xmlWriter = new XmlTextWriter(filename, System.Text.Encoding.UTF8);
@@ -72,21 +45,18 @@ namespace AYBABTU
                 try
                 {
 
-                    Properties.Settings.Default.POPServer = xmlDoc.GetElementsByTagName("popserver")[0].Value;
-                    Properties.Settings.Default.SMTPServer = xmlDoc.GetElementsByTagName("smtpserver")[0].Value;
-                    Properties.Settings.Default.EmailAddress = xmlDoc.GetElementsByTagName("emailaddress")[0].Value;
-                    Properties.Settings.Default.Username = xmlDoc.GetElementsByTagName("username")[0].Value;
-                    Properties.Settings.Default.Password = xmlDoc.GetElementsByTagName("password")[0].Value;
+                    Properties.Settings.Default.POPServer = xmlDoc.GetElementsByTagName("popserver")[0].Attributes[0].InnerText;
+                    Properties.Settings.Default.SMTPServer = xmlDoc.GetElementsByTagName("smtpserver")[0].Attributes[0].InnerText;
+                    Properties.Settings.Default.EmailAddress = xmlDoc.GetElementsByTagName("emailaddress")[0].Attributes[0].InnerText;
+                    Properties.Settings.Default.Username = xmlDoc.GetElementsByTagName("username")[0].Attributes[0].InnerText;
+                    Properties.Settings.Default.Password = xmlDoc.GetElementsByTagName("password")[0].Attributes[0].InnerText;
                 }
                 catch (NullReferenceException nulle)
                 {
+                    //MessageBox.Show(e.ToString());
                 }
                 xmlDoc.Save(filename);
-
-                //MessageBox.Show(e.ToString()+ "\n" + reader.Value);
             }
-
-
 
         }
 
@@ -105,15 +75,15 @@ namespace AYBABTU
                 {
                     xmlDoc.Load(filename);
 
-                    xmlDoc.GetElementsByTagName("popserver")[0].Value = Properties.Settings.Default.POPServer;
-                    xmlDoc.GetElementsByTagName("smtpserver")[0].Value = Properties.Settings.Default.SMTPServer;
-                    xmlDoc.GetElementsByTagName("emailaddress")[0].Value = Properties.Settings.Default.EmailAddress;
-                    xmlDoc.GetElementsByTagName("username")[0].Value = Properties.Settings.Default.Username;
-                    xmlDoc.GetElementsByTagName("password")[0].Value = Properties.Settings.Default.Password;
+                    xmlDoc.GetElementsByTagName("popserver")[0].Attributes[0].InnerText = Properties.Settings.Default.POPServer;
+                    xmlDoc.GetElementsByTagName("smtpserver")[0].Attributes[0].InnerText = Properties.Settings.Default.SMTPServer;
+                    xmlDoc.GetElementsByTagName("emailaddress")[0].Attributes[0].InnerText = Properties.Settings.Default.EmailAddress;
+                    xmlDoc.GetElementsByTagName("username")[0].Attributes[0].InnerText = Properties.Settings.Default.Username;
+                    xmlDoc.GetElementsByTagName("password")[0].Attributes[0].InnerText = Properties.Settings.Default.Password;
                     
                     xmlDoc.Save(filename);
                 }
-                catch (System.IO.FileNotFoundException)
+                catch (Exception)
                 {
                     //if file is not found, create a new xml file
                     XmlTextWriter xmlWriter = new XmlTextWriter(filename, System.Text.Encoding.UTF8);
