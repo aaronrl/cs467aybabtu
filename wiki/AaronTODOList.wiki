@@ -2,17 +2,17 @@
 = Todo List =
 
 == Milestone 1 ==
-  * SMTP routines
+  * SMTP routines - *DONE*
   * *how to store information on the client machine* - serialize the inbox array
-  * setup write window interaction with SMTP
+  * setup write window interaction with SMTP - *DONE*
   * Read message contents from Nicole's MIME parser and display in window
   * set up basic folder listing
   * add multi-account functionality
-  * write load routines
-  * read in account information from an account
+  * write load routines - *DONE*
+  * read in account information from an account - *DONE*
   * setup receiving functionality
   * create receiving/sending window
-  * list received messages
+  * list received messages - *DONE*
   * check on delegates
 
 == Milestone 2 ==
