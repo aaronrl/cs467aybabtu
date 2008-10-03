@@ -25,7 +25,7 @@ namespace AYBABTU.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("mail.i2k.com")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string SMTPServer {
             get {
                 return ((string)(this["SMTPServer"]));
@@ -37,7 +37,7 @@ namespace AYBABTU.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("mail.i2k.com")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string POPServer {
             get {
                 return ((string)(this["POPServer"]));
@@ -49,7 +49,7 @@ namespace AYBABTU.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("alindstrom")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Username {
             get {
                 return ((string)(this["Username"]));
@@ -73,7 +73,7 @@ namespace AYBABTU.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("alindstrom@i2k.com")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string EmailAddress {
             get {
                 return ((string)(this["EmailAddress"]));

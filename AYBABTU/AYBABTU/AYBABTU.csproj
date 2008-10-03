@@ -168,6 +168,7 @@
     <Compile Include="Splashscreen.Designer.cs">
       <DependentUpon>Splashscreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserSettings.cs" />
     <Compile Include="WriteWindow.cs">
       <SubType>Form</SubType>
     </Compile>

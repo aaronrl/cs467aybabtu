@@ -15,5 +15,10 @@ namespace AYBABTU
         {
             InitializeComponent();
         }
+
+        private void Splashscreen_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

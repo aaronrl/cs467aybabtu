@@ -23,6 +23,7 @@ namespace AYBABTU
             Properties.Settings.Default.EmailAddress = emailAddressTxtBox.Text;
             Properties.Settings.Default.Username = usernameTxtBox.Text;
             Properties.Settings.Default.Password = passwordTxtBox.Text;
+            UserSettings.writeUserSettingsToSystem();
             this.Close();
         }
 

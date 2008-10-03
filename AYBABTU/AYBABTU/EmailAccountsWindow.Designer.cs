@@ -68,6 +68,7 @@
             this.incomingServerTxtBox.Name = "incomingServerTxtBox";
             this.incomingServerTxtBox.Size = new System.Drawing.Size(225, 20);
             this.incomingServerTxtBox.TabIndex = 2;
+            this.incomingServerTxtBox.WordWrap = false;
             // 
             // outgoingServerTxtBox
             // 
@@ -75,6 +76,7 @@
             this.outgoingServerTxtBox.Name = "outgoingServerTxtBox";
             this.outgoingServerTxtBox.Size = new System.Drawing.Size(225, 20);
             this.outgoingServerTxtBox.TabIndex = 3;
+            this.outgoingServerTxtBox.WordWrap = false;
             // 
             // usernameTxtBox
             // 
@@ -82,13 +84,17 @@
             this.usernameTxtBox.Name = "usernameTxtBox";
             this.usernameTxtBox.Size = new System.Drawing.Size(225, 20);
             this.usernameTxtBox.TabIndex = 5;
+            this.usernameTxtBox.WordWrap = false;
             // 
             // passwordTxtBox
             // 
             this.passwordTxtBox.Location = new System.Drawing.Point(103, 117);
             this.passwordTxtBox.Name = "passwordTxtBox";
+            this.passwordTxtBox.PasswordChar = '*';
             this.passwordTxtBox.Size = new System.Drawing.Size(225, 20);
             this.passwordTxtBox.TabIndex = 6;
+            this.passwordTxtBox.UseSystemPasswordChar = true;
+            this.passwordTxtBox.WordWrap = false;
             // 
             // label1
             // 
@@ -132,6 +138,7 @@
             this.emailAddressTxtBox.Name = "emailAddressTxtBox";
             this.emailAddressTxtBox.Size = new System.Drawing.Size(225, 20);
             this.emailAddressTxtBox.TabIndex = 4;
+            this.emailAddressTxtBox.WordWrap = false;
             // 
             // label5
             // 
