@@ -3,19 +3,19 @@
   <Profiles />
   <Settings>
     <Setting Name="SMTPServer" Type="System.String" Scope="User">
-      <Value Profile="(Default)">mail.i2k.com</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="POPServer" Type="System.String" Scope="User">
-      <Value Profile="(Default)">mail.i2k.com</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Username" Type="System.String" Scope="User">
-      <Value Profile="(Default)">alindstrom</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Password" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="EmailAddress" Type="System.String" Scope="User">
-      <Value Profile="(Default)">alindstrom@i2k.com</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="SMTPServerPort" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">25</Value>

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Inbox");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Outbox");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Inbox");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Outbox");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -178,6 +178,7 @@
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
             this.quitToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.quitToolStripMenuItem.Text = "Quit";
+            this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
@@ -318,13 +319,13 @@
             // 
             this.folderList.Location = new System.Drawing.Point(12, 94);
             this.folderList.Name = "folderList";
-            treeNode3.Name = "Inbox";
-            treeNode3.Text = "Inbox";
-            treeNode4.Name = "Outbox";
-            treeNode4.Text = "Outbox";
+            treeNode5.Name = "Inbox";
+            treeNode5.Text = "Inbox";
+            treeNode6.Name = "Outbox";
+            treeNode6.Text = "Outbox";
             this.folderList.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode3,
-            treeNode4});
+            treeNode5,
+            treeNode6});
             this.folderList.Size = new System.Drawing.Size(165, 509);
             this.folderList.TabIndex = 2;
             // 
@@ -377,7 +378,7 @@
             this.notSpamBtn.Size = new System.Drawing.Size(60, 55);
             this.notSpamBtn.TabIndex = 8;
             this.notSpamBtn.UseVisualStyleBackColor = true;
-            this.notSpamBtn.Click += new System.EventHandler(this.button9_Click);
+            this.notSpamBtn.Click += new System.EventHandler(this.notSpamBtn_Click);
             // 
             // deleteBtn
             // 
@@ -390,6 +391,7 @@
             this.deleteBtn.Size = new System.Drawing.Size(60, 55);
             this.deleteBtn.TabIndex = 7;
             this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
             // spamBtn
             // 
@@ -452,7 +454,7 @@
             this.writeMessageBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.writeMessageBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.writeMessageBtn.UseVisualStyleBackColor = true;
-            this.writeMessageBtn.Click += new System.EventHandler(this.button3_Click);
+            this.writeMessageBtn.Click += new System.EventHandler(this.writeMessageBtn_Click);
             // 
             // addressBookBtn
             // 
@@ -465,7 +467,7 @@
             this.addressBookBtn.Size = new System.Drawing.Size(60, 55);
             this.addressBookBtn.TabIndex = 1;
             this.addressBookBtn.UseVisualStyleBackColor = true;
-            this.addressBookBtn.Click += new System.EventHandler(this.button2_Click);
+            this.addressBookBtn.Click += new System.EventHandler(this.addressBookBtn_Click);
             // 
             // getMessageBtn
             // 
@@ -480,7 +482,6 @@
             this.getMessageBtn.TabIndex = 0;
             this.getMessageBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.getMessageBtn.UseVisualStyleBackColor = true;
-            this.getMessageBtn.Click += new System.EventHandler(this.button1_Click);
             // 
             // contextMenuStrip1
             // 
@@ -523,6 +524,7 @@
             this.messageList.TabIndex = 6;
             this.messageList.UseCompatibleStateImageBehavior = false;
             this.messageList.View = System.Windows.Forms.View.Details;
+            this.messageList.SelectedIndexChanged += new System.EventHandler(this.messageList_SelectedIndexChanged);
             // 
             // fromHeader
             // 
