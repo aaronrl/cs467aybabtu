@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 namespace AYBABTU
 {
+    // look into xml serializating for an easier way of doing this
 
     /* This class handles the loading and writing of settings to the client's local system. */
     class UserSettings

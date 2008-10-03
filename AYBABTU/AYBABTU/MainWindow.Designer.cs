@@ -526,6 +526,7 @@
             this.messageList.UseCompatibleStateImageBehavior = false;
             this.messageList.View = System.Windows.Forms.View.Details;
             this.messageList.SelectedIndexChanged += new System.EventHandler(this.messageList_SelectedIndexChanged);
+            this.messageList.MouseDoubleClick += new MouseEventHandler(messageList_MouseDoubleClick);
             // 
             // fromHeader
             // 
@@ -567,6 +568,8 @@
             this.Name = "Main";
             this.Text = "AYBABTU";
             this.Load += new System.EventHandler(this.Main_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(Main_FormClosing);
+            this.FormClosed +=new System.Windows.Forms.FormClosedEventHandler(Main_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.userButtonPanel.ResumeLayout(false);

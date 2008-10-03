@@ -12,14 +12,14 @@ namespace AYBABTU
 {
     public partial class WriteWindow : Form
     {
-        MailMessage msg = new MailMessage();
+        Message msg = new Message();
 
         public WriteWindow()
         {
             InitializeComponent();
         }
 
-        public WriteWindow(MailMessage incomingMessage)
+        public WriteWindow(Message incomingMessage)
         {
             msg = incomingMessage;
             InitializeComponent();
@@ -28,14 +28,14 @@ namespace AYBABTU
         private void WriteWindow_Load(object sender, EventArgs e)
         {
             fromTxtBox.Text = Properties.Settings.Default.EmailAddress;
-            toTxtBox.Text = msg.To.ToString();
+            toTxtBox.Text = msg.To;
             subjectTxtBox.Text = msg.Subject;
-            messageBodyTxtBox.Text = msg.Body;
+            messageBodyTxtBox.Text = msg.MessageBody;
         }
 
         private void sendBtn_Click(object sender, EventArgs e)
         {
-            msg = new MailMessage(fromTxtBox.Text, toTxtBox.Text, subjectTxtBox.Text, messageBodyTxtBox.Text);
+            msg = new Message(fromTxtBox.Text, toTxtBox.Text, subjectTxtBox.Text, messageBodyTxtBox.Text);
             if (SMTP.sendMessage(msg))
             {
                 this.Close();
