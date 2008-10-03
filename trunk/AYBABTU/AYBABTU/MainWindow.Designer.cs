@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Inbox");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Outbox");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Inbox");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Outbox");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -319,13 +319,13 @@
             // 
             this.folderList.Location = new System.Drawing.Point(12, 94);
             this.folderList.Name = "folderList";
-            treeNode5.Name = "Inbox";
-            treeNode5.Text = "Inbox";
-            treeNode6.Name = "Outbox";
-            treeNode6.Text = "Outbox";
+            treeNode3.Name = "Inbox";
+            treeNode3.Text = "Inbox";
+            treeNode4.Name = "Outbox";
+            treeNode4.Text = "Outbox";
             this.folderList.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode6});
+            treeNode3,
+            treeNode4});
             this.folderList.Size = new System.Drawing.Size(165, 509);
             this.folderList.TabIndex = 2;
             // 
@@ -378,7 +378,6 @@
             this.notSpamBtn.Size = new System.Drawing.Size(60, 55);
             this.notSpamBtn.TabIndex = 8;
             this.notSpamBtn.UseVisualStyleBackColor = true;
-            this.notSpamBtn.Click += new System.EventHandler(this.notSpamBtn_Click);
             // 
             // deleteBtn
             // 
@@ -416,6 +415,7 @@
             this.forwardBtn.Size = new System.Drawing.Size(60, 55);
             this.forwardBtn.TabIndex = 5;
             this.forwardBtn.UseVisualStyleBackColor = true;
+            this.forwardBtn.Click += new System.EventHandler(this.forwardBtn_Click);
             // 
             // replyAllBtn
             // 
@@ -440,6 +440,7 @@
             this.replyBtn.Size = new System.Drawing.Size(60, 55);
             this.replyBtn.TabIndex = 3;
             this.replyBtn.UseVisualStyleBackColor = true;
+            this.replyBtn.Click += new System.EventHandler(this.replyBtn_Click);
             // 
             // writeMessageBtn
             // 

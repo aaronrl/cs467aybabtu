@@ -7,6 +7,8 @@ using System.Windows.Forms;
 
 namespace AYBABTU
 {
+
+    /* This class handles the loading and writing of settings to the client's local system. */
     class UserSettings
     {
         public static void loadUserSettingsFromSystem()

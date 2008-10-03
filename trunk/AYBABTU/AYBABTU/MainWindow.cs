@@ -35,12 +35,6 @@ namespace AYBABTU
             abook.Show();
         }
 
-        private void notSpamBtn_Click(object sender, EventArgs e)
-        {
-            Splashscreen splash = new Splashscreen();
-            splash.Show();
-        }
-
         private void aboutAYBABTUToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutWindow about = new AboutWindow();
@@ -77,7 +71,27 @@ namespace AYBABTU
             ReadWindow readSelectedMessage = new ReadWindow((MailMessage)((ArrayList)inbox[indices[0]])[1]);
             readSelectedMessage.Show();
         }
+        
+        private void replyBtn_Click(object sender, EventArgs e)
+        {
+            ListView.SelectedIndexCollection indices = messageList.SelectedIndices;
+            MailMessage replyMessage = (MailMessage) ((ArrayList) inbox[indices[0]])[1];
+            replyMessage.Subject = "RE: " + replyMessage.Subject;
 
+            WriteWindow replyToMessageWindow = new WriteWindow(new MailMessage(Properties.Settings.Default.EmailAddress,replyMessage.To.ToString(),replyMessage.Subject,replyMessage.Body));
+            replyToMessageWindow.Show();
+        }
+
+        private void forwardBtn_Click(object sender, EventArgs e)
+        {
+            ListView.SelectedIndexCollection indices = messageList.SelectedIndices;
+            MailMessage forwardMessage = (MailMessage) ((ArrayList) inbox[indices[0]])[1];
+            forwardMessage.Subject = "FWD: " + forwardMessage.Subject;
+
+            WriteWindow forwardMessageWindow = new WriteWindow(new MailMessage(Properties.Settings.Default.EmailAddress, forwardMessage.To.ToString(), forwardMessage.Subject, forwardMessage.Body));
+            forwardMessageWindow.Show();
+        }
+        
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -121,6 +135,8 @@ namespace AYBABTU
             splash.Close();
             splash.Dispose();
         }
+
+
 
 
 
