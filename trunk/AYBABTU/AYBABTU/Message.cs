@@ -6,7 +6,9 @@ using System.Text;
 namespace AYBABTU
 {
     /* Class to handle the contents of individual messages */
-    class Message
+    // http://www.ondotnet.com/pub/a/dotnet/2002/08/26/serialization.html
+    [Serializable]
+    public class Message
     {
         private string to;
         private string from;
@@ -23,6 +25,16 @@ namespace AYBABTU
             bcc = "";
             subject = "";
             messageBody = "";
+        }
+
+        public Message(string pTo, string pFrom, string pSubject, string pMessageBody)
+        {
+            to = pTo;
+            from = pFrom;
+            subject = pSubject;
+            messageBody = pMessageBody;
+            cc = "";
+            bcc = "";
         }
 
         public Message(string pTo, string pFrom, string pCC, string pBCC, string pSubject, string pMessageBody)

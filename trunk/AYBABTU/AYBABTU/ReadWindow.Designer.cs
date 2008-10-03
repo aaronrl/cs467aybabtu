@@ -166,6 +166,7 @@
             this.forwardBtn.Size = new System.Drawing.Size(60, 55);
             this.forwardBtn.TabIndex = 11;
             this.forwardBtn.UseVisualStyleBackColor = true;
+            this.forwardBtn.Click += new System.EventHandler(this.forwardBtn_Click);
             // 
             // replyAllBtn
             // 
@@ -190,6 +191,7 @@
             this.replyBtn.Size = new System.Drawing.Size(60, 55);
             this.replyBtn.TabIndex = 9;
             this.replyBtn.UseVisualStyleBackColor = true;
+            this.replyBtn.Click += new System.EventHandler(this.replyBtn_Click);
             // 
             // messageBody
             // 
