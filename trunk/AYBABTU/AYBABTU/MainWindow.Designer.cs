@@ -30,8 +30,8 @@ namespace AYBABTU
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Inbox");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Outbox");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Inbox");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Outbox");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -329,13 +329,13 @@ namespace AYBABTU
             this.folderList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.folderList.Location = new System.Drawing.Point(0, 0);
             this.folderList.Name = "folderList";
-            treeNode3.Name = "Inbox";
-            treeNode3.Text = "Inbox";
-            treeNode4.Name = "Outbox";
-            treeNode4.Text = "Outbox";
+            treeNode1.Name = "Inbox";
+            treeNode1.Text = "Inbox";
+            treeNode2.Name = "Outbox";
+            treeNode2.Text = "Outbox";
             this.folderList.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode3,
-            treeNode4});
+            treeNode1,
+            treeNode2});
             this.folderList.Size = new System.Drawing.Size(170, 507);
             this.folderList.TabIndex = 2;
             // 
@@ -531,6 +531,7 @@ namespace AYBABTU
             this.subjectHeader,
             this.dateHeader});
             this.messageList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.messageList.FullRowSelect = true;
             this.messageList.Location = new System.Drawing.Point(0, 0);
             this.messageList.Name = "messageList";
             this.messageList.Size = new System.Drawing.Size(824, 191);
