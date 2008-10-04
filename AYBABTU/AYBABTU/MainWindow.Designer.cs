@@ -1,4 +1,5 @@
-﻿namespace AYBABTU
+﻿using System.Windows.Forms;
+namespace AYBABTU
 {
     partial class Main
     {
@@ -85,11 +86,19 @@
             this.dateHeader = new System.Windows.Forms.ColumnHeader();
             this.messages = new System.Data.DataSet();
             this.dataTable1 = new System.Data.DataTable();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.menuStrip1.SuspendLayout();
             this.userButtonPanel.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.messages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -317,7 +326,8 @@
             // 
             // folderList
             // 
-            this.folderList.Location = new System.Drawing.Point(12, 94);
+            this.folderList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.folderList.Location = new System.Drawing.Point(0, 0);
             this.folderList.Name = "folderList";
             treeNode3.Name = "Inbox";
             treeNode3.Text = "Inbox";
@@ -326,16 +336,17 @@
             this.folderList.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode3,
             treeNode4});
-            this.folderList.Size = new System.Drawing.Size(165, 509);
+            this.folderList.Size = new System.Drawing.Size(170, 507);
             this.folderList.TabIndex = 2;
             // 
             // messageViewer
             // 
-            this.messageViewer.Location = new System.Drawing.Point(183, 327);
+            this.messageViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.messageViewer.Location = new System.Drawing.Point(0, 0);
             this.messageViewer.Multiline = true;
             this.messageViewer.Name = "messageViewer";
             this.messageViewer.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.messageViewer.Size = new System.Drawing.Size(833, 276);
+            this.messageViewer.Size = new System.Drawing.Size(824, 306);
             this.messageViewer.TabIndex = 4;
             // 
             // userButtonPanel
@@ -519,14 +530,14 @@
             this.fromHeader,
             this.subjectHeader,
             this.dateHeader});
-            this.messageList.Location = new System.Drawing.Point(183, 96);
+            this.messageList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.messageList.Location = new System.Drawing.Point(0, 0);
             this.messageList.Name = "messageList";
-            this.messageList.Size = new System.Drawing.Size(833, 225);
+            this.messageList.Size = new System.Drawing.Size(824, 191);
             this.messageList.TabIndex = 6;
             this.messageList.UseCompatibleStateImageBehavior = false;
             this.messageList.View = System.Windows.Forms.View.Details;
             this.messageList.SelectedIndexChanged += new System.EventHandler(this.messageList_SelectedIndexChanged);
-            this.messageList.MouseDoubleClick += new MouseEventHandler(messageList_MouseDoubleClick);
             // 
             // fromHeader
             // 
@@ -553,29 +564,71 @@
             // 
             this.dataTable1.TableName = "Table1";
             // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer1.Location = new System.Drawing.Point(12, 96);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.folderList);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
+            this.splitContainer1.Size = new System.Drawing.Size(1004, 507);
+            this.splitContainer1.SplitterDistance = 170;
+            this.splitContainer1.TabIndex = 7;
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer2.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.messageList);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.messageViewer);
+            this.splitContainer2.Size = new System.Drawing.Size(824, 501);
+            this.splitContainer2.SplitterDistance = 191;
+            this.splitContainer2.TabIndex = 7;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1028, 628);
-            this.Controls.Add(this.messageList);
+            this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.userButtonPanel);
-            this.Controls.Add(this.messageViewer);
-            this.Controls.Add(this.folderList);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
             this.Text = "AYBABTU";
             this.Load += new System.EventHandler(this.Main_Load);
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(Main_FormClosing);
-            this.FormClosed +=new System.Windows.Forms.FormClosedEventHandler(Main_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.userButtonPanel.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.messages)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1)).EndInit();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            this.splitContainer2.Panel2.PerformLayout();
+            this.splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -636,6 +689,8 @@
         private System.Windows.Forms.ColumnHeader dateHeader;
         private System.Data.DataSet messages;
         private System.Data.DataTable dataTable1;
+        private SplitContainer splitContainer1;
+        private SplitContainer splitContainer2;
     }
 }
 
