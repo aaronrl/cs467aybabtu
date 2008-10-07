@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
+using System.Net.Mail;
 
 namespace AYBABTU
 {
@@ -120,5 +120,10 @@ namespace AYBABTU
             }
         }
         #endregion
+
+        public MailMessage getMailMessage()
+        {
+            return (new MailMessage(from, to, subject, messageBody));
+        }
     }
 }

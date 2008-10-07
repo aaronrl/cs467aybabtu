@@ -25,6 +25,8 @@ namespace AYBABTU
         }
 
         #region Events
+
+        #region Buttons
         private void writeMessageBtn_Click(object sender, EventArgs e)
         {
             WriteWindow writedow = new WriteWindow();
@@ -37,6 +39,33 @@ namespace AYBABTU
             abook.Show();
         }
 
+        private void replyBtn_Click(object sender, EventArgs e)
+        {
+            ListView.SelectedIndexCollection indices = messageList.SelectedIndices;
+            Message replyMessage = (Message)((ArrayList)inbox[indices[0]])[1];
+            replyMessage.Subject = "RE: " + replyMessage.Subject;
+
+            WriteWindow replyToMessageWindow = new WriteWindow(new Message(Properties.Settings.Default.EmailAddress, replyMessage.To, replyMessage.Subject, replyMessage.MessageBody));
+            replyToMessageWindow.Show();
+        }
+
+        private void forwardBtn_Click(object sender, EventArgs e)
+        {
+            ListView.SelectedIndexCollection indices = messageList.SelectedIndices;
+            Message forwardMessage = (Message)((ArrayList)inbox[indices[0]])[1];
+            forwardMessage.Subject = "FWD: " + forwardMessage.Subject;
+
+            WriteWindow forwardMessageWindow = new WriteWindow(new Message(Properties.Settings.Default.EmailAddress, forwardMessage.To, forwardMessage.Subject, forwardMessage.MessageBody));
+            forwardMessageWindow.Show();
+        }
+
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+            UserSettings.writeUserSettingsToSystem();
+        }
+        #endregion  
+
+        #region Menu Items
         private void aboutAYBABTUToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutWindow about = new AboutWindow();
@@ -55,6 +84,15 @@ namespace AYBABTU
             accounts.Show();
         }
 
+        private void quitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+
+        #endregion
+
+        #region Interaction Actions
         private void messageList_SelectedIndexChanged(object sender, EventArgs e)
         {
             ListView.SelectedIndexCollection indices = messageList.SelectedIndices;
@@ -73,76 +111,6 @@ namespace AYBABTU
             ReadWindow readSelectedMessage = new ReadWindow((Message)((ArrayList)inbox[indices[0]])[1]);
             readSelectedMessage.Show();
         }
-        
-        private void replyBtn_Click(object sender, EventArgs e)
-        {
-            ListView.SelectedIndexCollection indices = messageList.SelectedIndices;
-            Message replyMessage = (Message) ((ArrayList) inbox[indices[0]])[1];
-            replyMessage.Subject = "RE: " + replyMessage.Subject;
-
-            WriteWindow replyToMessageWindow = new WriteWindow(new Message(Properties.Settings.Default.EmailAddress,replyMessage.To,replyMessage.Subject,replyMessage.MessageBody));
-            replyToMessageWindow.Show();
-        }
-
-        private void forwardBtn_Click(object sender, EventArgs e)
-        {
-            ListView.SelectedIndexCollection indices = messageList.SelectedIndices;
-            Message forwardMessage = (Message) ((ArrayList) inbox[indices[0]])[1];
-            forwardMessage.Subject = "FWD: " + forwardMessage.Subject;
-
-            WriteWindow forwardMessageWindow = new WriteWindow(new Message(Properties.Settings.Default.EmailAddress, forwardMessage.To, forwardMessage.Subject, forwardMessage.MessageBody));
-            forwardMessageWindow.Show();
-        }
-        
-        private void quitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void deleteBtn_Click(object sender, EventArgs e)
-        {
-            UserSettings.writeUserSettingsToSystem();
-        }
-        #endregion
-
-        private void Main_Load(object sender, EventArgs e)
-        {
-            Splashscreen splash = new Splashscreen();
-            splash.Show();
-
-            // open a stream to the mailbox file on the system
-            FileStream fs = new FileStream(Application.UserAppDataPath + "\\inbox.mbx", FileMode.OpenOrCreate);
-            
-            try
-            {
-                // create the formatter to interpret the serialized object on the system
-                BinaryFormatter formatter = new BinaryFormatter();
-                inbox = (ArrayList) formatter.Deserialize(fs);
-            }
-            catch (SerializationException se)
-            {
-                MessageBox.Show(se.ToString());
-            }
-            finally
-            {
-                fs.Close();
-            }
-
-            //Populate the message listing from the inbox array
-            foreach(ArrayList msg in inbox){
-                messageList.Items.Add((ListViewItem) msg[0]);
-            }
-
-            //Let's load the setttings from the system
-            UserSettings.loadUserSettingsFromSystem();
-
-            //Select the first message in the inbox to be displayed in the message viewer
-            messageViewer.Text = ((Message)((ArrayList)inbox[0])[1]).MessageBody;
-
-            Thread.Sleep(2000);
-            splash.Close();
-            splash.Dispose();
-        }
 
         private void Main_FormClosing(object sender, EventArgs e)
         {
@@ -151,8 +119,48 @@ namespace AYBABTU
 
         private void Main_FormClosed(object sender, EventArgs e)
         {
-            
+
         }
+
+        private void folderList_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if (folderList.SelectedNode.Text == "Inbox")
+            {
+                loadMessageList(inbox);
+            }
+            else if (folderList.SelectedNode.Text == "Outbox")
+            {
+                loadMessageList(outbox);
+            }
+        }
+        #endregion
+
+        #endregion
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            Splashscreen splash = new Splashscreen();
+            splash.Show();
+
+            loadMailboxesFromSystem();
+
+            loadMessageList(inbox);
+
+            // load the first message into the message viewer
+            messageViewer.Text = ((Message)((ArrayList)inbox[0])[1]).MessageBody;
+            // add double click functionality to the message list
+            messageList.MouseDoubleClick += new MouseEventHandler(messageList_MouseDoubleClick);
+
+            //Let's load the setttings from the system
+            UserSettings.loadUserSettingsFromSystem();
+
+
+            Thread.Sleep(2000);
+            splash.Close();
+            splash.Dispose();
+        }
+
+
         /* this method takes the inbox array and serializes it to a file on the system */
         private void saveMailboxToSystem()
         {
@@ -174,6 +182,71 @@ namespace AYBABTU
             }
         }
 
+        private void loadMailboxesFromSystem()
+        {
+            // http://blog.paranoidferret.com/index.php/2008/05/13/c-snippet-tutorial-get-file-listings/
+            // http://www.csharpfriends.com/Articles/getArticle.aspx?articleID=356
+            // http://www.google.com/search?sourceid=chrome&ie=UTF-8&q=getting+a+directory+listing+in+c%23
+            /*
+            DirectoryInfo fileListing = new DirectoryInfo(Application.UserAppDataPath);
+            FileStream fs;
+
+            foreach (FileInfo file in fileListing.GetFiles("*.mbx"))
+            {
+                fs = new FileStream(Application.UserAppDataPath + "\\" + file.Name, FileMode.Open);
+                listBox1.Items.Add(fileListing.ToString() + file.Name);
+
+                try
+                {
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    //create an associative array with the filename being the key
+                    //and the item being the array.  let the key be the name of
+                    //the folder in the UI (use substring to strip the .mbx off)
+                    //Look at System.Collections.Generic.Dictionary
+                }
+                catch (SerializationException se)
+                {
+                    MessageBox.Show(se.ToString());
+                }
+                finally
+                {
+                    fs.Close();
+                }
+
+            }
+            */
+
+            // open a stream to the mailbox file on the system
+            FileStream fs = new FileStream(Application.UserAppDataPath + "\\inbox.mbx", FileMode.OpenOrCreate);
+
+            try
+            {
+                // create the formatter to interpret the serialized object on the system
+                BinaryFormatter formatter = new BinaryFormatter();
+                inbox = (ArrayList)formatter.Deserialize(fs);
+            }
+            catch (SerializationException se)
+            {
+                MessageBox.Show(se.ToString());
+            }
+            finally
+            {
+                fs.Close();
+            }
+        }
+
+        /* this method loads up the message list with the supplied mailbox array */
+        private void loadMessageList(ArrayList mailbox)
+        {
+            messageList.Items.Clear();
+            //Populate the message listing from the inbox array
+            foreach (ArrayList msg in mailbox)
+            {
+                messageList.Items.Add((ListViewItem)msg[0]);
+            }
+        }
+
+        
     }
 }
 

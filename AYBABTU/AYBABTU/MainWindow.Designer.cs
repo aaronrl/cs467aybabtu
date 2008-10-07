@@ -338,6 +338,7 @@ namespace AYBABTU
             treeNode2});
             this.folderList.Size = new System.Drawing.Size(170, 507);
             this.folderList.TabIndex = 2;
+            this.folderList.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.folderList_AfterSelect);
             // 
             // messageViewer
             // 
@@ -532,6 +533,7 @@ namespace AYBABTU
             this.dateHeader});
             this.messageList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.messageList.FullRowSelect = true;
+            this.messageList.GridLines = true;
             this.messageList.Location = new System.Drawing.Point(0, 0);
             this.messageList.Name = "messageList";
             this.messageList.Size = new System.Drawing.Size(824, 191);
@@ -543,12 +545,12 @@ namespace AYBABTU
             // fromHeader
             // 
             this.fromHeader.Text = "From";
-            this.fromHeader.Width = 150;
+            this.fromHeader.Width = 182;
             // 
             // subjectHeader
             // 
             this.subjectHeader.Text = "Subject";
-            this.subjectHeader.Width = 300;
+            this.subjectHeader.Width = 489;
             // 
             // dateHeader
             // 
