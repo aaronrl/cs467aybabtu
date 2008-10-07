@@ -10,11 +10,10 @@ namespace AYBABTU
     {
         public static bool sendMessage(Message msg)
         {
-            /*
+            
             SmtpClient client = new SmtpClient(Properties.Settings.Default.SMTPServer, Properties.Settings.Default.SMTPServerPort);
             client.Credentials = new System.Net.NetworkCredential(Properties.Settings.Default.Username, Properties.Settings.Default.Password);
-            client.Send(msg);
-             */
+            client.Send(msg.getMailMessage());
             return true;
         }
         

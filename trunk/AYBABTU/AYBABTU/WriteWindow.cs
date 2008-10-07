@@ -35,7 +35,7 @@ namespace AYBABTU
 
         private void sendBtn_Click(object sender, EventArgs e)
         {
-            msg = new Message(fromTxtBox.Text, toTxtBox.Text, subjectTxtBox.Text, messageBodyTxtBox.Text);
+            msg = new Message(toTxtBox.Text, fromTxtBox.Text, subjectTxtBox.Text, messageBodyTxtBox.Text);
             if (SMTP.sendMessage(msg))
             {
                 this.Close();
