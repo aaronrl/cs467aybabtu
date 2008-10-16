@@ -495,6 +495,7 @@ namespace AYBABTU
             this.getMessageBtn.TabIndex = 0;
             this.getMessageBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.getMessageBtn.UseVisualStyleBackColor = true;
+            this.getMessageBtn.Click += new System.EventHandler(this.getMessageBtn_Click);
             // 
             // contextMenuStrip1
             // 

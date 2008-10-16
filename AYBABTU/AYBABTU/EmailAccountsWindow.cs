@@ -21,8 +21,8 @@ namespace AYBABTU
             Properties.Settings.Default.POPServer = incomingServerTxtBox.Text;
             Properties.Settings.Default.SMTPServer = outgoingServerTxtBox.Text;
             Properties.Settings.Default.EmailAddress = emailAddressTxtBox.Text;
-            Properties.Settings.Default.Username = usernameTxtBox.Text;
-            Properties.Settings.Default.Password = passwordTxtBox.Text;
+            Properties.Settings.Default.Username = incomingUsernameTxtBox.Text;
+            Properties.Settings.Default.Password = incomingPasswordTxtBox.Text;
             UserSettings.writeUserSettingsToSystem();
             this.Close();
         }
@@ -32,8 +32,8 @@ namespace AYBABTU
             incomingServerTxtBox.Text = Properties.Settings.Default.POPServer;
             outgoingServerTxtBox.Text = Properties.Settings.Default.SMTPServer;
             emailAddressTxtBox.Text = Properties.Settings.Default.EmailAddress;
-            usernameTxtBox.Text = Properties.Settings.Default.Username;
-            passwordTxtBox.Text = Properties.Settings.Default.Password;
+            incomingUsernameTxtBox.Text = Properties.Settings.Default.Username;
+            incomingPasswordTxtBox.Text = Properties.Settings.Default.Password;
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
