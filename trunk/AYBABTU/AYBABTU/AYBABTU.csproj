@@ -81,6 +81,7 @@
     <Compile Include="AddressBookWindow.Designer.cs">
       <DependentUpon>AddressBookWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmailAccount.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="EmailAccountsWindow.cs">
       <SubType>Form</SubType>

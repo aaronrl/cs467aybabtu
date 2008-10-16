@@ -18,6 +18,7 @@ namespace AYBABTU
     {
         ArrayList inbox = new ArrayList();
         ArrayList outbox = new ArrayList();
+        SortedDictionary<string,ArrayList> folders = new SortedDictionary<string,ArrayList>();
 
         public Main()
         {
@@ -164,7 +165,7 @@ namespace AYBABTU
         /* this method takes the inbox array and serializes it to a file on the system */
         private void saveMailboxToSystem()
         {
-            FileStream fs = new FileStream(Application.UserAppDataPath + "\\inbox.mbx", FileMode.OpenOrCreate);
+            FileStream fs = new FileStream(Application.UserAppDataPath + "\\Inbox.mbx", FileMode.OpenOrCreate);
 
             try
             {
@@ -187,18 +188,20 @@ namespace AYBABTU
             // http://blog.paranoidferret.com/index.php/2008/05/13/c-snippet-tutorial-get-file-listings/
             // http://www.csharpfriends.com/Articles/getArticle.aspx?articleID=356
             // http://www.google.com/search?sourceid=chrome&ie=UTF-8&q=getting+a+directory+listing+in+c%23
-            /*
+            
             DirectoryInfo fileListing = new DirectoryInfo(Application.UserAppDataPath);
             FileStream fs;
 
             foreach (FileInfo file in fileListing.GetFiles("*.mbx"))
             {
                 fs = new FileStream(Application.UserAppDataPath + "\\" + file.Name, FileMode.Open);
-                listBox1.Items.Add(fileListing.ToString() + file.Name);
+                
 
                 try
                 {
                     BinaryFormatter formatter = new BinaryFormatter();
+                    string filename = (file.Name).Substring(0, (file.Name).Length - 4);
+                    folders[filename] = (ArrayList) formatter.Deserialize(fs);
                     //create an associative array with the filename being the key
                     //and the item being the array.  let the key be the name of
                     //the folder in the UI (use substring to strip the .mbx off)
@@ -214,16 +217,16 @@ namespace AYBABTU
                 }
 
             }
-            */
+            /*
 
             // open a stream to the mailbox file on the system
-            FileStream fs = new FileStream(Application.UserAppDataPath + "\\inbox.mbx", FileMode.OpenOrCreate);
+            FileStream fst = new FileStream(Application.UserAppDataPath + "\\Inbox.mbx", FileMode.OpenOrCreate);
 
             try
             {
                 // create the formatter to interpret the serialized object on the system
-                BinaryFormatter formatter = new BinaryFormatter();
-                inbox = (ArrayList)formatter.Deserialize(fs);
+                BinaryFormatter formattter = new BinaryFormatter();
+                inbox = (ArrayList)formattter.Deserialize(fst);
             }
             catch (SerializationException se)
             {
@@ -231,8 +234,9 @@ namespace AYBABTU
             }
             finally
             {
-                fs.Close();
+                fst.Close();
             }
+            */
         }
 
         /* this method loads up the message list with the supplied mailbox array */
@@ -244,6 +248,11 @@ namespace AYBABTU
             {
                 messageList.Items.Add((ListViewItem)msg[0]);
             }
+        }
+
+        private void getMessageBtn_Click(object sender, EventArgs e)
+        {
+
         }
 
         
