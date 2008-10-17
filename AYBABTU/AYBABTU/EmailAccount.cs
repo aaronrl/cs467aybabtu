@@ -7,6 +7,7 @@ namespace AYBABTU
 {
     class EmailAccount
     {
+        private string accountName;
         private string emailAddress;
 
         private string incomingServer;
@@ -25,7 +26,8 @@ namespace AYBABTU
         {
         }
 
-        public EmailAccount(string pEmailAddress,
+        public EmailAccount(string pAccountName,
+                            string pEmailAddress,
                             string pIncomingServer,
                             int pIncomingPort,
                             string pIncomingUsername,
@@ -37,6 +39,7 @@ namespace AYBABTU
                             string pOutgoingPassword,
                             bool pOutgoingSSL)
         {
+            accountName = pAccountName;
             emailAddress = pEmailAddress;
             
             incomingServer = pIncomingServer;
@@ -54,6 +57,20 @@ namespace AYBABTU
         #endregion 
 
         #region accessors/mutators
+
+        public string AccountName
+        {
+            get 
+            {
+                return accountName;            
+            }
+            set
+            {
+                accountName = value;
+            }
+
+        }
+
         public string EmailAddress
         {
             get
