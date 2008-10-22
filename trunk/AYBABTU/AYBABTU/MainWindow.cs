@@ -143,17 +143,25 @@ namespace AYBABTU
             Splashscreen splash = new Splashscreen();
             splash.Show();
 
-            loadMailboxesFromSystem();
+            try
+            {
+                loadMailboxesFromSystem();
 
-            loadMessageList(inbox);
+                loadMessageList(inbox);
 
-            // load the first message into the message viewer
-            messageViewer.Text = ((Message)((ArrayList)inbox[0])[1]).MessageBody;
-            // add double click functionality to the message list
-            messageList.MouseDoubleClick += new MouseEventHandler(messageList_MouseDoubleClick);
+                // load the first message into the message viewer
+                messageViewer.Text = ((Message)((ArrayList)inbox[0])[1]).MessageBody;
+                // add double click functionality to the message list
+                messageList.MouseDoubleClick += new MouseEventHandler(messageList_MouseDoubleClick);
 
-            //Let's load the setttings from the system
-            UserSettings.loadUserSettingsFromSystem();
+                //Let's load the setttings from the system
+                UserSettings.loadUserSettingsFromSystem();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("It Broke, " + ex.ToString());
+                MessageBox.Show(Application.UserAppDataPath);
+            }
 
 
             Thread.Sleep(2000);
