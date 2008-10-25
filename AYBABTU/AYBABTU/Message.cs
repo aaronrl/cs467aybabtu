@@ -16,6 +16,7 @@ namespace AYBABTU
         private string bcc;
         private string subject;
         private string messageBody;
+        private string date;
 
         public Message()
         {
@@ -37,7 +38,7 @@ namespace AYBABTU
             bcc = "";
         }
 
-        public Message(string pTo, string pFrom, string pCC, string pBCC, string pSubject, string pMessageBody)
+        public Message(string pTo, string pFrom, string pCC, string pBCC, string pSubject, string pMessageBody, string pDate)
         {
             to = pTo;
             from = pFrom;
@@ -45,6 +46,7 @@ namespace AYBABTU
             bcc = pBCC;
             subject = pSubject;
             messageBody = pMessageBody;
+            date = pDate;
         }
         #region Accessor and Mutator Methods
 
@@ -119,13 +121,24 @@ namespace AYBABTU
                 messageBody = value;
             }
         }
+
+        public string Date
+        {
+            get
+            {
+                return date;
+            }
+            set
+            {
+                date = value;
+            }
+        }
         #endregion
 
+        // return a mailmessage representation of the message for use in the SMTP client
         public MailMessage getMailMessage()
         {
             return (new MailMessage(from, to, subject, messageBody));
         }
-
-
     }
 }

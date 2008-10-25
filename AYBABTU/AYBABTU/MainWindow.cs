@@ -8,16 +8,11 @@ using System.Text;
 using System.Windows.Forms;
 using System.Net.Mail;
 using System.Threading;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Runtime.Serialization;
-using System.IO;
 
 namespace AYBABTU
 {
     public partial class Main : Form
     {
-        ArrayList inbox = new ArrayList();
-        ArrayList outbox = new ArrayList();
         SortedDictionary<string,ArrayList> folders = new SortedDictionary<string,ArrayList>();
 
         public Main()
@@ -28,6 +23,12 @@ namespace AYBABTU
         #region Events
 
         #region Buttons
+        private void getMessageBtn_Click(object sender, EventArgs e)
+        {
+            MailChecker window = new MailChecker();
+            window.Show();
+
+        }
         private void writeMessageBtn_Click(object sender, EventArgs e)
         {
             WriteWindow writedow = new WriteWindow();
@@ -140,37 +141,37 @@ namespace AYBABTU
 
         private void Main_Load(object sender, EventArgs e)
         {
+            /*
             Splashscreen splash = new Splashscreen();
             splash.Show();
+            */
 
-            try
-            {
-                loadMailboxesFromSystem();
+            //loadAccounts();
 
-                loadMessageList(inbox);
+            
+            /*loadMailboxesFromSystem();
+            loadMessageList(inbox);
+            */
 
-                // load the first message into the message viewer
-                messageViewer.Text = ((Message)((ArrayList)inbox[0])[1]).MessageBody;
-                // add double click functionality to the message list
-                messageList.MouseDoubleClick += new MouseEventHandler(messageList_MouseDoubleClick);
+            // load the first message into the message viewer
+            //messageViewer.Text = ((Message)((ArrayList)inbox[0])[1]).MessageBody;
+            
+            // add double click functionality to the message list
+            messageList.MouseDoubleClick += new MouseEventHandler(messageList_MouseDoubleClick);
 
-                //Let's load the setttings from the system
-                UserSettings.loadUserSettingsFromSystem();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("It Broke, " + ex.ToString());
-                MessageBox.Show(Application.UserAppDataPath);
-            }
+            //Let's load the setttings from the system
+            UserSettings.loadUserSettingsFromSystem();
 
-
+            /*
             Thread.Sleep(2000);
             splash.Close();
             splash.Dispose();
+            */
         }
 
+        /*
 
-        /* this method takes the inbox array and serializes it to a file on the system */
+        // this method takes the inbox array and serializes it to a file on the system 
         private void saveMailboxToSystem()
         {
             FileStream fs = new FileStream(Application.UserAppDataPath + "\\Inbox.mbx", FileMode.OpenOrCreate);
@@ -245,10 +246,10 @@ namespace AYBABTU
                 fst.Close();
             }
             */
-        }
+        //}
 
         /* this method loads up the message list with the supplied mailbox array */
-        private void loadMessageList(ArrayList mailbox)
+        /*private void loadMessageList(ArrayList mailbox)
         {
             messageList.Items.Clear();
             //Populate the message listing from the inbox array
@@ -257,13 +258,7 @@ namespace AYBABTU
                 messageList.Items.Add((ListViewItem)msg[0]);
             }
         }
-
-        private void getMessageBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        
+    */
     }
 }
 
