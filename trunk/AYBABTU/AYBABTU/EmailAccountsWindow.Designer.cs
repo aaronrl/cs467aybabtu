@@ -48,14 +48,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.incomingServerType = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.outgoingSSLChkBox = new System.Windows.Forms.CheckBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.outgoingPortTxtBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.outgoingPasswordTxtBox = new System.Windows.Forms.TextBox();
             this.outgoingUsernameTxtBox = new System.Windows.Forms.TextBox();
             this.useSameSettingsChkBox = new System.Windows.Forms.CheckBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.outgoingPortTxtBox = new System.Windows.Forms.TextBox();
-            this.outgoingSSLChkBox = new System.Windows.Forms.CheckBox();
             this.accountsCmbBox = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.newAccountBtn = new System.Windows.Forms.Button();
@@ -268,6 +268,32 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Outgoing Server";
             // 
+            // outgoingSSLChkBox
+            // 
+            this.outgoingSSLChkBox.AutoSize = true;
+            this.outgoingSSLChkBox.Location = new System.Drawing.Point(99, 120);
+            this.outgoingSSLChkBox.Name = "outgoingSSLChkBox";
+            this.outgoingSSLChkBox.Size = new System.Drawing.Size(121, 17);
+            this.outgoingSSLChkBox.TabIndex = 19;
+            this.outgoingSSLChkBox.Text = "Use SSL Encryption";
+            this.outgoingSSLChkBox.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(338, 22);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(29, 13);
+            this.label10.TabIndex = 18;
+            this.label10.Text = "Port:";
+            // 
+            // outgoingPortTxtBox
+            // 
+            this.outgoingPortTxtBox.Location = new System.Drawing.Point(373, 19);
+            this.outgoingPortTxtBox.Name = "outgoingPortTxtBox";
+            this.outgoingPortTxtBox.Size = new System.Drawing.Size(100, 20);
+            this.outgoingPortTxtBox.TabIndex = 17;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -314,32 +340,6 @@
             this.useSameSettingsChkBox.Text = "Use same settings as incoming server.";
             this.useSameSettingsChkBox.UseVisualStyleBackColor = true;
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(338, 22);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(29, 13);
-            this.label10.TabIndex = 18;
-            this.label10.Text = "Port:";
-            // 
-            // outgoingPortTxtBox
-            // 
-            this.outgoingPortTxtBox.Location = new System.Drawing.Point(373, 19);
-            this.outgoingPortTxtBox.Name = "outgoingPortTxtBox";
-            this.outgoingPortTxtBox.Size = new System.Drawing.Size(100, 20);
-            this.outgoingPortTxtBox.TabIndex = 17;
-            // 
-            // outgoingSSLChkBox
-            // 
-            this.outgoingSSLChkBox.AutoSize = true;
-            this.outgoingSSLChkBox.Location = new System.Drawing.Point(99, 120);
-            this.outgoingSSLChkBox.Name = "outgoingSSLChkBox";
-            this.outgoingSSLChkBox.Size = new System.Drawing.Size(121, 17);
-            this.outgoingSSLChkBox.TabIndex = 19;
-            this.outgoingSSLChkBox.Text = "Use SSL Encryption";
-            this.outgoingSSLChkBox.UseVisualStyleBackColor = true;
-            // 
             // accountsCmbBox
             // 
             this.accountsCmbBox.FormattingEnabled = true;
@@ -365,6 +365,7 @@
             this.newAccountBtn.TabIndex = 18;
             this.newAccountBtn.Text = "Create";
             this.newAccountBtn.UseVisualStyleBackColor = true;
+            this.newAccountBtn.Click += new System.EventHandler(this.newAccountBtn_Click);
             // 
             // editAccountBtn
             // 
