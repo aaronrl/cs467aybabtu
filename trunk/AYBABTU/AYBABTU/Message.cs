@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Text;
 using System.Net.Mail;
 
@@ -17,6 +17,7 @@ namespace AYBABTU
         private string subject;
         private string messageBody;
         private string date;
+        private ArrayList attachments;
 
         public Message()
         {
@@ -26,6 +27,7 @@ namespace AYBABTU
             bcc = "";
             subject = "";
             messageBody = "";
+            attachments = new ArrayList();
         }
 
         public Message(string pTo, string pFrom, string pSubject, string pMessageBody)
@@ -48,6 +50,8 @@ namespace AYBABTU
             messageBody = pMessageBody;
             date = pDate;
         }
+
+
         #region Accessor and Mutator Methods
 
         public string To
@@ -131,6 +135,18 @@ namespace AYBABTU
             set
             {
                 date = value;
+            }
+        }
+
+        public void addAttach(string path)
+        {
+            this.attachments.Add(path);
+        }
+        public void deleteAttach(string path)
+        {
+            if (this.attachments.Contains(path))
+            {
+                this.attachments.Remove(path);
             }
         }
         #endregion
