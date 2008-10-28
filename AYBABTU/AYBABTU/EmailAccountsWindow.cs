@@ -13,7 +13,12 @@ namespace AYBABTU
         private Account selectedAccount;
         private Account[] accounts;
         
-        public EmailAccountsWindow(Account [] pAccounts)
+        public EmailAccountsWindow()
+        {
+            InitializeComponent();
+        }
+
+        public EmailAccountsWindow(Account[] pAccounts)
         {
             InitializeComponent();
             accounts = pAccounts;
