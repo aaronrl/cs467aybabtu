@@ -10,28 +10,37 @@ namespace AYBABTU
     {
         private string accountName;
         public AccountInfo accountInfo;
-        private Mailbox[] accountMailboxes;
+        SortedDictionary<string, Mailbox> accountMailboxes = new SortedDictionary<string, Mailbox>();
 
         public Account(string name)
         {
             accountName = name;
             accountInfo = new AccountInfo();
-            accountMailboxes[0] = new Mailbox("Inbox");
-            accountMailboxes[1] = new Mailbox("Outbox");
-            accountMailboxes[2] = new Mailbox("Sent");
-            accountMailboxes[3] = new Mailbox("Drafts");
+            accountMailboxes["Inbox"] = new Mailbox("Inbox");
+            accountMailboxes["Outbox"] = new Mailbox("Outbox");
+            accountMailboxes["Sent"] = new Mailbox("Sent");
+            accountMailboxes["Drafts"] = new Mailbox("Drafts");
         }
 
-        public Account(string name, AccountInfo info, Mailbox[] mailboxes)
+        public Account(string name, AccountInfo info, SortedDictionary<string, Mailbox> mailboxes)
         {
             accountName = name;
             accountInfo = info;
             accountMailboxes = mailboxes;
         }
 
+        public string AccountName
+        {
+            get
+            {
+                return accountName;
+            }
+        }
+
         public ListViewItem returnTreeViewItems()
         {
-
+            
+            return null;
         }
 
         public void checkForNewMessages()
@@ -42,7 +51,7 @@ namespace AYBABTU
 
         public void addNewMailbox(string name)
         {
-            accountMailboxes[accountMailboxes.Length] = new Mailbox(name);
+            accountMailboxes[name] = new Mailbox(name);
         }
 
         public void deleteMailbox(string name, int index)

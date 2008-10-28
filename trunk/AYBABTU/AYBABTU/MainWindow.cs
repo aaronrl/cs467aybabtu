@@ -43,22 +43,22 @@ namespace AYBABTU
 
         private void replyBtn_Click(object sender, EventArgs e)
         {
-            ListView.SelectedIndexCollection indices = messageList.SelectedIndices;
+            /*ListView.SelectedIndexCollection indices = messageList.SelectedIndices;
             Message replyMessage = (Message)((ArrayList)inbox[indices[0]])[1];
             replyMessage.Subject = "RE: " + replyMessage.Subject;
 
             WriteWindow replyToMessageWindow = new WriteWindow(new Message(Properties.Settings.Default.EmailAddress, replyMessage.To, replyMessage.Subject, replyMessage.MessageBody));
-            replyToMessageWindow.Show();
+            replyToMessageWindow.Show();*/
         }
 
         private void forwardBtn_Click(object sender, EventArgs e)
         {
-            ListView.SelectedIndexCollection indices = messageList.SelectedIndices;
+            /*ListView.SelectedIndexCollection indices = messageList.SelectedIndices;
             Message forwardMessage = (Message)((ArrayList)inbox[indices[0]])[1];
             forwardMessage.Subject = "FWD: " + forwardMessage.Subject;
 
             WriteWindow forwardMessageWindow = new WriteWindow(new Message(Properties.Settings.Default.EmailAddress, forwardMessage.To, forwardMessage.Subject, forwardMessage.MessageBody));
-            forwardMessageWindow.Show();
+            forwardMessageWindow.Show();*/
         }
 
         private void deleteBtn_Click(object sender, EventArgs e)
@@ -102,21 +102,21 @@ namespace AYBABTU
             foreach (int index in indices)
             {
                 // gets the selected message from the message list and sets its body to the viewer
-                messageViewer.Text = ((Message)((ArrayList)inbox[index])[1]).MessageBody;
+                //messageViewer.Text = ((Message)((ArrayList)inbox[index])[1]).MessageBody;
             }
 
         }
 
         private void messageList_MouseDoubleClick(object sender, EventArgs e)
         {
-            ListView.SelectedIndexCollection indices = messageList.SelectedIndices;
+            /*ListView.SelectedIndexCollection indices = messageList.SelectedIndices;
             ReadWindow readSelectedMessage = new ReadWindow((Message)((ArrayList)inbox[indices[0]])[1]);
-            readSelectedMessage.Show();
+            readSelectedMessage.Show();*/
         }
 
         private void Main_FormClosing(object sender, EventArgs e)
         {
-            saveMailboxToSystem();
+            //saveMailboxToSystem();
         }
 
         private void Main_FormClosed(object sender, EventArgs e)
@@ -126,14 +126,14 @@ namespace AYBABTU
 
         private void folderList_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            if (folderList.SelectedNode.Text == "Inbox")
+            /*if (folderList.SelectedNode.Text == "Inbox")
             {
                 loadMessageList(inbox);
             }
             else if (folderList.SelectedNode.Text == "Outbox")
             {
                 loadMessageList(outbox);
-            }
+            }*/
         }
         #endregion
 

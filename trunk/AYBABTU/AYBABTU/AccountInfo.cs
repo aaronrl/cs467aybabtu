@@ -7,12 +7,16 @@ namespace AYBABTU
     [Serializable]
     class AccountInfo
     {
+        private enum ServerType { POP = 1, IMAP = 2 };
+        private enum AuthenticationType { None = 1, Password = 2 };
+        
         private string emailAddress;
 
         private string signature;
 
         #region server variables
 
+        private ServerType incomingServerType;
         private string incomingServer;
         private int incomingPort;
         private string incomingUsername;
@@ -21,6 +25,8 @@ namespace AYBABTU
 
         private string outgoingServer;
         private int outgoingPort;
+        private AuthenticationType outgoingAuthentication;
+        private bool outgoingUsesSameSettingsAsIncomingServer;
         private string outgoingUsername;
         private string outgoingPassword;
         private bool outgoingSSL;
@@ -32,8 +38,9 @@ namespace AYBABTU
         {
         }
 
-        public AccountInfo(string pAccountName,
+        public AccountInfo(
                             string pEmailAddress,
+                            ServerType pIncomingServerType,
                             string pIncomingServer,
                             int pIncomingPort,
                             string pIncomingUsername,
@@ -41,13 +48,15 @@ namespace AYBABTU
                             bool pIncomingSSL,
                             string pOutgoingServer,
                             int pOutgoingPort,
+                            AuthenticationType pOutgoingAuthentication,
+                            bool pOutgoingUsesSameSettingsAsIncomingServer,
                             string pOutgoingUsername,
                             string pOutgoingPassword,
                             bool pOutgoingSSL)
         {
-            accountName = pAccountName;
             emailAddress = pEmailAddress;
-            
+
+            incomingServerType = pIncomingServerType;
             incomingServer = pIncomingServer;
             incomingPort = pIncomingPort;
             incomingUsername = pIncomingUsername;
@@ -56,6 +65,8 @@ namespace AYBABTU
 
             outgoingServer = pOutgoingServer;
             outgoingPort = pOutgoingPort;
+            outgoingAuthentication = pOutgoingAuthentication;
+            outgoingUsesSameSettingsAsIncomingServer = pOutgoingUsesSameSettingsAsIncomingServer;
             outgoingUsername = pOutgoingUsername;
             outgoingPassword = pOutgoingPassword;
             outgoingSSL = pOutgoingSSL;
@@ -63,19 +74,6 @@ namespace AYBABTU
         #endregion 
 
         #region accessors/mutators
-
-        public string AccountName
-        {
-            get 
-            {
-                return accountName;            
-            }
-            set
-            {
-                accountName = value;
-            }
-
-        }
 
         public string EmailAddress
         {
@@ -98,6 +96,18 @@ namespace AYBABTU
             set
             {
                 signature = value;
+            }
+        }
+
+        public ServerType IncomingServerType
+        {
+            get
+            {
+                return incomingServerType;
+            }
+            set
+            {
+                incomingServerType = value;
             }
         }
 
@@ -182,6 +192,30 @@ namespace AYBABTU
             set
             {
                 outgoingPort = value;
+            }
+        }
+
+        public AuthenticationType OutgoingAuthentication
+        {
+            get
+            {
+                return outgoingAuthentication;
+            }
+            set
+            {
+                outgoingAuthentication = value;
+            }
+        }
+
+        public bool OutgoingUsesSameSettingsAsIncomingServer
+        {
+            get 
+            {
+                return outgoingUsesSameSettingsAsIncomingServer;
+            }
+            set 
+            {
+                outgoingUsesSameSettingsAsIncomingServer = value;
             }
         }
 
