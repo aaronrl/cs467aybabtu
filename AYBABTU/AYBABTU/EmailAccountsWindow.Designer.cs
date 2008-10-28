@@ -51,8 +51,8 @@
             this.outgoingSSLChkBox = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.outgoingPortTxtBox = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.outgoingPasswordLbl = new System.Windows.Forms.Label();
+            this.outgoingUsernameLbl = new System.Windows.Forms.Label();
             this.outgoingPasswordTxtBox = new System.Windows.Forms.TextBox();
             this.outgoingUsernameTxtBox = new System.Windows.Forms.TextBox();
             this.useSameSettingsChkBox = new System.Windows.Forms.CheckBox();
@@ -61,13 +61,16 @@
             this.newAccountBtn = new System.Windows.Forms.Button();
             this.editAccountBtn = new System.Windows.Forms.Button();
             this.deleteAccountBtn = new System.Windows.Forms.Button();
+            this.editSignatureBtn = new System.Windows.Forms.Button();
+            this.outgoingAuthenticationCmbBox = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // OKButton
             // 
-            this.OKButton.Location = new System.Drawing.Point(279, 401);
+            this.OKButton.Location = new System.Drawing.Point(279, 411);
             this.OKButton.Name = "OKButton";
             this.OKButton.Size = new System.Drawing.Size(75, 23);
             this.OKButton.TabIndex = 7;
@@ -77,13 +80,12 @@
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(360, 401);
+            this.CancelButton.Location = new System.Drawing.Point(360, 411);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(75, 23);
             this.CancelButton.TabIndex = 8;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
-            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // incomingServerTxtBox
             // 
@@ -122,20 +124,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 52);
+            this.label1.Location = new System.Drawing.Point(11, 52);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 13);
+            this.label1.Size = new System.Drawing.Size(82, 13);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Incoming Server:";
+            this.label1.Text = "Server Address:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 22);
+            this.label2.Location = new System.Drawing.Point(11, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 13);
+            this.label2.Size = new System.Drawing.Size(82, 13);
             this.label2.TabIndex = 8;
-            this.label2.Text = "Outgoing Server:";
+            this.label2.Text = "Server Address:";
             // 
             // label3
             // 
@@ -174,7 +176,7 @@
             // 
             // ApplyButton
             // 
-            this.ApplyButton.Location = new System.Drawing.Point(441, 401);
+            this.ApplyButton.Location = new System.Drawing.Point(441, 411);
             this.ApplyButton.Name = "ApplyButton";
             this.ApplyButton.Size = new System.Drawing.Size(75, 23);
             this.ApplyButton.TabIndex = 13;
@@ -251,11 +253,13 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.outgoingAuthenticationCmbBox);
             this.groupBox2.Controls.Add(this.outgoingSSLChkBox);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.outgoingPortTxtBox);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.outgoingPasswordLbl);
+            this.groupBox2.Controls.Add(this.outgoingUsernameLbl);
             this.groupBox2.Controls.Add(this.outgoingPasswordTxtBox);
             this.groupBox2.Controls.Add(this.outgoingUsernameTxtBox);
             this.groupBox2.Controls.Add(this.useSameSettingsChkBox);
@@ -263,7 +267,7 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Location = new System.Drawing.Point(12, 232);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(504, 163);
+            this.groupBox2.Size = new System.Drawing.Size(504, 173);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Outgoing Server";
@@ -271,7 +275,7 @@
             // outgoingSSLChkBox
             // 
             this.outgoingSSLChkBox.AutoSize = true;
-            this.outgoingSSLChkBox.Location = new System.Drawing.Point(99, 120);
+            this.outgoingSSLChkBox.Location = new System.Drawing.Point(99, 147);
             this.outgoingSSLChkBox.Name = "outgoingSSLChkBox";
             this.outgoingSSLChkBox.Size = new System.Drawing.Size(121, 17);
             this.outgoingSSLChkBox.TabIndex = 19;
@@ -294,27 +298,27 @@
             this.outgoingPortTxtBox.Size = new System.Drawing.Size(100, 20);
             this.outgoingPortTxtBox.TabIndex = 17;
             // 
-            // label8
+            // outgoingPasswordLbl
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(37, 97);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(56, 13);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "Password:";
+            this.outgoingPasswordLbl.AutoSize = true;
+            this.outgoingPasswordLbl.Location = new System.Drawing.Point(37, 124);
+            this.outgoingPasswordLbl.Name = "outgoingPasswordLbl";
+            this.outgoingPasswordLbl.Size = new System.Drawing.Size(56, 13);
+            this.outgoingPasswordLbl.TabIndex = 14;
+            this.outgoingPasswordLbl.Text = "Password:";
             // 
-            // label9
+            // outgoingUsernameLbl
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(35, 71);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(58, 13);
-            this.label9.TabIndex = 13;
-            this.label9.Text = "Username:";
+            this.outgoingUsernameLbl.AutoSize = true;
+            this.outgoingUsernameLbl.Location = new System.Drawing.Point(35, 98);
+            this.outgoingUsernameLbl.Name = "outgoingUsernameLbl";
+            this.outgoingUsernameLbl.Size = new System.Drawing.Size(58, 13);
+            this.outgoingUsernameLbl.TabIndex = 13;
+            this.outgoingUsernameLbl.Text = "Username:";
             // 
             // outgoingPasswordTxtBox
             // 
-            this.outgoingPasswordTxtBox.Location = new System.Drawing.Point(99, 94);
+            this.outgoingPasswordTxtBox.Location = new System.Drawing.Point(99, 121);
             this.outgoingPasswordTxtBox.Name = "outgoingPasswordTxtBox";
             this.outgoingPasswordTxtBox.PasswordChar = '*';
             this.outgoingPasswordTxtBox.Size = new System.Drawing.Size(225, 20);
@@ -324,7 +328,7 @@
             // 
             // outgoingUsernameTxtBox
             // 
-            this.outgoingUsernameTxtBox.Location = new System.Drawing.Point(99, 68);
+            this.outgoingUsernameTxtBox.Location = new System.Drawing.Point(99, 95);
             this.outgoingUsernameTxtBox.Name = "outgoingUsernameTxtBox";
             this.outgoingUsernameTxtBox.Size = new System.Drawing.Size(225, 20);
             this.outgoingUsernameTxtBox.TabIndex = 11;
@@ -333,7 +337,7 @@
             // useSameSettingsChkBox
             // 
             this.useSameSettingsChkBox.AutoSize = true;
-            this.useSameSettingsChkBox.Location = new System.Drawing.Point(99, 45);
+            this.useSameSettingsChkBox.Location = new System.Drawing.Point(99, 72);
             this.useSameSettingsChkBox.Name = "useSameSettingsChkBox";
             this.useSameSettingsChkBox.Size = new System.Drawing.Size(206, 17);
             this.useSameSettingsChkBox.TabIndex = 9;
@@ -365,7 +369,6 @@
             this.newAccountBtn.TabIndex = 18;
             this.newAccountBtn.Text = "Create";
             this.newAccountBtn.UseVisualStyleBackColor = true;
-            this.newAccountBtn.Click += new System.EventHandler(this.newAccountBtn_Click);
             // 
             // editAccountBtn
             // 
@@ -385,11 +388,38 @@
             this.deleteAccountBtn.Text = "Delete";
             this.deleteAccountBtn.UseVisualStyleBackColor = true;
             // 
+            // editSignatureBtn
+            // 
+            this.editSignatureBtn.Location = new System.Drawing.Point(12, 411);
+            this.editSignatureBtn.Name = "editSignatureBtn";
+            this.editSignatureBtn.Size = new System.Drawing.Size(93, 23);
+            this.editSignatureBtn.TabIndex = 21;
+            this.editSignatureBtn.Text = "Edit Signature";
+            this.editSignatureBtn.UseVisualStyleBackColor = true;
+            // 
+            // outgoingAuthenticationCmbBox
+            // 
+            this.outgoingAuthenticationCmbBox.FormattingEnabled = true;
+            this.outgoingAuthenticationCmbBox.Location = new System.Drawing.Point(99, 45);
+            this.outgoingAuthenticationCmbBox.Name = "outgoingAuthenticationCmbBox";
+            this.outgoingAuthenticationCmbBox.Size = new System.Drawing.Size(121, 21);
+            this.outgoingAuthenticationCmbBox.TabIndex = 20;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(15, 48);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(78, 13);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Authentication:";
+            // 
             // EmailAccountsWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(528, 436);
+            this.ClientSize = new System.Drawing.Size(528, 445);
+            this.Controls.Add(this.editSignatureBtn);
             this.Controls.Add(this.deleteAccountBtn);
             this.Controls.Add(this.editAccountBtn);
             this.Controls.Add(this.newAccountBtn);
@@ -435,8 +465,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox incomingServerType;
         private System.Windows.Forms.CheckBox useSameSettingsChkBox;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label outgoingPasswordLbl;
+        private System.Windows.Forms.Label outgoingUsernameLbl;
         private System.Windows.Forms.TextBox outgoingPasswordTxtBox;
         private System.Windows.Forms.TextBox outgoingUsernameTxtBox;
         private System.Windows.Forms.CheckBox outgoingSSLChkBox;
@@ -447,5 +477,8 @@
         private System.Windows.Forms.Button newAccountBtn;
         private System.Windows.Forms.Button editAccountBtn;
         private System.Windows.Forms.Button deleteAccountBtn;
+        private System.Windows.Forms.Button editSignatureBtn;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox outgoingAuthenticationCmbBox;
     }
 }

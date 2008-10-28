@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Text;
 using System.Windows.Forms;
 
@@ -26,7 +26,7 @@ namespace AYBABTU
             return true;
         }
 
-        public ListViewItem getMessageList()
+        public /*ListViewItem*/ void getMessageList()
         {
             for (int i = 0; i < messages.Length; i++)
             {
@@ -38,7 +38,7 @@ namespace AYBABTU
                 ArrayList listitem = new ArrayList();
                 listitem.Add(message);
                 listitem.Add(aMsg);
-                inbox.Add(listitem);
+                //inbox.Add(listitem);
             }
         }
 

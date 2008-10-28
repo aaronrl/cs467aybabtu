@@ -22,11 +22,13 @@ namespace AYBABTU
         {
             textinput = accountNameTxtBox.Text;
             cancelled = false;
+            this.Close();
         }
 
         private void CancelBtn_Click(object sender, EventArgs e)
         {
             cancelled = true;
+            this.Close();
         }
 
         public string TextInput
