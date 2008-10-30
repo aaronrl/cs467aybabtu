@@ -149,6 +149,15 @@ namespace AYBABTU
                 this.attachments.Remove(path);
             }
         }
+        public Boolean hasAttachments(string path)
+        {
+            if (this.attachments.Count == 0)
+                return false;
+            else
+            {
+                return true;
+            }
+        }
         #endregion
 
         // return a mailmessage representation of the message for use in the SMTP client
