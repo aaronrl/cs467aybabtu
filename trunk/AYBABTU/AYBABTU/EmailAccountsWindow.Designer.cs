@@ -48,6 +48,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.incomingServerType = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.outgoingAuthenticationCmbBox = new System.Windows.Forms.ComboBox();
             this.outgoingSSLChkBox = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.outgoingPortTxtBox = new System.Windows.Forms.TextBox();
@@ -62,8 +64,6 @@
             this.editAccountBtn = new System.Windows.Forms.Button();
             this.deleteAccountBtn = new System.Windows.Forms.Button();
             this.editSignatureBtn = new System.Windows.Forms.Button();
-            this.outgoingAuthenticationCmbBox = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -86,6 +86,7 @@
             this.CancelButton.TabIndex = 8;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click_1);
             // 
             // incomingServerTxtBox
             // 
@@ -250,6 +251,7 @@
             this.incomingServerType.Name = "incomingServerType";
             this.incomingServerType.Size = new System.Drawing.Size(121, 21);
             this.incomingServerType.TabIndex = 13;
+            this.incomingServerType.Text = "POP";
             // 
             // groupBox2
             // 
@@ -271,6 +273,32 @@
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Outgoing Server";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(15, 48);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(78, 13);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Authentication:";
+            // 
+            // outgoingAuthenticationCmbBox
+            // 
+            this.outgoingAuthenticationCmbBox.AutoCompleteCustomSource.AddRange(new string[] {
+            "None",
+            "Password"});
+            this.outgoingAuthenticationCmbBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.outgoingAuthenticationCmbBox.FormattingEnabled = true;
+            this.outgoingAuthenticationCmbBox.Items.AddRange(new object[] {
+            "None",
+            "Password"});
+            this.outgoingAuthenticationCmbBox.Location = new System.Drawing.Point(99, 45);
+            this.outgoingAuthenticationCmbBox.Name = "outgoingAuthenticationCmbBox";
+            this.outgoingAuthenticationCmbBox.Size = new System.Drawing.Size(121, 21);
+            this.outgoingAuthenticationCmbBox.TabIndex = 20;
+            this.outgoingAuthenticationCmbBox.Text = "None";
+            this.outgoingAuthenticationCmbBox.SelectedIndexChanged += new System.EventHandler(this.outgoingAuthenticationCmbBox_SelectedIndexChanged);
             // 
             // outgoingSSLChkBox
             // 
@@ -397,23 +425,6 @@
             this.editSignatureBtn.Text = "Edit Signature";
             this.editSignatureBtn.UseVisualStyleBackColor = true;
             // 
-            // outgoingAuthenticationCmbBox
-            // 
-            this.outgoingAuthenticationCmbBox.FormattingEnabled = true;
-            this.outgoingAuthenticationCmbBox.Location = new System.Drawing.Point(99, 45);
-            this.outgoingAuthenticationCmbBox.Name = "outgoingAuthenticationCmbBox";
-            this.outgoingAuthenticationCmbBox.Size = new System.Drawing.Size(121, 21);
-            this.outgoingAuthenticationCmbBox.TabIndex = 20;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(15, 48);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(78, 13);
-            this.label8.TabIndex = 21;
-            this.label8.Text = "Authentication:";
-            // 
             // EmailAccountsWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -431,6 +442,9 @@
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.OKButton);
             this.Name = "EmailAccountsWindow";
+            this.ShowInTaskbar = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Email Accounts";
             this.Load += new System.EventHandler(this.EmailAccountsWindow_Load);
             this.groupBox1.ResumeLayout(false);

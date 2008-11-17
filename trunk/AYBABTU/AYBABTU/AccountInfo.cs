@@ -7,8 +7,8 @@ namespace AYBABTU
     [Serializable]
     class AccountInfo
     {
-        private enum ServerType { POP = 1, IMAP = 2 };
-        private enum AuthenticationType { None = 1, Password = 2 };
+        public enum ServerType { POP = 1, IMAP = 2 };
+        public enum AuthenticationType { None = 1, Password = 2 };
         
         private string emailAddress;
 

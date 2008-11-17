@@ -17,6 +17,11 @@ namespace AYBABTU
             loadAccounts();
         }
 
+        public Accounts(Account[] pAccounts)
+        {
+            accounts = pAccounts;
+        }
+
         private void loadAccounts()
         {
             DirectoryInfo fileListing = new DirectoryInfo(Application.UserAppDataPath);
@@ -42,8 +47,6 @@ namespace AYBABTU
             }
         }
 
-        //public 
-
         public void createNewAccount(Account newAccount)
         {
             accounts[accounts.Length] = newAccount;
@@ -57,6 +60,21 @@ namespace AYBABTU
         public Account getAccountAt(int index)
         {
             return accounts[index];
+        }
+
+        public Account[] getAccounts()
+        {
+            return accounts;
+        }
+
+        public TreeNode[] getTreeViewOfAccounts()
+        {
+            TreeNode[] accountsTree = new TreeNode[accounts.Length];
+            for(int i=0; i<accounts.Length;i++)
+            {
+                accountsTree[i] = accounts[i].returnTreeNode();
+            }
+            return accountsTree;
         }
 
     }

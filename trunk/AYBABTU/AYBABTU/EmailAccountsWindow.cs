@@ -18,11 +18,11 @@ namespace AYBABTU
             InitializeComponent();
         }
 
-        public EmailAccountsWindow(Account[] pAccounts)
+        /*public EmailAccountsWindow(Account[] pAccounts)
         {
             InitializeComponent();
-            accounts = pAccounts;
-        }
+            //accounts = pAccounts;
+        }*/
 
         private void OKButton_Click(object sender, EventArgs e)
         {
@@ -40,7 +40,7 @@ namespace AYBABTU
       
                 foreach (Account acc in accounts)
                 {
-                    accountsCmbBox.Items.Add(new AccountNameMap(acc.AccountName , acc));
+                    accountsCmbBox.Items.Add(new AccountNameMap(acc));
                 
                 }
             } finally {   
@@ -81,28 +81,37 @@ namespace AYBABTU
             AccountNameMap map = accountsCmbBox.SelectedItem as AccountNameMap;
             selectedAccount = map.EmailAccount;
 
-            incomingServerType.SelectedText = selectedAccount.accountInfo.IncomingServerType;
+            if (selectedAccount.accountInfo.IncomingServerType == AccountInfo.ServerType.IMAP)
+            {
+                incomingServerType.SelectedText = "IMAP";
+            }
+            else
+            {
+                incomingServerType.SelectedText = "POP";
+            }
             incomingServerTxtBox.Text = selectedAccount.accountInfo.IncomingServer;
-            incomingPortTxtBox.Text = selectedAccount.accountInfo.IncomingPort;
+            incomingPortTxtBox.Text = Convert.ToString(selectedAccount.accountInfo.IncomingPort);
             incomingUsernameTxtBox.Text = selectedAccount.accountInfo.IncomingUsername;
             incomingPasswordTxtBox.Text = selectedAccount.accountInfo.IncomingPassword;
             incomingSSLChkBox.Checked = selectedAccount.accountInfo.IncomingSSL;
 
             outgoingServerTxtBox.Text = selectedAccount.accountInfo.OutgoingServer;
-            outgoingPortTxtBox.Text = selectedAccount.accountInfo.OutgoingPort;
-            outgoingAuthenticationCmbBox.SelectedText = selectedAccount.accountInfo.OutgoingAuthentication;
-            if (selectedAccount.accountInfo.OutgoingAuthentication = None)
+            outgoingPortTxtBox.Text = Convert.ToString(selectedAccount.accountInfo.OutgoingPort);
+            
+            if (selectedAccount.accountInfo.OutgoingAuthentication == AccountInfo.AuthenticationType.None)
             {
+                outgoingAuthenticationCmbBox.SelectedText = "None";
                 authenticationType(false);
             }
             else
             {
+                outgoingAuthenticationCmbBox.SelectedText = "Password";
                 authenticationType(true);
                 outgoingUsernameTxtBox.Text = selectedAccount.accountInfo.OutgoingUsername;
                 outgoingPasswordTxtBox.Text = selectedAccount.accountInfo.OutgoingPassword;
                 outgoingSSLChkBox.Checked = selectedAccount.accountInfo.OutgoingSSL;
             }
-
+            
         }
 
         private void authenticationType(bool enable)
@@ -131,6 +140,23 @@ namespace AYBABTU
                 outgoingSSLChkBox.Enabled = false;
             }
 
+        }
+
+        private void outgoingAuthenticationCmbBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (outgoingAuthenticationCmbBox.SelectedText == "None")
+            {
+                authenticationType(false);
+            }
+            else 
+            {
+                authenticationType(true);
+            }
+        }
+
+        private void CancelButton_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 

@@ -13,7 +13,9 @@ namespace AYBABTU
 {
     public partial class Main : Form
     {
+        Account[] test = new Account[5];
         SortedDictionary<string,ArrayList> folders = new SortedDictionary<string,ArrayList>();
+        Accounts accounts;
 
         public Main()
         {
@@ -70,20 +72,20 @@ namespace AYBABTU
         #region Menu Items
         private void aboutAYBABTUToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AboutWindow about = new AboutWindow();
-            about.Show();
+            AboutWindow aboutWindow = new AboutWindow();
+            aboutWindow.Show();
         }
 
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OptionsWindow options = new OptionsWindow();
-            options.Show();
+            OptionsWindow optionsWindow = new OptionsWindow();
+            optionsWindow.Show();
         }
 
         private void emailAccountsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EmailAccountsWindow accounts = new EmailAccountsWindow();
-            accounts.Show();
+            EmailAccountsWindow accountsWindow = new EmailAccountsWindow();//new EmailAccountsWindow(accounts.getAccounts());
+            accountsWindow.Show();
         }
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -141,6 +143,20 @@ namespace AYBABTU
 
         private void Main_Load(object sender, EventArgs e)
         {
+            test[0] = new Account("TEST0");
+            test[1] = new Account("TEST1");
+            test[2] = new Account("TEST2");
+            test[3] = new Account("TEST3");
+            test[4] = new Account("TEST4");
+
+            accounts = new Accounts(test);
+            
+            // populate folder list
+            folderList.Nodes.AddRange(accounts.getTreeViewOfAccounts());
+            folderList.ExpandAll();
+            
+            
+            
             /*
             Splashscreen splash = new Splashscreen();
             splash.Show();
@@ -152,6 +168,9 @@ namespace AYBABTU
             /*loadMailboxesFromSystem();
             loadMessageList(inbox);
             */
+
+            // need to load the tree listing
+            // need to load UI elements for each folder
 
             // load the first message into the message viewer
             //messageViewer.Text = ((Message)((ArrayList)inbox[0])[1]).MessageBody;

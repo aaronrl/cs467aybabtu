@@ -9,7 +9,7 @@ namespace AYBABTU
     class Mailbox
     {
         private string name;
-        private Message[] messages;
+        private ArrayList messages;
 
         public Mailbox(string pName)
         {
@@ -40,6 +40,11 @@ namespace AYBABTU
                 listitem.Add(aMsg);
                 //inbox.Add(listitem);
             }
+        }
+
+        public void acceptMessage(Message incomingMessage)
+        {
+            messages.Add(incomingMessage);
         }
 
     }

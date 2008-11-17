@@ -30,15 +30,6 @@ namespace AYBABTU
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Inbox");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Outbox");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Sent");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Drafts");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Local Folders", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -336,18 +327,6 @@ namespace AYBABTU
             this.folderList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.folderList.Location = new System.Drawing.Point(0, 0);
             this.folderList.Name = "folderList";
-            treeNode1.Name = "Inbox";
-            treeNode1.Text = "Inbox";
-            treeNode2.Name = "Outbox";
-            treeNode2.Text = "Outbox";
-            treeNode3.Name = "Sent";
-            treeNode3.Text = "Sent";
-            treeNode4.Name = "Drafts";
-            treeNode4.Text = "Drafts";
-            treeNode5.Name = "LocalFolders";
-            treeNode5.Text = "Local Folders";
-            this.folderList.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode5});
             this.folderList.Size = new System.Drawing.Size(170, 507);
             this.folderList.TabIndex = 2;
             this.folderList.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.folderList_AfterSelect);
