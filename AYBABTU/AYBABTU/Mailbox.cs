@@ -14,11 +14,14 @@ namespace AYBABTU
         public Mailbox(string pName)
         {
             name = pName;
+            messages = new ArrayList();
         }
+
+        
 
         public Message getMessage(int index)
         {
-            return messages[index];
+            return (Message) messages[index];
         }
 
         public bool deleteMessage(int index)
@@ -26,23 +29,21 @@ namespace AYBABTU
             return true;
         }
 
-        public /*ListViewItem*/ void getMessageList()
+        public ListViewItem[] getMessageList()
         {
-            for (int i = 0; i < messages.Length; i++)
+            ListViewItem[] listing = new ListViewItem[messages.Count];
+            for (int i = 0; i < messages.Count; i++)
             {
-                Message aMsg = messages[i];
-                ListViewItem message = new ListViewItem(aMsg.From);
-                message.SubItems.Add(aMsg.Subject);
-                message.SubItems.Add(aMsg.Date);
-
-                ArrayList listitem = new ArrayList();
-                listitem.Add(message);
-                listitem.Add(aMsg);
-                //inbox.Add(listitem);
+                Message msg = (Message)messages[i];
+                ListViewItem message = new ListViewItem(msg.From);
+                message.SubItems.Add(msg.Subject);
+                message.SubItems.Add(msg.Date);
+                listing[i] = message;
             }
+            return listing;
         }
 
-        public void acceptMessage(Message incomingMessage)
+        public void addMessage(Message incomingMessage)
         {
             messages.Add(incomingMessage);
         }

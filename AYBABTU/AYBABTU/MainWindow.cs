@@ -27,9 +27,12 @@ namespace AYBABTU
         #region Buttons
         private void getMessageBtn_Click(object sender, EventArgs e)
         {
-            MailChecker window = new MailChecker();
-            window.Show();
-
+            //MailChecker window = new MailChecker();
+            //window.Show();
+            accounts.findAccountByName("TEST0").checkForNewMessages();
+            ListViewItem[] msglist = accounts.findAccountByName("TEST0").getMailbox("Inbox").getMessageList();
+            loadMessageList(msglist);
+            int i = 0;
         }
         private void writeMessageBtn_Click(object sender, EventArgs e)
         {
@@ -45,22 +48,27 @@ namespace AYBABTU
 
         private void replyBtn_Click(object sender, EventArgs e)
         {
-            /*ListView.SelectedIndexCollection indices = messageList.SelectedIndices;
-            Message replyMessage = (Message)((ArrayList)inbox[indices[0]])[1];
+            ListView.SelectedIndexCollection indices = messageList.SelectedIndices;
+            string selectedAccount = folderList.SelectedNode.Parent.Text;
+            string selectedMailbox = folderList.SelectedNode.Text;
+            Message replyMessage = accounts.findAccountByName(selectedAccount).getMailbox(selectedMailbox).getMessage(indices[0]);
+                //(Message)((ArrayList)inbox[indices[0]])[1];
             replyMessage.Subject = "RE: " + replyMessage.Subject;
 
-            WriteWindow replyToMessageWindow = new WriteWindow(new Message(Properties.Settings.Default.EmailAddress, replyMessage.To, replyMessage.Subject, replyMessage.MessageBody));
-            replyToMessageWindow.Show();*/
+            WriteWindow replyToMessageWindow = new WriteWindow(new Message(replyMessage.From, accounts.findAccountByName(selectedAccount).accountInfo.EmailAddress, replyMessage.Subject, replyMessage.MessageBody));
+            replyToMessageWindow.Show();
         }
 
         private void forwardBtn_Click(object sender, EventArgs e)
         {
-            /*ListView.SelectedIndexCollection indices = messageList.SelectedIndices;
-            Message forwardMessage = (Message)((ArrayList)inbox[indices[0]])[1];
+            ListView.SelectedIndexCollection indices = messageList.SelectedIndices;
+            string selectedAccount = folderList.SelectedNode.Parent.Text;
+            string selectedMailbox = folderList.SelectedNode.Text;
+            Message forwardMessage = accounts.findAccountByName(selectedAccount).getMailbox(selectedMailbox).getMessage(indices[0]);
             forwardMessage.Subject = "FWD: " + forwardMessage.Subject;
 
-            WriteWindow forwardMessageWindow = new WriteWindow(new Message(Properties.Settings.Default.EmailAddress, forwardMessage.To, forwardMessage.Subject, forwardMessage.MessageBody));
-            forwardMessageWindow.Show();*/
+            WriteWindow forwardMessageWindow = new WriteWindow(new Message(forwardMessage.From, accounts.findAccountByName(selectedAccount).accountInfo.EmailAddress, forwardMessage.Subject, forwardMessage.MessageBody));
+            forwardMessageWindow.Show();
         }
 
         private void deleteBtn_Click(object sender, EventArgs e)
@@ -96,7 +104,7 @@ namespace AYBABTU
 
         #endregion
 
-        #region Interaction Actions
+        #region Interaction Events
         private void messageList_SelectedIndexChanged(object sender, EventArgs e)
         {
             ListView.SelectedIndexCollection indices = messageList.SelectedIndices;
@@ -128,14 +136,7 @@ namespace AYBABTU
 
         private void folderList_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            /*if (folderList.SelectedNode.Text == "Inbox")
-            {
-                loadMessageList(inbox);
-            }
-            else if (folderList.SelectedNode.Text == "Outbox")
-            {
-                loadMessageList(outbox);
-            }*/
+            loadMessageList(accounts.findAccountByName(folderList.SelectedNode.Parent.Text).getMailbox(folderList.SelectedNode.Text).getMessageList());
         }
         #endregion
 
@@ -144,6 +145,7 @@ namespace AYBABTU
         private void Main_Load(object sender, EventArgs e)
         {
             test[0] = new Account("TEST0");
+            test[0].accountInfo.EmailAddress = "aircows@gmail.com";
             test[1] = new Account("TEST1");
             test[2] = new Account("TEST2");
             test[3] = new Account("TEST3");
@@ -268,16 +270,14 @@ namespace AYBABTU
         //}
 
         /* this method loads up the message list with the supplied mailbox array */
-        /*private void loadMessageList(ArrayList mailbox)
+        private void loadMessageList(ListViewItem[] messages)
         {
+            // use getMessageList() of the Mailbox class
             messageList.Items.Clear();
             //Populate the message listing from the inbox array
-            foreach (ArrayList msg in mailbox)
-            {
-                messageList.Items.Add((ListViewItem)msg[0]);
-            }
+            messageList.Items.AddRange(messages);
         }
-    */
+    
     }
 }
 
