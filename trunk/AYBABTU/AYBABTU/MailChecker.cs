@@ -18,12 +18,17 @@ namespace AYBABTU
 
         private void MailChecker_Load(object sender, EventArgs e)
         {
-            
+            checkMail();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void checkMail()
+        {
+            
         }
     }
 }

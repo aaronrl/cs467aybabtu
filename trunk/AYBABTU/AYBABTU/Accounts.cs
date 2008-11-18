@@ -62,6 +62,19 @@ namespace AYBABTU
             return accounts[index];
         }
 
+        public Account findAccountByName(string searchName)
+        {
+            // this method will return the first occurance of the searchName term in the accounts array
+            foreach (Account acct in accounts)
+            {
+                if (acct.AccountName == searchName)
+                {
+                    return acct;
+                }
+            }
+            return null;
+        }
+
         public Account[] getAccounts()
         {
             return accounts;
