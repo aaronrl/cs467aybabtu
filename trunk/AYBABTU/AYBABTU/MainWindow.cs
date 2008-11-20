@@ -30,8 +30,8 @@ namespace AYBABTU
             //MailChecker window = new MailChecker();
             //window.Show();
             accounts.findAccountByName("TEST0").checkForNewMessages();
-            ListViewItem[] msglist = accounts.findAccountByName("TEST0").getMailbox("Inbox").getMessageList();
-            loadMessageList(msglist);
+            /*ListViewItem[] msglist = accounts.findAccountByName("TEST0").getMailbox("Inbox").getMessageList();
+            loadMessageList(msglist);*/
         }
         private void writeMessageBtn_Click(object sender, EventArgs e)
         {
@@ -182,7 +182,7 @@ namespace AYBABTU
             // populate folder list
             folderList.Nodes.AddRange(accounts.getTreeViewOfAccounts());
             folderList.ExpandAll();
-                        
+            folderList.SelectedNode = folderList.Nodes[0].FirstNode;                        
             
             /*
             Splashscreen splash = new Splashscreen();
