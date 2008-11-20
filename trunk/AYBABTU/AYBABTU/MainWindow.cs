@@ -30,8 +30,8 @@ namespace AYBABTU
             //MailChecker window = new MailChecker();
             //window.Show();
             accounts.findAccountByName("TEST0").checkForNewMessages();
-            /*ListViewItem[] msglist = accounts.findAccountByName("TEST0").getMailbox("Inbox").getMessageList();
-            loadMessageList(msglist);*/
+            ListViewItem[] msglist = accounts.findAccountByName(folderList.SelectedNode.Parent.Text).getMailbox(folderList.SelectedNode.Text).getMessageList();
+            loadMessageList(msglist);
         }
         private void writeMessageBtn_Click(object sender, EventArgs e)
         {
