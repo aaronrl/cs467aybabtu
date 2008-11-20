@@ -75,9 +75,12 @@ namespace AYBABTU
             return null;
         }
 
-        public Account[] getAccounts()
+        public Account[] EmailAccounts
         {
-            return accounts;
+            get
+            {
+                return accounts;
+            }
         }
 
         public TreeNode[] getTreeViewOfAccounts()

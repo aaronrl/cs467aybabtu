@@ -63,10 +63,7 @@ namespace AYBABTU
             this.aboutAYBABTUToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.folderList = new System.Windows.Forms.TreeView();
             this.userButtonPanel = new System.Windows.Forms.Panel();
-            this.findBtn = new System.Windows.Forms.Button();
-            this.notSpamBtn = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
-            this.spamBtn = new System.Windows.Forms.Button();
             this.forwardBtn = new System.Windows.Forms.Button();
             this.replyAllBtn = new System.Windows.Forms.Button();
             this.replyBtn = new System.Windows.Forms.Button();
@@ -330,13 +327,12 @@ namespace AYBABTU
             this.folderList.Size = new System.Drawing.Size(170, 507);
             this.folderList.TabIndex = 2;
             this.folderList.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.folderList_AfterSelect);
+            
+
             // 
             // userButtonPanel
             // 
-            this.userButtonPanel.Controls.Add(this.findBtn);
-            this.userButtonPanel.Controls.Add(this.notSpamBtn);
             this.userButtonPanel.Controls.Add(this.deleteBtn);
-            this.userButtonPanel.Controls.Add(this.spamBtn);
             this.userButtonPanel.Controls.Add(this.forwardBtn);
             this.userButtonPanel.Controls.Add(this.replyAllBtn);
             this.userButtonPanel.Controls.Add(this.replyBtn);
@@ -347,30 +343,6 @@ namespace AYBABTU
             this.userButtonPanel.Name = "userButtonPanel";
             this.userButtonPanel.Size = new System.Drawing.Size(1004, 61);
             this.userButtonPanel.TabIndex = 5;
-            // 
-            // findBtn
-            // 
-            this.findBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("findBtn.BackgroundImage")));
-            this.findBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.findBtn.FlatAppearance.BorderSize = 0;
-            this.findBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.findBtn.Location = new System.Drawing.Point(941, 3);
-            this.findBtn.Name = "findBtn";
-            this.findBtn.Size = new System.Drawing.Size(60, 55);
-            this.findBtn.TabIndex = 9;
-            this.findBtn.UseVisualStyleBackColor = true;
-            // 
-            // notSpamBtn
-            // 
-            this.notSpamBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("notSpamBtn.BackgroundImage")));
-            this.notSpamBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.notSpamBtn.FlatAppearance.BorderSize = 0;
-            this.notSpamBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.notSpamBtn.Location = new System.Drawing.Point(875, 3);
-            this.notSpamBtn.Name = "notSpamBtn";
-            this.notSpamBtn.Size = new System.Drawing.Size(60, 55);
-            this.notSpamBtn.TabIndex = 8;
-            this.notSpamBtn.UseVisualStyleBackColor = true;
             // 
             // deleteBtn
             // 
@@ -384,18 +356,6 @@ namespace AYBABTU
             this.deleteBtn.TabIndex = 7;
             this.deleteBtn.UseVisualStyleBackColor = true;
             this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
-            // 
-            // spamBtn
-            // 
-            this.spamBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("spamBtn.BackgroundImage")));
-            this.spamBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.spamBtn.FlatAppearance.BorderSize = 0;
-            this.spamBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.spamBtn.Location = new System.Drawing.Point(809, 3);
-            this.spamBtn.Name = "spamBtn";
-            this.spamBtn.Size = new System.Drawing.Size(60, 55);
-            this.spamBtn.TabIndex = 6;
-            this.spamBtn.UseVisualStyleBackColor = true;
             // 
             // forwardBtn
             // 
@@ -643,9 +603,7 @@ namespace AYBABTU
         private System.Windows.Forms.Button getMessageBtn;
         private System.Windows.Forms.Button addressBookBtn;
         private System.Windows.Forms.Button writeMessageBtn;
-        private System.Windows.Forms.Button notSpamBtn;
         private System.Windows.Forms.Button deleteBtn;
-        private System.Windows.Forms.Button spamBtn;
         private System.Windows.Forms.Button forwardBtn;
         private System.Windows.Forms.Button replyAllBtn;
         private System.Windows.Forms.Button replyBtn;
@@ -653,7 +611,6 @@ namespace AYBABTU
         private System.Windows.Forms.ToolStripMenuItem getAndSendToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem getMessagesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sendMessagesToolStripMenuItem;
-        private System.Windows.Forms.Button findBtn;
         private System.Windows.Forms.ToolStripMenuItem newMessageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem messageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem contactToolStripMenuItem;

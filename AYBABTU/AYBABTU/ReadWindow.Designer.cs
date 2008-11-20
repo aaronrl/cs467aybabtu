@@ -37,9 +37,7 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.notSpamBtn = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
-            this.spamBtn = new System.Windows.Forms.Button();
             this.forwardBtn = new System.Windows.Forms.Button();
             this.replyAllBtn = new System.Windows.Forms.Button();
             this.replyBtn = new System.Windows.Forms.Button();
@@ -71,31 +69,31 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
             // 
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.viewToolStripMenuItem.Text = "View";
             // 
             // toolsToolStripMenuItem
             // 
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.toolsToolStripMenuItem.Text = "Tools";
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // statusStrip1
@@ -108,9 +106,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.notSpamBtn);
             this.panel1.Controls.Add(this.deleteBtn);
-            this.panel1.Controls.Add(this.spamBtn);
             this.panel1.Controls.Add(this.forwardBtn);
             this.panel1.Controls.Add(this.replyAllBtn);
             this.panel1.Controls.Add(this.replyBtn);
@@ -118,18 +114,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(668, 61);
             this.panel1.TabIndex = 2;
-            // 
-            // notSpamBtn
-            // 
-            this.notSpamBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("notSpamBtn.BackgroundImage")));
-            this.notSpamBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.notSpamBtn.FlatAppearance.BorderSize = 0;
-            this.notSpamBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.notSpamBtn.Location = new System.Drawing.Point(333, 3);
-            this.notSpamBtn.Name = "notSpamBtn";
-            this.notSpamBtn.Size = new System.Drawing.Size(60, 55);
-            this.notSpamBtn.TabIndex = 14;
-            this.notSpamBtn.UseVisualStyleBackColor = true;
             // 
             // deleteBtn
             // 
@@ -142,18 +126,6 @@
             this.deleteBtn.Size = new System.Drawing.Size(60, 55);
             this.deleteBtn.TabIndex = 13;
             this.deleteBtn.UseVisualStyleBackColor = true;
-            // 
-            // spamBtn
-            // 
-            this.spamBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("spamBtn.BackgroundImage")));
-            this.spamBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.spamBtn.FlatAppearance.BorderSize = 0;
-            this.spamBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.spamBtn.Location = new System.Drawing.Point(267, 3);
-            this.spamBtn.Name = "spamBtn";
-            this.spamBtn.Size = new System.Drawing.Size(60, 55);
-            this.spamBtn.TabIndex = 12;
-            this.spamBtn.UseVisualStyleBackColor = true;
             // 
             // forwardBtn
             // 
@@ -297,9 +269,7 @@
         private System.Windows.Forms.TextBox toTxtBox;
         private System.Windows.Forms.TextBox fromTxtBox;
         private System.Windows.Forms.TextBox subjectTxtBox;
-        private System.Windows.Forms.Button notSpamBtn;
         private System.Windows.Forms.Button deleteBtn;
-        private System.Windows.Forms.Button spamBtn;
         private System.Windows.Forms.Button forwardBtn;
         private System.Windows.Forms.Button replyAllBtn;
         private System.Windows.Forms.Button replyBtn;
