@@ -18,6 +18,7 @@ namespace AYBABTU
             accountInfo = new AccountInfo();
             accountMailboxes["Inbox"] = new Mailbox("Inbox");
             accountMailboxes["Outbox"] = new Mailbox("Outbox");
+            accountMailboxes["Trash"] = new Mailbox("Trash");
             accountMailboxes["Sent"] = new Mailbox("Sent");
             accountMailboxes["Drafts"] = new Mailbox("Drafts");
         }
@@ -28,6 +29,7 @@ namespace AYBABTU
             accountInfo = new AccountInfo();
             accountMailboxes["Inbox"] = new Mailbox("Inbox");
             accountMailboxes["Outbox"] = new Mailbox("Outbox");
+            accountMailboxes["Trash"] = new Mailbox("Trash");
             accountMailboxes["Sent"] = new Mailbox("Sent");
             accountMailboxes["Drafts"] = new Mailbox("Drafts");
         }
@@ -51,19 +53,31 @@ namespace AYBABTU
         public TreeNode returnTreeNode()
         {
             // return listing of mailboxes for this account
-            TreeNode[] nodes = new TreeNode[4];
+            TreeNode[] nodes = new TreeNode[5];
             
             nodes[0] = new TreeNode("Inbox");
             nodes[1] = new TreeNode("Outbox");
-            nodes[2] = new TreeNode("Sent");
-            nodes[3] = new TreeNode("Drafts");
+            nodes[2] = new TreeNode("Trash");
+            nodes[3] = new TreeNode("Sent");
+            nodes[4] = new TreeNode("Drafts");
+
+            // adding context menu to trash folder
+            //nodes[2].ContextMenu = ;
+
+            TreeNode node = new TreeNode(accountName, nodes);
             
-            return new TreeNode(accountName,nodes);
+            return node;
         }
 
         public Mailbox getMailbox(string mailbox)
         {
             return accountMailboxes[mailbox];
+        }
+
+        public bool emptyTrash()
+        {
+            accountMailboxes["Trash"] = new Mailbox("Trash");
+            return true;
         }
 
         public void checkForNewMessages()

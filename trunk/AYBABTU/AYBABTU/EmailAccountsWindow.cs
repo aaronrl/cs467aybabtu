@@ -24,6 +24,14 @@ namespace AYBABTU
             //accounts = pAccounts;
         }*/
 
+        private Account[] EmailAccounts
+        {
+            set
+            {
+                accounts = value;
+            }
+        }
+
         private void OKButton_Click(object sender, EventArgs e)
         {
 

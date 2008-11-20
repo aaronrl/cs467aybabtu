@@ -24,9 +24,11 @@ namespace AYBABTU
             return (Message) messages[index];
         }
 
-        public bool deleteMessage(int index)
+        public Message deleteMessage(int index)
         {
-            return true;
+            Message deletedMessage = (Message)messages[index];
+            messages.RemoveAt(index);
+            return deletedMessage;
         }
 
         public ListViewItem[] getMessageList()

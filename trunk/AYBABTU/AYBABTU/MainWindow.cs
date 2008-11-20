@@ -32,7 +32,6 @@ namespace AYBABTU
             accounts.findAccountByName("TEST0").checkForNewMessages();
             ListViewItem[] msglist = accounts.findAccountByName("TEST0").getMailbox("Inbox").getMessageList();
             loadMessageList(msglist);
-            int i = 0;
         }
         private void writeMessageBtn_Click(object sender, EventArgs e)
         {
@@ -75,7 +74,22 @@ namespace AYBABTU
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
-            
+            ListView.SelectedIndexCollection indices = messageList.SelectedIndices;
+            string selectedAccount = folderList.SelectedNode.Parent.Text;
+            string selectedMailbox = folderList.SelectedNode.Text;
+
+            // delete message and move it to trash
+            try
+            {
+                Message deletedMessage = accounts.findAccountByName(selectedAccount).getMailbox(selectedMailbox).deleteMessage(indices[0]);
+                accounts.findAccountByName(selectedAccount).getMailbox("Trash").addMessage(deletedMessage);
+            }
+            catch (Exception exception)
+            {
+            }
+
+            ListViewItem[] msglist = accounts.findAccountByName(selectedAccount).getMailbox(selectedMailbox).getMessageList();
+            loadMessageList(msglist);
         }
         #endregion  
 
@@ -94,7 +108,8 @@ namespace AYBABTU
 
         private void emailAccountsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EmailAccountsWindow accountsWindow = new EmailAccountsWindow();//new EmailAccountsWindow(accounts.getAccounts());
+            EmailAccountsWindow accountsWindow = new EmailAccountsWindow();
+            //accountsWindow.EmailAccounts = accounts.EmailAccounts;
             accountsWindow.Show();
         }
 
@@ -110,20 +125,24 @@ namespace AYBABTU
         private void messageList_SelectedIndexChanged(object sender, EventArgs e)
         {
             ListView.SelectedIndexCollection indices = messageList.SelectedIndices;
+            string selectedAccount = folderList.SelectedNode.Parent.Text;
+            string selectedMailbox = folderList.SelectedNode.Text;
 
-            foreach (int index in indices)
+            //foreach (int index in indices)
             {
                 // gets the selected message from the message list and sets its body to the viewer
-                //messageViewer.Text = ((Message)((ArrayList)inbox[index])[1]).MessageBody;
+                messageViewer.Text = ((Message) accounts.findAccountByName(selectedAccount).getMailbox(selectedMailbox).getMessage(indices[0])).MessageBody;
             }
 
         }
 
         private void messageList_MouseDoubleClick(object sender, EventArgs e)
         {
-            /*ListView.SelectedIndexCollection indices = messageList.SelectedIndices;
-            ReadWindow readSelectedMessage = new ReadWindow((Message)((ArrayList)inbox[indices[0]])[1]);
-            readSelectedMessage.Show();*/
+            ListView.SelectedIndexCollection indices = messageList.SelectedIndices;
+            string selectedAccount = folderList.SelectedNode.Parent.Text;
+            string selectedMailbox = folderList.SelectedNode.Text;
+            ReadWindow readSelectedMessage = new ReadWindow((Message) accounts.findAccountByName(selectedAccount).getMailbox(selectedMailbox).getMessage(indices[0]));
+            readSelectedMessage.Show();
         }
 
         private void Main_FormClosing(object sender, EventArgs e)
@@ -138,8 +157,13 @@ namespace AYBABTU
 
         private void folderList_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            if (folderList.SelectedNode.Level == 0)
+            {
+                folderList.SelectedNode = folderList.SelectedNode.FirstNode;
+            }
             loadMessageList(accounts.findAccountByName(folderList.SelectedNode.Parent.Text).getMailbox(folderList.SelectedNode.Text).getMessageList());
         }
+
         #endregion
 
         #endregion
@@ -158,8 +182,7 @@ namespace AYBABTU
             // populate folder list
             folderList.Nodes.AddRange(accounts.getTreeViewOfAccounts());
             folderList.ExpandAll();
-            
-            
+                        
             
             /*
             Splashscreen splash = new Splashscreen();
