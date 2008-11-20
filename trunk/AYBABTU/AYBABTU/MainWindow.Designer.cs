@@ -62,7 +62,6 @@ namespace AYBABTU
             this.viewHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutAYBABTUToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.folderList = new System.Windows.Forms.TreeView();
-            this.messageViewer = new System.Windows.Forms.TextBox();
             this.userButtonPanel = new System.Windows.Forms.Panel();
             this.findBtn = new System.Windows.Forms.Button();
             this.notSpamBtn = new System.Windows.Forms.Button();
@@ -86,6 +85,7 @@ namespace AYBABTU
             this.dataTable1 = new System.Data.DataTable();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.messageViewer = new System.Windows.Forms.WebBrowser();
             this.menuStrip1.SuspendLayout();
             this.userButtonPanel.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -131,7 +131,7 @@ namespace AYBABTU
             this.saveAttachmentToolStripMenuItem,
             this.quitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newMessageToolStripMenuItem
@@ -141,49 +141,49 @@ namespace AYBABTU
             this.contactToolStripMenuItem,
             this.folderToolStripMenuItem});
             this.newMessageToolStripMenuItem.Name = "newMessageToolStripMenuItem";
-            this.newMessageToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.newMessageToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.newMessageToolStripMenuItem.Text = "New";
             // 
             // messageToolStripMenuItem
             // 
             this.messageToolStripMenuItem.Name = "messageToolStripMenuItem";
-            this.messageToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.messageToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.messageToolStripMenuItem.Text = "Message";
             // 
             // contactToolStripMenuItem
             // 
             this.contactToolStripMenuItem.Name = "contactToolStripMenuItem";
-            this.contactToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.contactToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.contactToolStripMenuItem.Text = "Contact";
             // 
             // folderToolStripMenuItem
             // 
             this.folderToolStripMenuItem.Name = "folderToolStripMenuItem";
-            this.folderToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.folderToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.folderToolStripMenuItem.Text = "Folder";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.saveAsToolStripMenuItem.Text = "Save As";
             // 
             // saveAttachmentToolStripMenuItem
             // 
             this.saveAttachmentToolStripMenuItem.Name = "saveAttachmentToolStripMenuItem";
-            this.saveAttachmentToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.saveAttachmentToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.saveAttachmentToolStripMenuItem.Text = "Save Attachment";
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
@@ -196,43 +196,43 @@ namespace AYBABTU
             this.selectAllToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.editToolStripMenuItem.Text = "Edit";
             // 
             // cutToolStripMenuItem
             // 
             this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
-            this.cutToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.cutToolStripMenuItem.Text = "Cut";
             // 
             // copyToolStripMenuItem
             // 
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.copyToolStripMenuItem.Text = "Copy";
             // 
             // pasteToolStripMenuItem
             // 
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.pasteToolStripMenuItem.Text = "Paste";
             // 
             // selectAllToolStripMenuItem
             // 
             this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
-            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.selectAllToolStripMenuItem.Text = "Select All";
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             // 
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
             this.viewToolStripMenuItem.Text = "View";
             // 
             // messagesToolStripMenuItem
@@ -244,37 +244,37 @@ namespace AYBABTU
             this.replyToAllToolStripMenuItem,
             this.forwardToolStripMenuItem});
             this.messagesToolStripMenuItem.Name = "messagesToolStripMenuItem";
-            this.messagesToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.messagesToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.messagesToolStripMenuItem.Text = "Messages";
             // 
             // checkForMessagesToolStripMenuItem
             // 
             this.checkForMessagesToolStripMenuItem.Name = "checkForMessagesToolStripMenuItem";
-            this.checkForMessagesToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.checkForMessagesToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.checkForMessagesToolStripMenuItem.Text = "Check for Messages";
             // 
             // newMessageToolStripMenuItem1
             // 
             this.newMessageToolStripMenuItem1.Name = "newMessageToolStripMenuItem1";
-            this.newMessageToolStripMenuItem1.Size = new System.Drawing.Size(179, 22);
+            this.newMessageToolStripMenuItem1.Size = new System.Drawing.Size(181, 22);
             this.newMessageToolStripMenuItem1.Text = "New Message";
             // 
             // replyToSenderToolStripMenuItem
             // 
             this.replyToSenderToolStripMenuItem.Name = "replyToSenderToolStripMenuItem";
-            this.replyToSenderToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.replyToSenderToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.replyToSenderToolStripMenuItem.Text = "Reply to Sender";
             // 
             // replyToAllToolStripMenuItem
             // 
             this.replyToAllToolStripMenuItem.Name = "replyToAllToolStripMenuItem";
-            this.replyToAllToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.replyToAllToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.replyToAllToolStripMenuItem.Text = "Reply to All";
             // 
             // forwardToolStripMenuItem
             // 
             this.forwardToolStripMenuItem.Name = "forwardToolStripMenuItem";
-            this.forwardToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.forwardToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.forwardToolStripMenuItem.Text = "Forward";
             // 
             // toolsToolStripMenuItem
@@ -283,7 +283,7 @@ namespace AYBABTU
             this.emailAccountsToolStripMenuItem,
             this.optionsToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.toolsToolStripMenuItem.Text = "Tools";
             // 
             // emailAccountsToolStripMenuItem
@@ -306,19 +306,19 @@ namespace AYBABTU
             this.viewHelpToolStripMenuItem,
             this.aboutAYBABTUToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // viewHelpToolStripMenuItem
             // 
             this.viewHelpToolStripMenuItem.Name = "viewHelpToolStripMenuItem";
-            this.viewHelpToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.viewHelpToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.viewHelpToolStripMenuItem.Text = "View Help";
             // 
             // aboutAYBABTUToolStripMenuItem
             // 
             this.aboutAYBABTUToolStripMenuItem.Name = "aboutAYBABTUToolStripMenuItem";
-            this.aboutAYBABTUToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.aboutAYBABTUToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.aboutAYBABTUToolStripMenuItem.Text = "About A.Y.B.A.B.T.U.";
             this.aboutAYBABTUToolStripMenuItem.Click += new System.EventHandler(this.aboutAYBABTUToolStripMenuItem_Click);
             // 
@@ -330,16 +330,6 @@ namespace AYBABTU
             this.folderList.Size = new System.Drawing.Size(170, 507);
             this.folderList.TabIndex = 2;
             this.folderList.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.folderList_AfterSelect);
-            // 
-            // messageViewer
-            // 
-            this.messageViewer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.messageViewer.Location = new System.Drawing.Point(0, 0);
-            this.messageViewer.Multiline = true;
-            this.messageViewer.Name = "messageViewer";
-            this.messageViewer.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.messageViewer.Size = new System.Drawing.Size(824, 306);
-            this.messageViewer.TabIndex = 4;
             // 
             // userButtonPanel
             // 
@@ -496,24 +486,24 @@ namespace AYBABTU
             this.getMessagesToolStripMenuItem,
             this.sendMessagesToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(155, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(160, 70);
             // 
             // getAndSendToolStripMenuItem
             // 
             this.getAndSendToolStripMenuItem.Name = "getAndSendToolStripMenuItem";
-            this.getAndSendToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.getAndSendToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.getAndSendToolStripMenuItem.Text = "Get and Send";
             // 
             // getMessagesToolStripMenuItem
             // 
             this.getMessagesToolStripMenuItem.Name = "getMessagesToolStripMenuItem";
-            this.getMessagesToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.getMessagesToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.getMessagesToolStripMenuItem.Text = "Get Messages";
             // 
             // sendMessagesToolStripMenuItem
             // 
             this.sendMessagesToolStripMenuItem.Name = "sendMessagesToolStripMenuItem";
-            this.sendMessagesToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.sendMessagesToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.sendMessagesToolStripMenuItem.Text = "Send Messages";
             // 
             // messageList
@@ -598,6 +588,16 @@ namespace AYBABTU
             this.splitContainer2.SplitterDistance = 191;
             this.splitContainer2.TabIndex = 7;
             // 
+            // messageViewer
+            // 
+            this.messageViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.messageViewer.Location = new System.Drawing.Point(0, 0);
+            this.messageViewer.MinimumSize = new System.Drawing.Size(20, 20);
+            this.messageViewer.Name = "messageViewer";
+            this.messageViewer.Size = new System.Drawing.Size(824, 306);
+            this.messageViewer.TabIndex = 0;
+          
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -622,7 +622,6 @@ namespace AYBABTU
             this.splitContainer1.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
-            this.splitContainer2.Panel2.PerformLayout();
             this.splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -637,7 +636,6 @@ namespace AYBABTU
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.TreeView folderList;
-        private System.Windows.Forms.TextBox messageViewer;
         private System.Windows.Forms.Panel userButtonPanel;
         private System.Windows.Forms.ToolStripMenuItem messagesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
@@ -686,6 +684,7 @@ namespace AYBABTU
         private System.Data.DataTable dataTable1;
         private SplitContainer splitContainer1;
         private SplitContainer splitContainer2;
+        private WebBrowser messageViewer;
     }
 }
 
