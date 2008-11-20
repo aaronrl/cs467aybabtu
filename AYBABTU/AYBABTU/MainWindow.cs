@@ -61,7 +61,9 @@ namespace AYBABTU
 
         private void forwardBtn_Click(object sender, EventArgs e)
         {
+            
             ListView.SelectedIndexCollection indices = messageList.SelectedIndices;
+            // access root for selected account
             string selectedAccount = folderList.SelectedNode.Parent.Text;
             string selectedMailbox = folderList.SelectedNode.Text;
             Message forwardMessage = accounts.findAccountByName(selectedAccount).getMailbox(selectedMailbox).getMessage(indices[0]);
@@ -73,7 +75,7 @@ namespace AYBABTU
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
-            UserSettings.writeUserSettingsToSystem();
+            
         }
         #endregion  
 
