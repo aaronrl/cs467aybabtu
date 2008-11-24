@@ -87,8 +87,7 @@ namespace AYBABTU
             // take output from IMAP/POP Handler and pass to MIME handler then pass to receive
             Message[] incomingMessages;
 
-            /*
-             * commenting out for testing purposes
+            /* commenting out for testing purposes
             if (accountInfo.IncomingServer == AccountInfo.ServerType.POP)
             {
                 POPHandler handler;
@@ -104,14 +103,29 @@ namespace AYBABTU
                 string[] messages = handler.run();
               // check for errors
                 int error = handler.getErrorCode();
-             * if( error == POPHandler.SUCCESS){
-             * foreach (string message in messages)
-             * {
-                incomingMessages = MIMEStub.returnMessages(message);
-             * }
-             * }else{
-             * MessageBox.Show("OH SHIT");
-             * }
+               if( error == POPHandler.SUCCESS){
+                    foreach (string message in messages)
+                    {
+                        incomingMessages = MIMEStub.returnMessages(message);
+                    }
+               }else{
+                    //USERPASSERROR = 1;
+                    //STREAMERROR = 2;
+                    //WRITEERROR = 3;
+                    //READERROR = 4;
+                    //COMMUNICATIONERROR = 5;
+                    //UNKNOWNERROR = 6;
+                    switch(error){
+                        case 1: MessageBox.Show("Username/Password Error"); break;
+                        case 2: MessageBox.Show("Problem Connecting to server"); break;
+                        case 3: MessageBox.Show("Problem writing to socket"); break;
+                        case 4: MessageBox.Show("Problem reading from socket"); break;
+                        case 5: MessageBox.Show("Unknown communication response from server"); break;
+                        case 6: MessageBox.Show("Unknown error with POP server"); break;
+              
+                    }
+             
+               }
             }
             else if (accountInfo.IncomingServer == AccountInfo.ServerType.IMAP)
             {
