@@ -86,7 +86,7 @@ namespace AYBABTU
             // all new messages will be put into mailboxes[0]
             // take output from IMAP/POP Handler and pass to MIME handler then pass to receive
             Message[] incomingMessages;
-            
+
             /*
              * commenting out for testing purposes
             if (accountInfo.IncomingServer == AccountInfo.ServerType.POP)
@@ -100,8 +100,18 @@ namespace AYBABTU
                 {
                     handler = new POPHandler(accountInfo.IncomingServer,accountInfo.IncomingUsername, accountInfo.IncomingPassword);
                 }
-                handler.run();
-                incomingMessages = MIMEStub.returnMessages(handler.getMessages());
+                // run() returns the array, not getMessage, fix
+                string[] messages = handler.run();
+              // check for errors
+                int error = handler.getErrorCode();
+             * if( error == POPHandler.SUCCESS){
+             * foreach (string message in messages)
+             * {
+                incomingMessages = MIMEStub.returnMessages(message);
+             * }
+             * }else{
+             * MessageBox.Show("OH SHIT");
+             * }
             }
             else if (accountInfo.IncomingServer == AccountInfo.ServerType.IMAP)
             {
