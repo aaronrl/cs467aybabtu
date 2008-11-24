@@ -90,6 +90,7 @@
     <Compile Include="CreateNewAccountWindow.Designer.cs">
       <DependentUpon>CreateNewAccountWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="IMAPHandler.cs" />
     <Compile Include="Mailbox.cs" />
     <Compile Include="MailChecker.cs">
       <SubType>Form</SubType>
