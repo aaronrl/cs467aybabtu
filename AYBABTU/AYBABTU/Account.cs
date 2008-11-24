@@ -129,7 +129,7 @@ namespace AYBABTU
             }
             else if (accountInfo.IncomingServer == AccountInfo.ServerType.IMAP)
             {
-
+                // there will be only one folder accessible to an IMAP acccount (INBOX).  deletions will occur immediately
             }
             */
 
