@@ -18,11 +18,11 @@ namespace AYBABTU
             InitializeComponent();
         }
 
-        /*public EmailAccountsWindow(Account[] pAccounts)
+        public EmailAccountsWindow(Account[] pAccounts)
         {
             InitializeComponent();
             //accounts = pAccounts;
-        }*/
+        }
 
         private Account[] EmailAccounts
         {

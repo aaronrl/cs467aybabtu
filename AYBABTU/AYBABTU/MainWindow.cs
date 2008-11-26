@@ -137,6 +137,8 @@ namespace AYBABTU
             {
                 // gets the selected message from the message list and sets its body to the viewer
                 messageViewer.Text = ((Message) accounts.findAccountByName(selectedAccount).getMailbox(selectedMailbox).getMessage(indices[0])).MessageBody;
+                subjectLbl.Text = ((Message)accounts.findAccountByName(selectedAccount).getMailbox(selectedMailbox).getMessage(indices[0])).Subject;
+                fromLbl.Text = ((Message)accounts.findAccountByName(selectedAccount).getMailbox(selectedMailbox).getMessage(indices[0])).From;
             }
 
         }
@@ -306,11 +308,6 @@ namespace AYBABTU
             messageList.Items.Clear();
             //Populate the message listing from the inbox array
             messageList.Items.AddRange(messages);
-        }
-
-        private void messageViewer_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-        {
-
         }
     
     }
