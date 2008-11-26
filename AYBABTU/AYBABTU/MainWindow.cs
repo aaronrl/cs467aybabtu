@@ -307,6 +307,11 @@ namespace AYBABTU
             //Populate the message listing from the inbox array
             messageList.Items.AddRange(messages);
         }
+
+        private void messageViewer_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
+        }
     
     }
 }
