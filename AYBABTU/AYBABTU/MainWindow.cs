@@ -78,11 +78,16 @@ namespace AYBABTU
             string selectedAccount = folderList.SelectedNode.Parent.Text;
             string selectedMailbox = folderList.SelectedNode.Text;
 
-            // delete message and move it to trash
+            // delete message and move it to trash  *** INSERT CODE FOR IMAP DELETE ***
             try
             {
                 Message deletedMessage = accounts.findAccountByName(selectedAccount).getMailbox(selectedMailbox).deleteMessage(indices[0]);
-                accounts.findAccountByName(selectedAccount).getMailbox("Trash").addMessage(deletedMessage);
+                if (accounts.findAccountByName(selectedAccount).accountInfo.IncomingServerType == AccountInfo.ServerType.POP)
+                {
+                    accounts.findAccountByName(selectedAccount).getMailbox("Trash").addMessage(deletedMessage);
+                }
+                
+                
             }
             catch (Exception exception)
             {
