@@ -598,9 +598,8 @@ namespace AYBABTU
             this.fromLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fromLbl.Location = new System.Drawing.Point(76, 11);
             this.fromLbl.Name = "fromLbl";
-            this.fromLbl.Size = new System.Drawing.Size(34, 16);
+            this.fromLbl.Size = new System.Drawing.Size(0, 16);
             this.fromLbl.TabIndex = 3;
-            this.fromLbl.Text = "from";
             // 
             // subjectLbl
             // 
@@ -608,9 +607,8 @@ namespace AYBABTU
             this.subjectLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.subjectLbl.Location = new System.Drawing.Point(76, 30);
             this.subjectLbl.Name = "subjectLbl";
-            this.subjectLbl.Size = new System.Drawing.Size(51, 16);
+            this.subjectLbl.Size = new System.Drawing.Size(0, 16);
             this.subjectLbl.TabIndex = 4;
-            this.subjectLbl.Text = "subject";
             // 
             // getAndSendToolStripMenuItem
             // 
