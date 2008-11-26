@@ -6,10 +6,10 @@ using System.Windows.Forms;
 namespace AYBABTU
 {
     [Serializable]
-    class Mailbox
+    public class Mailbox
     {
         private string name;
-        private ArrayList messages;
+        private ArrayList messages = new ArrayList();
 
         public Mailbox(string pName)
         {
@@ -17,7 +17,11 @@ namespace AYBABTU
             messages = new ArrayList();
         }
 
-        
+        public Mailbox(string pName, ArrayList pMessages)
+        {
+            name = pName;
+            messages = pMessages;
+        }
 
         public Message getMessage(int index)
         {

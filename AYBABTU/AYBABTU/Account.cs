@@ -6,11 +6,11 @@ using System.Windows.Forms;
 namespace AYBABTU
 {
     [Serializable]
-    class Account
+    public class Account
     {
         private string accountName;
-        public AccountInfo accountInfo;
-        SortedDictionary<string, Mailbox> accountMailboxes = new SortedDictionary<string, Mailbox>();
+        public AccountInfo accountInfo = new AccountInfo();
+        public SortedDictionary<string, Mailbox> accountMailboxes = new SortedDictionary<string, Mailbox>();
 
         public Account()
         {
@@ -71,7 +71,8 @@ namespace AYBABTU
 
         public Mailbox getMailbox(string mailbox)
         {
-            return accountMailboxes[mailbox];
+            Mailbox retval = accountMailboxes[mailbox];
+            return retval;
         }
 
         public bool emptyTrash()

@@ -11,8 +11,9 @@ namespace AYBABTU
     public partial class EmailAccountsWindow : Form
     {
         private Account selectedAccount;
-        private Account[] accounts;
-        
+        public Account[] accounts = new Account[10];
+
+        #region constructors
         public EmailAccountsWindow()
         {
             InitializeComponent();
@@ -21,22 +22,23 @@ namespace AYBABTU
         public EmailAccountsWindow(Account[] pAccounts)
         {
             InitializeComponent();
-            //accounts = pAccounts;
+            accounts = pAccounts;
         }
+        #endregion
 
-        private Account[] EmailAccounts
+        #region properties
+        public Account[] EmailAccounts
         {
             set
             {
                 accounts = value;
             }
+            get
+            {
+                return accounts;
+            }
         }
-
-        private void OKButton_Click(object sender, EventArgs e)
-        {
-
-            this.Close();
-        }
+        #endregion
 
         private void EmailAccountsWindow_Load(object sender, EventArgs e)
         {
@@ -54,6 +56,12 @@ namespace AYBABTU
             } finally {   
                 accountsCmbBox.ResumeLayout();
             }
+        }
+        #region events
+        private void OKButton_Click(object sender, EventArgs e)
+        {
+
+            this.Close();
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
@@ -82,6 +90,23 @@ namespace AYBABTU
         private void useSameSettingsChkBox_CheckedChanged(object sender, EventArgs e)
         {
             useSameSettingsAsIncomingServer(useSameSettingsChkBox.Checked);
+        }
+
+        private void outgoingAuthenticationCmbBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (outgoingAuthenticationCmbBox.SelectedText == "None")
+            {
+                authenticationType(false);
+            }
+            else
+            {
+                authenticationType(true);
+            }
+        }
+
+        private void CancelButton_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void accountsCmbBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -121,15 +146,17 @@ namespace AYBABTU
             }
             
         }
+#endregion
 
-        private void authenticationType(bool enable)
+        #region assistance methods
+        public void authenticationType(bool enable)
         {
             // this method enables or disables authentication information for the outgoing server
             useSameSettingsChkBox.Enabled = enable;
             useSameSettingsAsIncomingServer(enable);
         }
 
-        private void useSameSettingsAsIncomingServer(bool enable)
+        public void useSameSettingsAsIncomingServer(bool enable)
         {
             if (enable)
             {
@@ -149,23 +176,8 @@ namespace AYBABTU
             }
 
         }
+        #endregion
 
-        private void outgoingAuthenticationCmbBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (outgoingAuthenticationCmbBox.SelectedText == "None")
-            {
-                authenticationType(false);
-            }
-            else 
-            {
-                authenticationType(true);
-            }
-        }
-
-        private void CancelButton_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-        }
     }
 
     internal class AccountNameMap

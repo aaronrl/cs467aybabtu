@@ -114,8 +114,9 @@ namespace AYBABTU
         private void emailAccountsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EmailAccountsWindow accountsWindow = new EmailAccountsWindow();
-            //accountsWindow.EmailAccounts = accounts.EmailAccounts;
+            accountsWindow.EmailAccounts = accounts.EmailAccounts;
             accountsWindow.Show();
+            accounts.EmailAccounts = accountsWindow.EmailAccounts;
         }
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -312,20 +313,3 @@ namespace AYBABTU
     
     }
 }
-
-/*
- * test data for populating the inbox array
- for (int i = 0; i < 40; i++)
- {
-     Message aMsg = new Message("aaron@mail.com", "aaron@mail.com", "Hello " + i, "This is a test message, hopefully it works!  \nTest " + i);
-     ListViewItem message = new ListViewItem(aMsg.From);
-     message.SubItems.Add(aMsg.Subject);
-     message.SubItems.Add("June 2, 1984");
-                
-     ArrayList listitem = new ArrayList();
-     listitem.Add(message);
-     listitem.Add(aMsg);
-     inbox.Add(listitem);
-                
- }
-*/

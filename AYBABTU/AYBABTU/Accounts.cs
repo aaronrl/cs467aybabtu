@@ -81,6 +81,10 @@ namespace AYBABTU
             {
                 return accounts;
             }
+            set
+            {
+                accounts = value;
+            }
         }
 
         public TreeNode[] getTreeViewOfAccounts()

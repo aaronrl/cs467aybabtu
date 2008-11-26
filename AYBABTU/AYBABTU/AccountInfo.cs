@@ -5,7 +5,7 @@ using System.Text;
 namespace AYBABTU
 {
     [Serializable]
-    class AccountInfo
+    public class AccountInfo
     {
         public enum ServerType { POP = 1, IMAP = 2 };
         public enum AuthenticationType { None = 1, Password = 2 };
@@ -73,7 +73,7 @@ namespace AYBABTU
         }
         #endregion 
 
-        #region accessors/mutators
+        #region properties
 
         public string EmailAddress
         {
