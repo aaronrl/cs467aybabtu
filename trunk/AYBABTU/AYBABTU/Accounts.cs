@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace AYBABTU
 {
-    class Accounts
+    public class Accounts
     {
         private Account[] accounts;
 
@@ -95,6 +95,19 @@ namespace AYBABTU
                 accountsTree[i] = accounts[i].returnTreeNode();
             }
             return accountsTree;
+        }
+
+        public ListViewItem[] getListViewOfAccounts()
+        {
+            ListViewItem[] listing = new ListViewItem[accounts.Length];
+            for (int i = 0; i < accounts.Length; i++)
+            {
+                ListViewItem account = new ListViewItem(accounts[i].AccountName);
+                account.SubItems.Add(accounts[i].accountInfo.EmailAddress);
+                account.SubItems.Add(accounts[i].accountInfo.IncomingServer);
+                listing[i] = account;
+            }
+            return listing;
         }
 
     }
