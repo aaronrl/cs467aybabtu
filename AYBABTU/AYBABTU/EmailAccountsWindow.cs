@@ -56,6 +56,11 @@ namespace AYBABTU
             } finally {   
                 accountsCmbBox.ResumeLayout();
             }
+
+            accountsCmbBox.SelectedItem = accountsCmbBox.Items[0];
+            AccountNameMap map = accountsCmbBox.SelectedItem as AccountNameMap;
+            selectedAccount = map.EmailAccount;
+            setSelectedAccount();
         }
         #region events
         private void OKButton_Click(object sender, EventArgs e)
@@ -113,38 +118,7 @@ namespace AYBABTU
         {
             AccountNameMap map = accountsCmbBox.SelectedItem as AccountNameMap;
             selectedAccount = map.EmailAccount;
-
-            if (selectedAccount.accountInfo.IncomingServerType == AccountInfo.ServerType.IMAP)
-            {
-                incomingServerType.SelectedText = "IMAP";
-            }
-            else
-            {
-                incomingServerType.SelectedText = "POP";
-            }
-            incomingServerTxtBox.Text = selectedAccount.accountInfo.IncomingServer;
-            incomingPortTxtBox.Text = Convert.ToString(selectedAccount.accountInfo.IncomingPort);
-            incomingUsernameTxtBox.Text = selectedAccount.accountInfo.IncomingUsername;
-            incomingPasswordTxtBox.Text = selectedAccount.accountInfo.IncomingPassword;
-            incomingSSLChkBox.Checked = selectedAccount.accountInfo.IncomingSSL;
-
-            outgoingServerTxtBox.Text = selectedAccount.accountInfo.OutgoingServer;
-            outgoingPortTxtBox.Text = Convert.ToString(selectedAccount.accountInfo.OutgoingPort);
-            
-            if (selectedAccount.accountInfo.OutgoingAuthentication == AccountInfo.AuthenticationType.None)
-            {
-                outgoingAuthenticationCmbBox.SelectedText = "None";
-                authenticationType(false);
-            }
-            else
-            {
-                outgoingAuthenticationCmbBox.SelectedText = "Password";
-                authenticationType(true);
-                outgoingUsernameTxtBox.Text = selectedAccount.accountInfo.OutgoingUsername;
-                outgoingPasswordTxtBox.Text = selectedAccount.accountInfo.OutgoingPassword;
-                outgoingSSLChkBox.Checked = selectedAccount.accountInfo.OutgoingSSL;
-            }
-            
+            setSelectedAccount();            
         }
 #endregion
 
@@ -176,7 +150,42 @@ namespace AYBABTU
             }
 
         }
+
+        public void setSelectedAccount()
+        {
+            if (selectedAccount.accountInfo.IncomingServerType == AccountInfo.ServerType.IMAP)
+            {
+                incomingServerType.SelectedIndex = 1;
+            }
+            else
+            {
+                incomingServerType.SelectedIndex = 0;
+            }
+            incomingServerTxtBox.Text = selectedAccount.accountInfo.IncomingServer;
+            incomingPortTxtBox.Text = Convert.ToString(selectedAccount.accountInfo.IncomingPort);
+            incomingUsernameTxtBox.Text = selectedAccount.accountInfo.IncomingUsername;
+            incomingPasswordTxtBox.Text = selectedAccount.accountInfo.IncomingPassword;
+            incomingSSLChkBox.Checked = selectedAccount.accountInfo.IncomingSSL;
+
+            outgoingServerTxtBox.Text = selectedAccount.accountInfo.OutgoingServer;
+            outgoingPortTxtBox.Text = Convert.ToString(selectedAccount.accountInfo.OutgoingPort);
+
+            if (selectedAccount.accountInfo.OutgoingAuthentication == AccountInfo.AuthenticationType.None)
+            {
+                outgoingAuthenticationCmbBox.SelectedIndex = 0;
+                authenticationType(false);
+            }
+            else
+            {
+                outgoingAuthenticationCmbBox.SelectedIndex = 1;
+                authenticationType(true);
+                outgoingUsernameTxtBox.Text = selectedAccount.accountInfo.OutgoingUsername;
+                outgoingPasswordTxtBox.Text = selectedAccount.accountInfo.OutgoingPassword;
+                outgoingSSLChkBox.Checked = selectedAccount.accountInfo.OutgoingSSL;
+            }
+        }
         #endregion
+
 
     }
 

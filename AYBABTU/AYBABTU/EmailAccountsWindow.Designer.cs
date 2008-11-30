@@ -243,6 +243,7 @@
             // 
             // incomingServerType
             // 
+            this.incomingServerType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.incomingServerType.FormattingEnabled = true;
             this.incomingServerType.Items.AddRange(new object[] {
             "POP",
@@ -251,7 +252,6 @@
             this.incomingServerType.Name = "incomingServerType";
             this.incomingServerType.Size = new System.Drawing.Size(121, 21);
             this.incomingServerType.TabIndex = 13;
-            this.incomingServerType.Text = "POP";
             // 
             // groupBox2
             // 
@@ -288,7 +288,7 @@
             this.outgoingAuthenticationCmbBox.AutoCompleteCustomSource.AddRange(new string[] {
             "None",
             "Password"});
-            this.outgoingAuthenticationCmbBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.outgoingAuthenticationCmbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.outgoingAuthenticationCmbBox.FormattingEnabled = true;
             this.outgoingAuthenticationCmbBox.Items.AddRange(new object[] {
             "None",
@@ -297,7 +297,6 @@
             this.outgoingAuthenticationCmbBox.Name = "outgoingAuthenticationCmbBox";
             this.outgoingAuthenticationCmbBox.Size = new System.Drawing.Size(121, 21);
             this.outgoingAuthenticationCmbBox.TabIndex = 20;
-            this.outgoingAuthenticationCmbBox.Text = "None";
             this.outgoingAuthenticationCmbBox.SelectedIndexChanged += new System.EventHandler(this.outgoingAuthenticationCmbBox_SelectedIndexChanged);
             // 
             // outgoingSSLChkBox
@@ -374,6 +373,7 @@
             // 
             // accountsCmbBox
             // 
+            this.accountsCmbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.accountsCmbBox.FormattingEnabled = true;
             this.accountsCmbBox.Location = new System.Drawing.Point(68, 12);
             this.accountsCmbBox.Name = "accountsCmbBox";

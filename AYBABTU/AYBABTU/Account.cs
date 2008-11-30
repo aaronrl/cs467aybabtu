@@ -48,6 +48,10 @@ namespace AYBABTU
             {
                 return accountName;
             }
+            set
+            {
+                accountName = value;
+            }
         }
 
         public TreeNode returnTreeNode()

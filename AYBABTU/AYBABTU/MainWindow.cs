@@ -113,10 +113,11 @@ namespace AYBABTU
 
         private void emailAccountsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EmailAccountsWindow accountsWindow = new EmailAccountsWindow();
-            accountsWindow.EmailAccounts = accounts.EmailAccounts;
+            //EmailAccountsWindow accountsWindow = new EmailAccountsWindow();
+            //accountsWindow.EmailAccounts = accounts.EmailAccounts;
+            AccountsWindow accountsWindow = new AccountsWindow(accounts);
             accountsWindow.Show();
-            accounts.EmailAccounts = accountsWindow.EmailAccounts;
+            //accounts.EmailAccounts = accountsWindow.EmailAccounts;
         }
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -178,8 +179,11 @@ namespace AYBABTU
 
         private void Main_Load(object sender, EventArgs e)
         {
+            AccountInfo tmpinfo = new AccountInfo("cs467@i2k.com", AccountInfo.ServerType.POP, "mail.i2k.com", 110, "cs467", "cs467", false, "mail.i2k.com", 25, AccountInfo.AuthenticationType.Password, false, "cs467", "qu@RTZ", false);
+
             test[0] = new Account("TEST0");
-            test[0].accountInfo.EmailAddress = "aircows@gmail.com";
+            test[0].accountInfo = tmpinfo;
+
             test[1] = new Account("TEST1");
             test[2] = new Account("TEST2");
             test[3] = new Account("TEST3");

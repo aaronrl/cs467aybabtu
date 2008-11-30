@@ -77,6 +77,18 @@
     </Compile>
     <Compile Include="Account.cs" />
     <Compile Include="Accounts.cs" />
+    <Compile Include="AccountsEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccountsEditor.Designer.cs">
+      <DependentUpon>AccountsEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AccountsWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccountsWindow.Designer.cs">
+      <DependentUpon>AccountsWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddressBookWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +135,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AboutWindow.resx">
       <DependentUpon>AboutWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AccountsEditor.resx">
+      <DependentUpon>AccountsEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AccountsWindow.resx">
+      <DependentUpon>AccountsWindow.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="AddressBookWindow.resx">

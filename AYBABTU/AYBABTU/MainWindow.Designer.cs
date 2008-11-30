@@ -70,6 +70,10 @@ namespace AYBABTU
             this.writeMessageBtn = new System.Windows.Forms.Button();
             this.addressBookBtn = new System.Windows.Forms.Button();
             this.getMessageBtn = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.getAndSendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.getMessagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sendMessagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.messageList = new System.Windows.Forms.ListView();
             this.fromHeader = new System.Windows.Forms.ColumnHeader();
             this.subjectHeader = new System.Windows.Forms.ColumnHeader();
@@ -79,18 +83,15 @@ namespace AYBABTU
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.messageViewer = new System.Windows.Forms.RichTextBox();
-            this.attachmentsBtn = new System.Windows.Forms.Button();
-            this.fromLbl = new System.Windows.Forms.Label();
             this.subjectLbl = new System.Windows.Forms.Label();
-            this.getAndSendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.getMessagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sendMessagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.fromLbl = new System.Windows.Forms.Label();
+            this.attachmentsBtn = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.messageViewer = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.userButtonPanel.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.messages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -102,7 +103,6 @@ namespace AYBABTU
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -208,31 +208,31 @@ namespace AYBABTU
             // cutToolStripMenuItem
             // 
             this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
-            this.cutToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.cutToolStripMenuItem.Text = "Cut";
             // 
             // copyToolStripMenuItem
             // 
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.copyToolStripMenuItem.Text = "Copy";
             // 
             // pasteToolStripMenuItem
             // 
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.pasteToolStripMenuItem.Text = "Paste";
             // 
             // selectAllToolStripMenuItem
             // 
             this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
-            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.selectAllToolStripMenuItem.Text = "Select All";
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             // 
             // viewToolStripMenuItem
@@ -445,6 +445,34 @@ namespace AYBABTU
             this.getMessageBtn.UseVisualStyleBackColor = true;
             this.getMessageBtn.Click += new System.EventHandler(this.getMessageBtn_Click);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.AllowDrop = true;
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.getAndSendToolStripMenuItem,
+            this.getMessagesToolStripMenuItem,
+            this.sendMessagesToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(155, 70);
+            // 
+            // getAndSendToolStripMenuItem
+            // 
+            this.getAndSendToolStripMenuItem.Name = "getAndSendToolStripMenuItem";
+            this.getAndSendToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.getAndSendToolStripMenuItem.Text = "Get and Send";
+            // 
+            // getMessagesToolStripMenuItem
+            // 
+            this.getMessagesToolStripMenuItem.Name = "getMessagesToolStripMenuItem";
+            this.getMessagesToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.getMessagesToolStripMenuItem.Text = "Get Messages";
+            // 
+            // sendMessagesToolStripMenuItem
+            // 
+            this.sendMessagesToolStripMenuItem.Name = "sendMessagesToolStripMenuItem";
+            this.sendMessagesToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.sendMessagesToolStripMenuItem.Text = "Send Messages";
+            // 
             // messageList
             // 
             this.messageList.AllowColumnReorder = true;
@@ -455,6 +483,7 @@ namespace AYBABTU
             this.messageList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.messageList.FullRowSelect = true;
             this.messageList.GridLines = true;
+            this.messageList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.messageList.Location = new System.Drawing.Point(0, 0);
             this.messageList.Name = "messageList";
             this.messageList.Size = new System.Drawing.Size(824, 191);
@@ -552,34 +581,23 @@ namespace AYBABTU
             this.splitContainer3.SplitterDistance = 57;
             this.splitContainer3.TabIndex = 0;
             // 
-            // label1
+            // subjectLbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(23, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "From:";
+            this.subjectLbl.AutoSize = true;
+            this.subjectLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.subjectLbl.Location = new System.Drawing.Point(76, 30);
+            this.subjectLbl.Name = "subjectLbl";
+            this.subjectLbl.Size = new System.Drawing.Size(0, 16);
+            this.subjectLbl.TabIndex = 4;
             // 
-            // label2
+            // fromLbl
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 30);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 16);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Subject:";
-            // 
-            // messageViewer
-            // 
-            this.messageViewer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.messageViewer.Location = new System.Drawing.Point(0, 0);
-            this.messageViewer.Name = "messageViewer";
-            this.messageViewer.Size = new System.Drawing.Size(824, 245);
-            this.messageViewer.TabIndex = 0;
-            this.messageViewer.Text = "";
+            this.fromLbl.AutoSize = true;
+            this.fromLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fromLbl.Location = new System.Drawing.Point(76, 11);
+            this.fromLbl.Name = "fromLbl";
+            this.fromLbl.Size = new System.Drawing.Size(0, 16);
+            this.fromLbl.TabIndex = 3;
             // 
             // attachmentsBtn
             // 
@@ -592,51 +610,34 @@ namespace AYBABTU
             this.attachmentsBtn.TabIndex = 2;
             this.attachmentsBtn.UseVisualStyleBackColor = true;
             // 
-            // fromLbl
+            // label2
             // 
-            this.fromLbl.AutoSize = true;
-            this.fromLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fromLbl.Location = new System.Drawing.Point(76, 11);
-            this.fromLbl.Name = "fromLbl";
-            this.fromLbl.Size = new System.Drawing.Size(0, 16);
-            this.fromLbl.TabIndex = 3;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 30);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 16);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Subject:";
             // 
-            // subjectLbl
+            // label1
             // 
-            this.subjectLbl.AutoSize = true;
-            this.subjectLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subjectLbl.Location = new System.Drawing.Point(76, 30);
-            this.subjectLbl.Name = "subjectLbl";
-            this.subjectLbl.Size = new System.Drawing.Size(0, 16);
-            this.subjectLbl.TabIndex = 4;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(23, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "From:";
             // 
-            // getAndSendToolStripMenuItem
+            // messageViewer
             // 
-            this.getAndSendToolStripMenuItem.Name = "getAndSendToolStripMenuItem";
-            this.getAndSendToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.getAndSendToolStripMenuItem.Text = "Get and Send";
-            // 
-            // getMessagesToolStripMenuItem
-            // 
-            this.getMessagesToolStripMenuItem.Name = "getMessagesToolStripMenuItem";
-            this.getMessagesToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.getMessagesToolStripMenuItem.Text = "Get Messages";
-            // 
-            // sendMessagesToolStripMenuItem
-            // 
-            this.sendMessagesToolStripMenuItem.Name = "sendMessagesToolStripMenuItem";
-            this.sendMessagesToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.sendMessagesToolStripMenuItem.Text = "Send Messages";
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.AllowDrop = true;
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.getAndSendToolStripMenuItem,
-            this.getMessagesToolStripMenuItem,
-            this.sendMessagesToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(155, 70);
+            this.messageViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.messageViewer.Location = new System.Drawing.Point(0, 0);
+            this.messageViewer.Name = "messageViewer";
+            this.messageViewer.Size = new System.Drawing.Size(824, 245);
+            this.messageViewer.TabIndex = 0;
+            this.messageViewer.Text = "";
             // 
             // Main
             // 
@@ -654,6 +655,7 @@ namespace AYBABTU
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.userButtonPanel.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.messages)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -666,7 +668,6 @@ namespace AYBABTU
             this.splitContainer3.Panel1.PerformLayout();
             this.splitContainer3.Panel2.ResumeLayout(false);
             this.splitContainer3.ResumeLayout(false);
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
