@@ -8,6 +8,9 @@ using System.Text;
 using System.Windows.Forms;
 using System.Net.Mail;
 using System.Threading;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
 
 namespace AYBABTU
 {
@@ -27,11 +30,35 @@ namespace AYBABTU
         #region Buttons
         private void getMessageBtn_Click(object sender, EventArgs e)
         {
-            //MailChecker window = new MailChecker();
-            //window.Show();
-            accounts.findAccountByName("TEST0").checkForNewMessages();
-            ListViewItem[] msglist = accounts.findAccountByName(folderList.SelectedNode.Parent.Text).getMailbox(folderList.SelectedNode.Text).getMessageList();
-            loadMessageList(msglist);
+            MailChecker window = new MailChecker();
+            window.Show();
+            Account[] accountsToCheck = accounts.EmailAccounts;
+            try
+            {
+                window.progressBar.Step = 100 / accountsToCheck.Length;
+                for (int i = 0; i < accountsToCheck.Length; i++)
+                {
+                    window.currentAccountLbl.Text = "Processing account:  " + accountsToCheck[i].AccountName;
+                    accountsToCheck[i].checkForNewMessages();
+                    window.progressBar.PerformStep();
+                }
+            }
+            catch (DivideByZeroException error)
+            {
+
+            }
+            window.Close();
+            window.Dispose();
+            accounts.EmailAccounts = accountsToCheck;
+            //accounts.findAccountByName("TEST0").checkForNewMessages();
+            try
+            {
+                ListViewItem[] msglist = accounts.findAccountByName(folderList.SelectedNode.Parent.Text).getMailbox(folderList.SelectedNode.Text).getMessageList();
+                loadMessageList(msglist);
+            }
+            catch (NullReferenceException error)
+            {
+            }
         }
         private void writeMessageBtn_Click(object sender, EventArgs e)
         {
@@ -161,12 +188,12 @@ namespace AYBABTU
 
         private void Main_FormClosing(object sender, EventArgs e)
         {
-            //saveMailboxToSystem();
+            //saveAccounts();
         }
 
         private void Main_FormClosed(object sender, EventArgs e)
         {
-
+            saveAccounts();
         }
 
         private void folderList_AfterSelect(object sender, TreeViewEventArgs e)
@@ -180,78 +207,42 @@ namespace AYBABTU
 
         #endregion
 
-        #region other events
-
-        private void accountsHaveChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        #endregion
-
         #endregion
 
         private void Main_Load(object sender, EventArgs e)
         {
-            AccountInfo tmpinfo = new AccountInfo("cs467@i2k.com", AccountInfo.ServerType.POP, "mail.i2k.com", 110, "cs467", "cs467", false, "mail.i2k.com", 25, AccountInfo.AuthenticationType.Password, false, "cs467", "qu@RTZ", false);
-
-            test[0] = new Account("TEST0");
-            test[0].accountInfo = tmpinfo;
-
-            test[1] = new Account("TEST1");
-            test[2] = new Account("TEST2");
-            test[3] = new Account("TEST3");
-            test[4] = new Account("TEST4");
-
-            accounts = new Accounts(test);
+            //Splashscreen splash = new Splashscreen();
+            //splash.Show();
             
+            // load up accounts from system
+            accounts = loadAccounts();
+
             // populate folder list
             folderList.Nodes.AddRange(accounts.getTreeViewOfAccounts());
             folderList.ExpandAll();
             folderList.SelectedNode = folderList.Nodes[0].FirstNode;                        
             
-            /*
-            Splashscreen splash = new Splashscreen();
-            splash.Show();
-            */
-
-            //loadAccounts();
-
-            
-            /*loadMailboxesFromSystem();
-            loadMessageList(inbox);
-            */
-
-            // need to load the tree listing
-            // need to load UI elements for each folder
-
             // load the first message into the message viewer
             //messageViewer.Text = ((Message)((ArrayList)inbox[0])[1]).MessageBody;
             
             // add double click functionality to the message list
             messageList.MouseDoubleClick += new MouseEventHandler(messageList_MouseDoubleClick);
 
-            //Let's load the setttings from the system
-            UserSettings.loadUserSettingsFromSystem();
-
-            /*
-            Thread.Sleep(2000);
-            splash.Close();
-            splash.Dispose();
-            */
+            
+            //Thread.Sleep(2000);
+            //splash.Close();
+            //splash.Dispose();
         }
 
-        /*
-
-        // this method takes the inbox array and serializes it to a file on the system 
-        private void saveMailboxToSystem()
+        private void saveAccounts()
         {
-            FileStream fs = new FileStream(Application.UserAppDataPath + "\\Inbox.mbx", FileMode.OpenOrCreate);
+           // this method takes the inbox array and serializes it to a file on the system 
+            FileStream fs = new FileStream(Application.UserAppDataPath + "\\accounts.accts", FileMode.OpenOrCreate);
 
             try
             {
                 BinaryFormatter formatter = new BinaryFormatter();
-                formatter.Serialize(fs, inbox);
+                formatter.Serialize(fs, accounts);
             }
             catch (SerializationException se)
             {
@@ -263,62 +254,32 @@ namespace AYBABTU
                 fs.Close();
             }
         }
-
-        private void loadMailboxesFromSystem()
+        
+        private Accounts loadAccounts()
         {
             // http://blog.paranoidferret.com/index.php/2008/05/13/c-snippet-tutorial-get-file-listings/
             // http://www.csharpfriends.com/Articles/getArticle.aspx?articleID=356
             // http://www.google.com/search?sourceid=chrome&ie=UTF-8&q=getting+a+directory+listing+in+c%23
-            
-            DirectoryInfo fileListing = new DirectoryInfo(Application.UserAppDataPath);
-            FileStream fs;
 
-            foreach (FileInfo file in fileListing.GetFiles("*.mbx"))
-            {
-                fs = new FileStream(Application.UserAppDataPath + "\\" + file.Name, FileMode.Open);
-                
-
-                try
-                {
-                    BinaryFormatter formatter = new BinaryFormatter();
-                    string filename = (file.Name).Substring(0, (file.Name).Length - 4);
-                    folders[filename] = (ArrayList) formatter.Deserialize(fs);
-                    //create an associative array with the filename being the key
-                    //and the item being the array.  let the key be the name of
-                    //the folder in the UI (use substring to strip the .mbx off)
-                    //Look at System.Collections.Generic.Dictionary
-                }
-                catch (SerializationException se)
-                {
-                    MessageBox.Show(se.ToString());
-                }
-                finally
-                {
-                    fs.Close();
-                }
-
-            }
-            /*
-
-            // open a stream to the mailbox file on the system
-            FileStream fst = new FileStream(Application.UserAppDataPath + "\\Inbox.mbx", FileMode.OpenOrCreate);
-
+            FileStream fst = new FileStream(Application.UserAppDataPath + "\\accounts.accts", FileMode.OpenOrCreate);
+            Accounts loadedAccounts;
             try
             {
-                // create the formatter to interpret the serialized object on the system
-                BinaryFormatter formattter = new BinaryFormatter();
-                inbox = (ArrayList)formattter.Deserialize(fst);
+                BinaryFormatter formatter = new BinaryFormatter();
+                loadedAccounts = (Accounts) formatter.Deserialize(fst);
             }
-            catch (SerializationException se)
+            catch (SerializationException e)
             {
-                MessageBox.Show(se.ToString());
+                //MessageBox.Show(e.ToString());
+                loadedAccounts = new Accounts();
             }
             finally
             {
                 fst.Close();
             }
-            */
-        //}
+
+            return loadedAccounts;
+        }
 
         /* this method loads up the message list with the supplied mailbox array */
         private void loadMessageList(ListViewItem[] messages)

@@ -83,7 +83,13 @@ namespace AYBABTU
         {
             accountsList.Items.Clear();
             accountsList.Items.AddRange(currentAccounts.getListViewOfAccounts());
-            accountsList.Items[0].Selected = true;
+            try
+            {
+                accountsList.Items[0].Selected = true;
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+            }
         }
 
         private void AccountsWindow_FormClosed(object sender, FormClosedEventArgs e)

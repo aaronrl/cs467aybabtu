@@ -92,8 +92,8 @@ namespace AYBABTU
             // take output from IMAP/POP Handler and pass to MIME handler then pass to receive
             Message[] incomingMessages;
 
-            /* commenting out for testing purposes
-            if (accountInfo.IncomingServer == AccountInfo.ServerType.POP)
+            
+            if (accountInfo.IncomingServerType == AccountInfo.ServerType.POP)
             {
                 POPHandler handler;
                 if (accountInfo.IncomingSSL)
@@ -104,16 +104,21 @@ namespace AYBABTU
                 {
                     handler = new POPHandler(accountInfo.IncomingServer,accountInfo.IncomingUsername, accountInfo.IncomingPassword);
                 }
+
                 // run() returns the array, not getMessage, fix
                 string[] messages = handler.run();
-              // check for errors
+                // check for errors
                 int error = handler.getErrorCode();
-               if( error == POPHandler.SUCCESS){
+                if( error == POPHandler.SUCCESS){
+                    incomingMessages = MIMEStub.returnMessages(messages);
+                    /*
                     foreach (string message in messages)
                     {
                         incomingMessages = MIMEStub.returnMessages(message);
                     }
-               }else{
+                     */
+                    depositNewMessagesInInbox(incomingMessages);
+                }else{
                     //USERPASSERROR = 1;
                     //STREAMERROR = 2;
                     //WRITEERROR = 3;
@@ -132,18 +137,16 @@ namespace AYBABTU
              
                }
             }
-            else if (accountInfo.IncomingServer == AccountInfo.ServerType.IMAP)
+            else //if (accountInfo.IncomingServerType == AccountInfo.ServerType.IMAP)
             {
                 // there will be only one folder accessible to an IMAP acccount (INBOX).  deletions will occur immediately
+                // ****BEGIN TEST CODE****
+                string[] test = { "test", "test", "test" };
+                incomingMessages = MIMEStub.returnMessages(test);
+                depositNewMessagesInInbox(incomingMessages);
             }
-            */
 
-            // ****BEGIN TEST CODE****
-            string[] test = { "test", "test", "test" };
-            incomingMessages = MIMEStub.returnMessages(test);
-            // ****END TEST CODE****
-
-            depositNewMessagesInInbox(incomingMessages);
+            
         }
 
         private void depositNewMessagesInInbox(Message[] newMessages)
