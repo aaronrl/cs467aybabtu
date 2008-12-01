@@ -11,10 +11,11 @@ namespace AYBABTU
 {
     public partial class AccountsEditor : Form
     {
-        private Account acct;
+        public Account acct;
         public bool newAccount;
         public bool accountSaved;
-        
+
+        #region constructors
         public AccountsEditor()
         {
             InitializeComponent();
@@ -28,11 +29,17 @@ namespace AYBABTU
             acct = editThisAccount;
             newAccount = false;
         }
+        #endregion
 
+        #region form events
         private void AccountsEditor_Load(object sender, EventArgs e)
         {
             if (!newAccount)
             {
+                accountNameTxtBox.Text = acct.AccountName;
+                nameTxtBox.Text = acct.accountInfo.Name;
+                emailAddressTxtBox.Text = acct.accountInfo.EmailAddress;
+                signatureTxtBox.Text = acct.accountInfo.Signature;
                 if (acct.accountInfo.IncomingServerType == AccountInfo.ServerType.IMAP)
                 {
                     incomingServerType.SelectedIndex = 1;
@@ -66,9 +73,22 @@ namespace AYBABTU
             }
         }
 
+        private void AccountsEditor_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+        }
+
+        private void AccountsEditor_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+        }
+#endregion
+
+        #region buttons
         private void okBtn_Click(object sender, EventArgs e)
         {
             acct.AccountName = accountNameTxtBox.Text;
+            acct.accountInfo.Name = nameTxtBox.Text;
             acct.accountInfo.EmailAddress = emailAddressTxtBox.Text;
 
             if (incomingServerType.SelectedIndex == 0)
@@ -110,12 +130,20 @@ namespace AYBABTU
                 acct.accountInfo.OutgoingPassword = outgoingPasswordTxtBox.Text;
             }
 
+           
+            acct.accountInfo.Signature = signatureTxtBox.Text;
 
             accountSaved = true;
             this.Close();
             
         }
 
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            accountSaved = false;
+            this.Close();
+        }
+        #endregion
 
         public void authenticationType(bool enable)
         {
@@ -135,12 +163,6 @@ namespace AYBABTU
                 //outgoingPasswordLbl.Enabled = false;
                 outgoingSSLChkBox.Enabled = false;
             }
-        }
-
-        private void cancelBtn_Click(object sender, EventArgs e)
-        {
-            accountSaved = false;
-            this.Close();
         }
 
     }

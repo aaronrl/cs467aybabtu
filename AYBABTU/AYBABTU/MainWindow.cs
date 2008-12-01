@@ -102,22 +102,27 @@ namespace AYBABTU
         private void aboutAYBABTUToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutWindow aboutWindow = new AboutWindow();
-            aboutWindow.Show();
+            aboutWindow.ShowDialog();
         }
 
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OptionsWindow optionsWindow = new OptionsWindow();
-            optionsWindow.Show();
+            optionsWindow.ShowDialog();
         }
 
         private void emailAccountsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //EmailAccountsWindow accountsWindow = new EmailAccountsWindow();
-            //accountsWindow.EmailAccounts = accounts.EmailAccounts;
             AccountsWindow accountsWindow = new AccountsWindow(accounts);
-            accountsWindow.Show();
-            //accounts.EmailAccounts = accountsWindow.EmailAccounts;
+            accountsWindow.ShowDialog();
+            // implementing the observer pattern here for asynchronous updates of the UI
+            accounts = accountsWindow.currentAccounts;
+            folderList.SuspendLayout();
+            folderList.Nodes.Clear();
+            folderList.Nodes.AddRange(accounts.getTreeViewOfAccounts());
+            folderList.ExpandAll();
+            folderList.ResumeLayout();
+
         }
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -171,6 +176,15 @@ namespace AYBABTU
                 folderList.SelectedNode = folderList.SelectedNode.FirstNode;
             }
             loadMessageList(accounts.findAccountByName(folderList.SelectedNode.Parent.Text).getMailbox(folderList.SelectedNode.Text).getMessageList());
+        }
+
+        #endregion
+
+        #region other events
+
+        private void accountsHaveChanged(object sender, EventArgs e)
+        {
+
         }
 
         #endregion

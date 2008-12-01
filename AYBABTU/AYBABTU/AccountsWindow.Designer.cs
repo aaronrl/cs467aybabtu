@@ -47,6 +47,7 @@
             this.serverNameHeader});
             this.accountsList.FullRowSelect = true;
             this.accountsList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.accountsList.HideSelection = false;
             this.accountsList.Location = new System.Drawing.Point(12, 30);
             this.accountsList.Name = "accountsList";
             this.accountsList.Size = new System.Drawing.Size(430, 256);
@@ -132,6 +133,7 @@
             this.Name = "AccountsWindow";
             this.Text = "Accounts";
             this.Load += new System.EventHandler(this.AccountsWindow_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AccountsWindow_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
