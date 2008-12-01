@@ -14,7 +14,7 @@ namespace AYBABTU
 
         public Accounts()
         {
-            loadAccounts();
+            accounts = new Account[0];
         }
 
         public Accounts(Account[] pAccounts)

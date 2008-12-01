@@ -11,6 +11,7 @@ namespace AYBABTU
     public class Message
     {
         private string to;
+
         private string from;
         private string cc;
         private string bcc;
@@ -18,6 +19,7 @@ namespace AYBABTU
         private string messageBody;
         private string date;
         private ArrayList attachments;
+        private string rawMessage;
 
         public Message()
         {
@@ -28,6 +30,7 @@ namespace AYBABTU
             subject = "";
             messageBody = "";
             attachments = new ArrayList();
+            rawMessage = "";
         }
 
         public Message(string pTo, string pFrom, string pSubject, string pMessageBody)
@@ -50,7 +53,6 @@ namespace AYBABTU
             messageBody = pMessageBody;
             date = pDate;
         }
-
 
         #region Accessor and Mutator Methods
 
@@ -142,6 +144,7 @@ namespace AYBABTU
         {
             this.attachments.Add(path);
         }
+
         public void deleteAttach(string path)
         {
             if (this.attachments.Contains(path))
@@ -149,6 +152,7 @@ namespace AYBABTU
                 this.attachments.Remove(path);
             }
         }
+
         public Boolean hasAttachments(string path)
         {
             if (this.attachments.Count == 0)
@@ -156,6 +160,18 @@ namespace AYBABTU
             else
             {
                 return true;
+            }
+        }
+
+        public string RawMessage
+        {
+            get
+            {
+                return rawMessage;
+            }
+            set
+            {
+                rawMessage = value;
             }
         }
         #endregion

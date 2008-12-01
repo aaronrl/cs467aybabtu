@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MailChecker));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.currentAccountLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,14 +45,13 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // progressBar1
+            // progressBar
             // 
-            this.progressBar1.Location = new System.Drawing.Point(158, 95);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(314, 23);
-            this.progressBar1.TabIndex = 1;
+            this.progressBar.Location = new System.Drawing.Point(158, 95);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(314, 23);
+            this.progressBar.TabIndex = 1;
             // 
             // label1
             // 
@@ -64,14 +63,14 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Checking Mail...";
             // 
-            // label2
+            // currentAccountLbl
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(273, 66);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Account #1";
+            this.currentAccountLbl.AutoSize = true;
+            this.currentAccountLbl.Location = new System.Drawing.Point(273, 66);
+            this.currentAccountLbl.Name = "currentAccountLbl";
+            this.currentAccountLbl.Size = new System.Drawing.Size(68, 13);
+            this.currentAccountLbl.TabIndex = 3;
+            this.currentAccountLbl.Text = "Processing...";
             // 
             // MailChecker
             // 
@@ -79,9 +78,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 156);
             this.ControlBox = false;
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.currentAccountLbl);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.pictureBox1);
             this.Name = "MailChecker";
             this.Text = "Checking Mail...";
@@ -95,8 +94,8 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        public System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label currentAccountLbl;
     }
 }
