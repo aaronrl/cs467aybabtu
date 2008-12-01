@@ -117,14 +117,14 @@
             this.nameTxtBox.Location = new System.Drawing.Point(99, 67);
             this.nameTxtBox.Name = "nameTxtBox";
             this.nameTxtBox.Size = new System.Drawing.Size(262, 20);
-            this.nameTxtBox.TabIndex = 8;
+            this.nameTxtBox.TabIndex = 1;
             // 
             // emailAddressTxtBox
             // 
             this.emailAddressTxtBox.Location = new System.Drawing.Point(99, 93);
             this.emailAddressTxtBox.Name = "emailAddressTxtBox";
             this.emailAddressTxtBox.Size = new System.Drawing.Size(262, 20);
-            this.emailAddressTxtBox.TabIndex = 7;
+            this.emailAddressTxtBox.TabIndex = 2;
             // 
             // label3
             // 
@@ -200,7 +200,7 @@
             this.incomingServerType.Location = new System.Drawing.Point(96, 6);
             this.incomingServerType.Name = "incomingServerType";
             this.incomingServerType.Size = new System.Drawing.Size(121, 21);
-            this.incomingServerType.TabIndex = 9;
+            this.incomingServerType.TabIndex = 10;
             // 
             // incomingSSLChkBox
             // 
@@ -208,7 +208,7 @@
             this.incomingSSLChkBox.Location = new System.Drawing.Point(96, 137);
             this.incomingSSLChkBox.Name = "incomingSSLChkBox";
             this.incomingSSLChkBox.Size = new System.Drawing.Size(121, 17);
-            this.incomingSSLChkBox.TabIndex = 8;
+            this.incomingSSLChkBox.TabIndex = 15;
             this.incomingSSLChkBox.Text = "Use SSL Encryption";
             this.incomingSSLChkBox.UseVisualStyleBackColor = true;
             // 
@@ -244,28 +244,28 @@
             this.incomingUsernameTxtBox.Location = new System.Drawing.Point(96, 84);
             this.incomingUsernameTxtBox.Name = "incomingUsernameTxtBox";
             this.incomingUsernameTxtBox.Size = new System.Drawing.Size(168, 20);
-            this.incomingUsernameTxtBox.TabIndex = 4;
+            this.incomingUsernameTxtBox.TabIndex = 13;
             // 
             // incomingPasswordTxtBox
             // 
             this.incomingPasswordTxtBox.Location = new System.Drawing.Point(96, 111);
             this.incomingPasswordTxtBox.Name = "incomingPasswordTxtBox";
             this.incomingPasswordTxtBox.Size = new System.Drawing.Size(168, 20);
-            this.incomingPasswordTxtBox.TabIndex = 3;
+            this.incomingPasswordTxtBox.TabIndex = 14;
             // 
             // incomingPortTxtBox
             // 
             this.incomingPortTxtBox.Location = new System.Drawing.Point(96, 58);
             this.incomingPortTxtBox.Name = "incomingPortTxtBox";
             this.incomingPortTxtBox.Size = new System.Drawing.Size(71, 20);
-            this.incomingPortTxtBox.TabIndex = 2;
+            this.incomingPortTxtBox.TabIndex = 12;
             // 
             // incomingServerTxtBox
             // 
             this.incomingServerTxtBox.Location = new System.Drawing.Point(96, 32);
             this.incomingServerTxtBox.Name = "incomingServerTxtBox";
             this.incomingServerTxtBox.Size = new System.Drawing.Size(168, 20);
-            this.incomingServerTxtBox.TabIndex = 1;
+            this.incomingServerTxtBox.TabIndex = 11;
             // 
             // label4
             // 
@@ -306,7 +306,7 @@
             this.outgoingAuthenticationCmbBox.Location = new System.Drawing.Point(97, 61);
             this.outgoingAuthenticationCmbBox.Name = "outgoingAuthenticationCmbBox";
             this.outgoingAuthenticationCmbBox.Size = new System.Drawing.Size(121, 21);
-            this.outgoingAuthenticationCmbBox.TabIndex = 19;
+            this.outgoingAuthenticationCmbBox.TabIndex = 22;
             // 
             // label13
             // 
@@ -323,7 +323,7 @@
             this.outgoingSSLChkBox.Location = new System.Drawing.Point(97, 141);
             this.outgoingSSLChkBox.Name = "outgoingSSLChkBox";
             this.outgoingSSLChkBox.Size = new System.Drawing.Size(121, 17);
-            this.outgoingSSLChkBox.TabIndex = 17;
+            this.outgoingSSLChkBox.TabIndex = 25;
             this.outgoingSSLChkBox.Text = "Use SSL Encryption";
             this.outgoingSSLChkBox.UseVisualStyleBackColor = true;
             // 
@@ -359,28 +359,28 @@
             this.outgoingUsernameTxtBox.Location = new System.Drawing.Point(97, 88);
             this.outgoingUsernameTxtBox.Name = "outgoingUsernameTxtBox";
             this.outgoingUsernameTxtBox.Size = new System.Drawing.Size(168, 20);
-            this.outgoingUsernameTxtBox.TabIndex = 13;
+            this.outgoingUsernameTxtBox.TabIndex = 23;
             // 
             // outgoingPasswordTxtBox
             // 
             this.outgoingPasswordTxtBox.Location = new System.Drawing.Point(97, 115);
             this.outgoingPasswordTxtBox.Name = "outgoingPasswordTxtBox";
             this.outgoingPasswordTxtBox.Size = new System.Drawing.Size(168, 20);
-            this.outgoingPasswordTxtBox.TabIndex = 12;
+            this.outgoingPasswordTxtBox.TabIndex = 24;
             // 
             // outgoingPortTxtBox
             // 
             this.outgoingPortTxtBox.Location = new System.Drawing.Point(97, 35);
             this.outgoingPortTxtBox.Name = "outgoingPortTxtBox";
             this.outgoingPortTxtBox.Size = new System.Drawing.Size(71, 20);
-            this.outgoingPortTxtBox.TabIndex = 11;
+            this.outgoingPortTxtBox.TabIndex = 21;
             // 
             // outgoingServerTxtBox
             // 
             this.outgoingServerTxtBox.Location = new System.Drawing.Point(97, 9);
             this.outgoingServerTxtBox.Name = "outgoingServerTxtBox";
             this.outgoingServerTxtBox.Size = new System.Drawing.Size(168, 20);
-            this.outgoingServerTxtBox.TabIndex = 10;
+            this.outgoingServerTxtBox.TabIndex = 20;
             // 
             // label11
             // 
@@ -425,7 +425,7 @@
             this.okBtn.Location = new System.Drawing.Point(209, 236);
             this.okBtn.Name = "okBtn";
             this.okBtn.Size = new System.Drawing.Size(75, 23);
-            this.okBtn.TabIndex = 1;
+            this.okBtn.TabIndex = 99;
             this.okBtn.Text = "OK";
             this.okBtn.UseVisualStyleBackColor = true;
             this.okBtn.Click += new System.EventHandler(this.okBtn_Click);
@@ -435,7 +435,7 @@
             this.cancelBtn.Location = new System.Drawing.Point(290, 236);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(75, 23);
-            this.cancelBtn.TabIndex = 2;
+            this.cancelBtn.TabIndex = 100;
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.UseVisualStyleBackColor = true;
             this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
@@ -451,6 +451,8 @@
             this.Name = "AccountsEditor";
             this.Text = "Account Editor";
             this.Load += new System.EventHandler(this.AccountsEditor_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AccountsEditor_FormClosed);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AccountsEditor_FormClosing);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

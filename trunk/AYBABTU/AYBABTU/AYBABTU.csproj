@@ -96,6 +96,12 @@
       <DependentUpon>AddressBookWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="AccountInfo.cs" />
+    <Compile Include="ConfirmationWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfirmationWindow.Designer.cs">
+      <DependentUpon>ConfirmationWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateNewAccountWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddressBookWindow.resx">
       <DependentUpon>AddressBookWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfirmationWindow.resx">
+      <DependentUpon>ConfirmationWindow.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="CreateNewAccountWindow.resx">

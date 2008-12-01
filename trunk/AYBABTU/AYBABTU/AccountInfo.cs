@@ -11,7 +11,7 @@ namespace AYBABTU
         public enum AuthenticationType { None = 1, Password = 2 };
         
         private string emailAddress;
-
+        private string name;
         private string signature;
 
         #region server variables
@@ -84,6 +84,18 @@ namespace AYBABTU
             set
             {
                 emailAddress = value;
+            }
+        }
+
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                name = value;
             }
         }
 

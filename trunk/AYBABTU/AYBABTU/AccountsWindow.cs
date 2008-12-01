@@ -11,18 +11,21 @@ namespace AYBABTU
 {
     public partial class AccountsWindow : Form
     {
-        Accounts currentAccounts;
+        public Accounts currentAccounts;
+        public bool closed;
 
         public AccountsWindow()
         {
             InitializeComponent();
             currentAccounts = new Accounts();
+            closed = false;
         }
 
         public AccountsWindow(Accounts allAccounts)
         {
             InitializeComponent();
             currentAccounts = allAccounts;
+            closed = false;
         }
 
         #region button actions
@@ -32,13 +35,11 @@ namespace AYBABTU
             editor.ShowDialog();
             if (editor.accountSaved)
             {
-                
+                currentAccounts.createNewAccount(editor.acct);
             }
-        }
-
-        private void closeBtn_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            editor.Dispose();
+            
+            generateAccountsList();
         }
 
         private void editBtn_Click(object sender, EventArgs e)
@@ -46,23 +47,48 @@ namespace AYBABTU
             ListView.SelectedIndexCollection indices = accountsList.SelectedIndices;
             AccountsEditor editor = new AccountsEditor(currentAccounts.getAccountAt(indices[0]));
             editor.ShowDialog();
+            if (editor.accountSaved)
+            {
+                currentAccounts.editAccountAt(editor.acct, indices[0]);
+            }
+            editor.Dispose();
+            generateAccountsList();
         }
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
+            ListView.SelectedIndexCollection indices = accountsList.SelectedIndices;
+            ConfirmationWindow confirmWindow = new ConfirmationWindow();
+            confirmWindow.ShowDialog();
+            if (confirmWindow.answer)
+            {
+                currentAccounts.deleteAccount(indices[0]);
+            }
+            confirmWindow.Dispose();
+            generateAccountsList();
+        }
 
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
         #endregion
 
         private void AccountsWindow_Load(object sender, EventArgs e)
         {
-            generateAccountsList(currentAccounts.getListViewOfAccounts());
+            generateAccountsList();
         }
 
-        private void generateAccountsList(ListViewItem[] accounts)
+        private void generateAccountsList()
         {
-            //accountsList.Clear();
-            accountsList.Items.AddRange(accounts);
+            accountsList.Items.Clear();
+            accountsList.Items.AddRange(currentAccounts.getListViewOfAccounts());
+            accountsList.Items[0].Selected = true;
+        }
+
+        private void AccountsWindow_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            closed = true;
         }
     }
 }

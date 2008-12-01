@@ -49,12 +49,36 @@ namespace AYBABTU
 
         public void createNewAccount(Account newAccount)
         {
-            accounts[accounts.Length] = newAccount;
+            Account[] newAccounts = new Account[accounts.Length + 1];
+            for (int i = 0; i < accounts.Length; i++)
+            {
+                newAccounts[i] = accounts[i];
+            }
+            newAccounts[accounts.Length] = newAccount;
+            accounts = newAccounts;
         }
 
         public void deleteAccount(int index)
         {
             //delete an account
+            Account[] newAccounts = new Account[accounts.Length - 1];
+            for (int i = 0; i < accounts.Length; i++)
+            {
+                if (i < index)
+                {
+                    newAccounts[i] = accounts[i];
+                }
+                else if (i > index)
+                {
+                    newAccounts[i - 1] = accounts[i];
+                }
+            }
+            accounts = newAccounts;
+        }
+
+        public void editAccountAt(Account accountToEdit, int index)
+        {
+            accounts[index] = accountToEdit;
         }
 
         public Account getAccountAt(int index)
