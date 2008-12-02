@@ -15,6 +15,9 @@ namespace AYBABTU
             String tmpStr;
             int UIDnumber = -1;
 
+            /*
+             * Errors to handle: Not a MIME message
+             * */
 
             // Going through each message
             for (int i = 0; i < incomingMessages.Length; i++)
