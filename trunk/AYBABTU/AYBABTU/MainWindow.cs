@@ -30,27 +30,13 @@ namespace AYBABTU
         #region Buttons
         private void getMessageBtn_Click(object sender, EventArgs e)
         {
-            MailChecker window = new MailChecker();
+            AccountChecker checker = new AccountChecker(accounts.EmailAccounts);
+            MailChecker window = new MailChecker(checker, 100 / accounts.EmailAccounts.Length);
             window.Show();
-            Account[] accountsToCheck = accounts.EmailAccounts;
-            try
-            {
-                window.progressBar.Step = 100 / accountsToCheck.Length;
-                for (int i = 0; i < accountsToCheck.Length; i++)
-                {
-                    window.currentAccountLbl.Text = "Processing account:  " + accountsToCheck[i].AccountName;
-                    accountsToCheck[i].checkForNewMessages();
-                    window.progressBar.PerformStep();
-                }
-            }
-            catch (DivideByZeroException error)
-            {
-
-            }
+            checker.checkMessages();
+            accounts.EmailAccounts = checker.accountsToCheck;
             window.Close();
             window.Dispose();
-            accounts.EmailAccounts = accountsToCheck;
-            //accounts.findAccountByName("TEST0").checkForNewMessages();
             try
             {
                 ListViewItem[] msglist = accounts.findAccountByName(folderList.SelectedNode.Parent.Text).getMailbox(folderList.SelectedNode.Text).getMessageList();
@@ -186,16 +172,6 @@ namespace AYBABTU
             readSelectedMessage.Show();
         }
 
-        private void Main_FormClosing(object sender, EventArgs e)
-        {
-            //saveAccounts();
-        }
-
-        private void Main_FormClosed(object sender, EventArgs e)
-        {
-            saveAccounts();
-        }
-
         private void folderList_AfterSelect(object sender, TreeViewEventArgs e)
         {
             if (folderList.SelectedNode.Level == 0)
@@ -209,6 +185,7 @@ namespace AYBABTU
 
         #endregion
 
+        #region main form events
         private void Main_Load(object sender, EventArgs e)
         {
             //Splashscreen splash = new Splashscreen();
@@ -233,6 +210,17 @@ namespace AYBABTU
             //splash.Close();
             //splash.Dispose();
         }
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            saveAccounts();
+        }
+
+        private void Main_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+        }
+        #endregion
 
         private void saveAccounts()
         {
@@ -260,7 +248,7 @@ namespace AYBABTU
             // http://blog.paranoidferret.com/index.php/2008/05/13/c-snippet-tutorial-get-file-listings/
             // http://www.csharpfriends.com/Articles/getArticle.aspx?articleID=356
             // http://www.google.com/search?sourceid=chrome&ie=UTF-8&q=getting+a+directory+listing+in+c%23
-
+            
             FileStream fst = new FileStream(Application.UserAppDataPath + "\\accounts.accts", FileMode.OpenOrCreate);
             Accounts loadedAccounts;
             try
@@ -277,7 +265,7 @@ namespace AYBABTU
             {
                 fst.Close();
             }
-
+            
             return loadedAccounts;
         }
 
@@ -289,6 +277,6 @@ namespace AYBABTU
             //Populate the message listing from the inbox array
             messageList.Items.AddRange(messages);
         }
-    
+
     }
 }

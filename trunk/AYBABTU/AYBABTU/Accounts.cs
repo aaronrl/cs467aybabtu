@@ -8,6 +8,7 @@ using System.Windows.Forms;
 
 namespace AYBABTU
 {
+    [Serializable]
     public class Accounts
     {
         private Account[] accounts;
