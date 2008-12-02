@@ -45,6 +45,8 @@ namespace AYBABTU
 
     public class AccountChecker
     {
+        // http://msdn.microsoft.com/en-us/library/ms182178(VS.80).aspx
+
         public event EventHandler<AccountCheckedEventArgs> AccountCheckedEvent;
 
         public Account[] accountsToCheck;
