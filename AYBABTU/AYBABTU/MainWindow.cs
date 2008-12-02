@@ -31,7 +31,16 @@ namespace AYBABTU
         private void getMessageBtn_Click(object sender, EventArgs e)
         {
             AccountChecker checker = new AccountChecker(accounts.EmailAccounts);
-            MailChecker window = new MailChecker(checker, 100 / accounts.EmailAccounts.Length);
+            int step;
+            try
+            {
+                step = 100 / accounts.EmailAccounts.Length;
+            }
+            catch (DivideByZeroException error)
+            {
+                step = 100;
+            }
+            MailChecker window = new MailChecker(checker, step);
             window.Show();
             checker.checkMessages();
             accounts.EmailAccounts = checker.accountsToCheck;
@@ -134,6 +143,15 @@ namespace AYBABTU
             folderList.Nodes.Clear();
             folderList.Nodes.AddRange(accounts.getTreeViewOfAccounts());
             folderList.ExpandAll();
+            if (accounts.EmailAccounts.Length > 0)
+            {
+                folderList.SelectedNode = folderList.Nodes[0].FirstNode;
+                loadMessageList(accounts.findAccountByName(folderList.SelectedNode.Parent.Text).getMailbox(folderList.SelectedNode.Text).getMessageList());
+            }
+            else
+            {
+                loadMessageList(new ListViewItem[0]);
+            }
             folderList.ResumeLayout();
 
         }
