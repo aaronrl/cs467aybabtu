@@ -132,6 +132,7 @@
     <Compile Include="..\..\..\..\..\..\Desktop\MIMEStub.cs">
       <Link>MIMEStub.cs</Link>
     </Compile>
+    <Compile Include="MessageParser.cs" />
     <Compile Include="OptionsWindow.cs">
       <SubType>Form</SubType>
     </Compile>
