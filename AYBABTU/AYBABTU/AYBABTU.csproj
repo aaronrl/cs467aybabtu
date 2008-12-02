@@ -129,10 +129,8 @@
     <Compile Include="MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\..\..\..\..\..\Desktop\MIMEStub.cs">
-      <Link>MIMEStub.cs</Link>
-    </Compile>
     <Compile Include="MessageParser.cs" />
+    <Compile Include="MIMEStub.cs" />
     <Compile Include="OptionsWindow.cs">
       <SubType>Form</SubType>
     </Compile>

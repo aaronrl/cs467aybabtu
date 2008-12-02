@@ -60,7 +60,7 @@ namespace AYBABTU
                 {
                     //currentAccountLbl.Text = "Processing account:  " + accountsToCheck[i].AccountName;
                     accountsToCheck[i].checkForNewMessages();
-
+                    OnCompletionOfAccountReciept(new AccountCheckedEventArgs());
                 }
             }
             catch (DivideByZeroException error)
