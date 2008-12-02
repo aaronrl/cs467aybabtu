@@ -126,6 +126,7 @@ namespace AYBABTU
                         while
                         (!MessageContents[original].StartsWith("------="));
 
+                        tempMessage.MessageBody = bodyStr.Trim();
                     }
 
                 }
