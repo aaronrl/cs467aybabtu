@@ -104,7 +104,7 @@ namespace AYBABTU
                     if (MessageContents[j].StartsWith("Subject:", true, null))
                     {
                         tmpStr = "";
-                        char[] tmpChr = MessageContents[j].Substring(10).ToCharArray();
+                        char[] tmpChr = MessageContents[j].Substring(9).ToCharArray();
                         for (int k = 0; k < tmpChr.Length; k++)
                         {
                             if (!tmpChr[k].Equals('\"'))

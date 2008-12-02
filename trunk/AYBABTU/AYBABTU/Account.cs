@@ -110,7 +110,8 @@ namespace AYBABTU
                 // check for errors
                 int error = handler.getErrorCode();
                 if( error == POPHandler.SUCCESS){
-                    incomingMessages = MIMEStub.returnMessages(messages);
+                    //incomingMessages = MIMEStub.returnMessages(messages);
+                    incomingMessages = MessageParser.returnMessages(messages);
                     /*
                     foreach (string message in messages)
                     {
