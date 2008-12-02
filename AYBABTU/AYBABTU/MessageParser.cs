@@ -113,7 +113,20 @@ namespace AYBABTU
                     }
 
                     //Body Time
+                    if (MessageContents[j].Contains(@"text/plain"))
+                    {
+                        String bodyStr = "";
+                        int original = j+3;
+                        //the start of the body is at line j+3
+                        do
+                        {
+                           bodyStr += MessageContents[original];
+                            original++;
+                        }
+                        while
+                        (!MessageContents[original].StartsWith("------="));
 
+                    }
 
                 }
                 messages[i] = tempMessage;
