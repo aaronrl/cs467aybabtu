@@ -140,7 +140,7 @@ namespace AYBABTU
                             original++;
                         }
                         while
-                        (!MessageContents[original].StartsWith("------="));
+                        (!MessageContents[original].StartsWith("------=") || MessageContents[original].StartsWith("Content-"));
 
                         tempMessage.MessageBody = bodyStr.Trim();
                     }
