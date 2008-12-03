@@ -56,6 +56,7 @@ namespace AYBABTU
                             }
                         }
                         tempMessage.ToDisplay = tmpStr.Trim();
+                        tempMessage.To = reStrict.Match(tmpStr).ToString();
                     }
 
                     if (MessageContents[j].StartsWith("CC:", true, null))
@@ -70,6 +71,7 @@ namespace AYBABTU
                             }
                         }
                         tempMessage.CCDisplay = tmpStr.Trim();
+                        tempMessage.CC = reStrict.Match(tmpStr).ToString();
                     }
                     if (MessageContents[j].StartsWith("BCC:", true, null))
                     {
@@ -83,6 +85,7 @@ namespace AYBABTU
                             }
                         }
                         tempMessage.BCCDisplay = tmpStr.Trim();
+                        tempMessage.BCC = reStrict.Match(tmpStr).ToString();
                     }
                     if (MessageContents[j].StartsWith("From:", true, null))
                     {
@@ -96,6 +99,7 @@ namespace AYBABTU
                             }
                         }
                         tempMessage.FromDisplay = tmpStr.Trim();
+                        tempMessage.From = reStrict.Match(tmpStr).ToString();
                     }
                     if (MessageContents[j].StartsWith("Date:", true, null))
                     {
