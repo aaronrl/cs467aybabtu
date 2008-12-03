@@ -102,6 +102,8 @@ namespace AYBABTU
             string selectedAccount = folderList.SelectedNode.Parent.Text;
             string selectedMailbox = folderList.SelectedNode.Text;
 
+            accounts.findAccountByName(selectedAccount).deleteMessage(selectedMailbox, indices[0]);
+/*
             // delete message and move it to trash  *** INSERT CODE FOR IMAP DELETE ***
             try
             {
@@ -116,7 +118,7 @@ namespace AYBABTU
             catch (Exception exception)
             {
             }
-
+            */
             ListViewItem[] msglist = accounts.findAccountByName(selectedAccount).getMailbox(selectedMailbox).getMessageList();
             loadMessageList(msglist);
         }
@@ -214,6 +216,16 @@ namespace AYBABTU
             // load up accounts from system
             accounts = loadAccounts();
 
+            // synchronize all imap accounts
+            for (int i = 0; i < accounts.EmailAccounts.Length; i++)
+            {
+                if (accounts.accounts[i].accountInfo.IncomingServerType == AccountInfo.ServerType.IMAP)
+                {
+                    accounts.accounts[i].initializeIMAPHandler();
+                }
+            }
+
+
             // populate folder list
             folderList.Nodes.AddRange(accounts.getTreeViewOfAccounts());
             folderList.ExpandAll();
@@ -239,6 +251,8 @@ namespace AYBABTU
                 if (accounts.accounts[i].accountInfo.IncomingServerType == AccountInfo.ServerType.IMAP)
                 {
                     accounts.accounts[i].imap.logout();
+                    accounts.accounts[i].resetUIDs();
+                    accounts.accounts[i].imap = null;
                 }
             }
             saveAccounts();

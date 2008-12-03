@@ -176,7 +176,16 @@ namespace AYBABTU
                 {
                     if (imapUIDValidity == imap.getUIDValidity())
                     {
-                        depositNewMessagesInInbox(MessageParser.returnMessages(imap.getNewMessages("INBOX", imapUIDValidity, maxuid)));
+                        string[] messages = imap.getNewMessages("INBOX", imapUIDValidity, maxuid);
+                        if (messages != null)
+                        {
+                            depositNewMessagesInInbox(MessageParser.returnMessages(messages));
+                        }
+                        else
+                        {
+
+                        }
+
                     }
                     else
                     {
@@ -203,9 +212,24 @@ namespace AYBABTU
                     accountMailboxes["Inbox"] = new Mailbox("Inbox");
                     depositNewMessagesInInbox(MessageParser.returnMessages(messages));
                 }
-                
+                else if (error == IMAPHandler.UNKNOWNERROR)
+                {
+                    imap = null;
+                    initializeIMAPHandler();
+                }
+
             }
-            
+            else if (error == IMAPHandler.UNKNOWNERROR)
+            {
+                imap = null;
+                initializeIMAPHandler();
+            }
+        }
+
+        public void resetUIDs()
+        {
+            maxuid = -1;
+            imapUIDValidity = -1;
         }
 
         public void initializeIMAPHandler()
@@ -236,7 +260,19 @@ namespace AYBABTU
             }
         }
 
+        public void deleteMessage(string folder, int msgIndex)
+        {
+            Message deletedMessage = accountMailboxes[folder].deleteMessage(msgIndex);
 
+            if (accountInfo.IncomingServerType == AccountInfo.ServerType.POP)
+            {
+                accountMailboxes["Trash"].addMessage(deletedMessage);
+            }
+            else
+            {
+                imap.delete("INBOX", imapUIDValidity, deletedMessage.UID);
+            }
+        }
 
     }
 }

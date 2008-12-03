@@ -31,19 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WriteWindow));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.attachBtn = new System.Windows.Forms.Button();
-            this.redoBtn = new System.Windows.Forms.Button();
-            this.undoBtn = new System.Windows.Forms.Button();
-            this.saveBtn = new System.Windows.Forms.Button();
-            this.addressBookBtn = new System.Windows.Forms.Button();
-            this.spellCheckBtn = new System.Windows.Forms.Button();
-            this.sendBtn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,6 +46,10 @@
             this.attachmentsListBox = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.fromTxtBox = new System.Windows.Forms.TextBox();
+            this.sendBtn = new System.Windows.Forms.Button();
+            this.attachBtn = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -63,7 +58,6 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.editToolStripMenuItem,
             this.viewToolStripMenuItem,
             this.toolsToolStripMenuItem,
             this.helpToolStripMenuItem});
@@ -75,32 +69,28 @@
             // 
             // fileToolStripMenuItem
             // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.editToolStripMenuItem.Text = "Edit";
             // 
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.viewToolStripMenuItem.Text = "View";
             // 
             // toolsToolStripMenuItem
             // 
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.toolsToolStripMenuItem.Text = "Tools";
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // statusStrip1
@@ -110,105 +100,6 @@
             this.statusStrip1.Size = new System.Drawing.Size(692, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.attachBtn);
-            this.panel1.Controls.Add(this.redoBtn);
-            this.panel1.Controls.Add(this.undoBtn);
-            this.panel1.Controls.Add(this.saveBtn);
-            this.panel1.Controls.Add(this.addressBookBtn);
-            this.panel1.Controls.Add(this.spellCheckBtn);
-            this.panel1.Controls.Add(this.sendBtn);
-            this.panel1.Location = new System.Drawing.Point(12, 27);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(668, 61);
-            this.panel1.TabIndex = 2;
-            // 
-            // attachBtn
-            // 
-            this.attachBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("attachBtn.BackgroundImage")));
-            this.attachBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.attachBtn.FlatAppearance.BorderSize = 0;
-            this.attachBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.attachBtn.Location = new System.Drawing.Point(333, 3);
-            this.attachBtn.Name = "attachBtn";
-            this.attachBtn.Size = new System.Drawing.Size(60, 55);
-            this.attachBtn.TabIndex = 5;
-            this.attachBtn.UseVisualStyleBackColor = true;
-            // 
-            // redoBtn
-            // 
-            this.redoBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("redoBtn.BackgroundImage")));
-            this.redoBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.redoBtn.FlatAppearance.BorderSize = 0;
-            this.redoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.redoBtn.Location = new System.Drawing.Point(267, 3);
-            this.redoBtn.Name = "redoBtn";
-            this.redoBtn.Size = new System.Drawing.Size(60, 55);
-            this.redoBtn.TabIndex = 4;
-            this.redoBtn.UseVisualStyleBackColor = true;
-            // 
-            // undoBtn
-            // 
-            this.undoBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("undoBtn.BackgroundImage")));
-            this.undoBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.undoBtn.FlatAppearance.BorderSize = 0;
-            this.undoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.undoBtn.Location = new System.Drawing.Point(201, 3);
-            this.undoBtn.Name = "undoBtn";
-            this.undoBtn.Size = new System.Drawing.Size(60, 55);
-            this.undoBtn.TabIndex = 3;
-            this.undoBtn.UseVisualStyleBackColor = true;
-            // 
-            // saveBtn
-            // 
-            this.saveBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("saveBtn.BackgroundImage")));
-            this.saveBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.saveBtn.FlatAppearance.BorderSize = 0;
-            this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveBtn.Location = new System.Drawing.Point(69, 3);
-            this.saveBtn.Name = "saveBtn";
-            this.saveBtn.Size = new System.Drawing.Size(60, 55);
-            this.saveBtn.TabIndex = 1;
-            this.saveBtn.UseVisualStyleBackColor = true;
-            // 
-            // addressBookBtn
-            // 
-            this.addressBookBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addressBookBtn.BackgroundImage")));
-            this.addressBookBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.addressBookBtn.FlatAppearance.BorderSize = 0;
-            this.addressBookBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addressBookBtn.Location = new System.Drawing.Point(135, 3);
-            this.addressBookBtn.Name = "addressBookBtn";
-            this.addressBookBtn.Size = new System.Drawing.Size(60, 55);
-            this.addressBookBtn.TabIndex = 2;
-            this.addressBookBtn.UseVisualStyleBackColor = true;
-            // 
-            // spellCheckBtn
-            // 
-            this.spellCheckBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("spellCheckBtn.BackgroundImage")));
-            this.spellCheckBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.spellCheckBtn.FlatAppearance.BorderSize = 0;
-            this.spellCheckBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.spellCheckBtn.Location = new System.Drawing.Point(399, 3);
-            this.spellCheckBtn.Name = "spellCheckBtn";
-            this.spellCheckBtn.Size = new System.Drawing.Size(60, 55);
-            this.spellCheckBtn.TabIndex = 6;
-            this.spellCheckBtn.UseVisualStyleBackColor = true;
-            // 
-            // sendBtn
-            // 
-            this.sendBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sendBtn.BackgroundImage")));
-            this.sendBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.sendBtn.FlatAppearance.BorderSize = 0;
-            this.sendBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sendBtn.Location = new System.Drawing.Point(3, 3);
-            this.sendBtn.Name = "sendBtn";
-            this.sendBtn.Size = new System.Drawing.Size(60, 55);
-            this.sendBtn.TabIndex = 0;
-            this.sendBtn.UseVisualStyleBackColor = true;
-            this.sendBtn.Click += new System.EventHandler(this.sendBtn_Click);
             // 
             // label3
             // 
@@ -300,6 +191,47 @@
             this.fromTxtBox.Size = new System.Drawing.Size(405, 20);
             this.fromTxtBox.TabIndex = 18;
             // 
+            // sendBtn
+            // 
+            this.sendBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sendBtn.BackgroundImage")));
+            this.sendBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.sendBtn.FlatAppearance.BorderSize = 0;
+            this.sendBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sendBtn.Location = new System.Drawing.Point(3, 3);
+            this.sendBtn.Name = "sendBtn";
+            this.sendBtn.Size = new System.Drawing.Size(60, 55);
+            this.sendBtn.TabIndex = 0;
+            this.sendBtn.UseVisualStyleBackColor = true;
+            this.sendBtn.Click += new System.EventHandler(this.sendBtn_Click);
+            // 
+            // attachBtn
+            // 
+            this.attachBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("attachBtn.BackgroundImage")));
+            this.attachBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.attachBtn.FlatAppearance.BorderSize = 0;
+            this.attachBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.attachBtn.Location = new System.Drawing.Point(69, 3);
+            this.attachBtn.Name = "attachBtn";
+            this.attachBtn.Size = new System.Drawing.Size(60, 55);
+            this.attachBtn.TabIndex = 5;
+            this.attachBtn.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.attachBtn);
+            this.panel1.Controls.Add(this.sendBtn);
+            this.panel1.Location = new System.Drawing.Point(12, 27);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(668, 61);
+            this.panel1.TabIndex = 2;
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
             // WriteWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -335,12 +267,10 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -349,15 +279,12 @@
         private System.Windows.Forms.TextBox subjectTxtBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RichTextBox messageBodyTxtBox;
-        private System.Windows.Forms.Button sendBtn;
-        private System.Windows.Forms.Button addressBookBtn;
-        private System.Windows.Forms.Button spellCheckBtn;
-        private System.Windows.Forms.Button saveBtn;
-        private System.Windows.Forms.Button attachBtn;
-        private System.Windows.Forms.Button redoBtn;
-        private System.Windows.Forms.Button undoBtn;
         private System.Windows.Forms.ListBox attachmentsListBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox fromTxtBox;
+        private System.Windows.Forms.Button sendBtn;
+        private System.Windows.Forms.Button attachBtn;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }

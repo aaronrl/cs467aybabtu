@@ -31,13 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReadWindow));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.deleteBtn = new System.Windows.Forms.Button();
             this.forwardBtn = new System.Windows.Forms.Button();
             this.replyAllBtn = new System.Windows.Forms.Button();
             this.replyBtn = new System.Windows.Forms.Button();
@@ -48,6 +46,7 @@
             this.toTxtBox = new System.Windows.Forms.TextBox();
             this.fromTxtBox = new System.Windows.Forms.TextBox();
             this.subjectTxtBox = new System.Windows.Forms.TextBox();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -56,7 +55,6 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.editToolStripMenuItem,
             this.viewToolStripMenuItem,
             this.toolsToolStripMenuItem,
             this.helpToolStripMenuItem});
@@ -68,15 +66,11 @@
             // 
             // fileToolStripMenuItem
             // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
-            this.editToolStripMenuItem.Text = "Edit";
             // 
             // viewToolStripMenuItem
             // 
@@ -106,7 +100,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.deleteBtn);
             this.panel1.Controls.Add(this.forwardBtn);
             this.panel1.Controls.Add(this.replyAllBtn);
             this.panel1.Controls.Add(this.replyBtn);
@@ -114,18 +107,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(668, 61);
             this.panel1.TabIndex = 2;
-            // 
-            // deleteBtn
-            // 
-            this.deleteBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("deleteBtn.BackgroundImage")));
-            this.deleteBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.deleteBtn.FlatAppearance.BorderSize = 0;
-            this.deleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteBtn.Location = new System.Drawing.Point(201, 3);
-            this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(60, 55);
-            this.deleteBtn.TabIndex = 13;
-            this.deleteBtn.UseVisualStyleBackColor = true;
             // 
             // forwardBtn
             // 
@@ -225,6 +206,13 @@
             this.subjectTxtBox.Size = new System.Drawing.Size(617, 20);
             this.subjectTxtBox.TabIndex = 9;
             // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
             // ReadWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -242,7 +230,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ReadWindow";
-            this.Text = "ReadWindow";
+            this.Text = "Read";
             this.Load += new System.EventHandler(this.ReadWindow_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -262,16 +250,15 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.TextBox toTxtBox;
         private System.Windows.Forms.TextBox fromTxtBox;
         private System.Windows.Forms.TextBox subjectTxtBox;
-        private System.Windows.Forms.Button deleteBtn;
         private System.Windows.Forms.Button forwardBtn;
         private System.Windows.Forms.Button replyAllBtn;
         private System.Windows.Forms.Button replyBtn;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }
