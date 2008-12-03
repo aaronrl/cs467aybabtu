@@ -16,8 +16,6 @@ namespace AYBABTU
 {
     public partial class Main : Form
     {
-        Account[] test = new Account[5];
-        SortedDictionary<string,ArrayList> folders = new SortedDictionary<string,ArrayList>();
         Accounts accounts;
 
         public Main()

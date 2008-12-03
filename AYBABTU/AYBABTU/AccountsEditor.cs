@@ -75,7 +75,7 @@ namespace AYBABTU
 
         private void AccountsEditor_FormClosed(object sender, FormClosedEventArgs e)
         {
-
+            acct.initializeIMAPHandler();
         }
 
         private void AccountsEditor_FormClosing(object sender, FormClosingEventArgs e)

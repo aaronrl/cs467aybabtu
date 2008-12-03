@@ -23,6 +23,7 @@ namespace AYBABTU
         private string date;
         private ArrayList attachments;
         private string rawMessage;
+        private long uid;
 
         public Message()
         {
@@ -35,6 +36,7 @@ namespace AYBABTU
             messageBody = "";
             attachments = new ArrayList();
             rawMessage = "";
+            uid = -1;
         }
 
         public Message(string pTo, string pFrom, string pSubject, string pMessageBody)
@@ -45,6 +47,7 @@ namespace AYBABTU
             messageBody = pMessageBody;
             cc = "";
             bcc = "";
+            uid = -1;
         }
 
         public Message(string pTo, string pFrom, string pCC, string pBCC, string pSubject, string pMessageBody, string pDate)
@@ -56,6 +59,7 @@ namespace AYBABTU
             subject = pSubject;
             messageBody = pMessageBody;
             date = pDate;
+            uid = -1;
         }
 
         #region Accessor and Mutator Methods
@@ -192,6 +196,30 @@ namespace AYBABTU
             }
         }
 
+        public string RawMessage
+        {
+            get
+            {
+                return rawMessage;
+            }
+            set
+            {
+                rawMessage = value;
+            }
+        }
+
+        public long UID
+        {
+            get
+            {
+                return uid;
+            }
+            set
+            {
+                uid = value;
+            }
+        }
+
         public void addAttach(string path)
         {
             this.attachments.Add(path);
@@ -215,17 +243,7 @@ namespace AYBABTU
             }
         }
 
-        public string RawMessage
-        {
-            get
-            {
-                return rawMessage;
-            }
-            set
-            {
-                rawMessage = value;
-            }
-        }
+
         #endregion
 
         // return a mailmessage representation of the message for use in the SMTP client
