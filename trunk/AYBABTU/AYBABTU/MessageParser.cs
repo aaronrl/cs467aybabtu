@@ -35,6 +35,7 @@ namespace AYBABTU
                 if (MessageContents[0].StartsWith("UID", true, null))
                 {
                     UIDnumber = int.Parse(MessageContents[0].Substring(4).Trim());
+                    tempMessage.UID = UIDnumber;
                 }
 
                 //get to, from, subject, date, and cc fields
