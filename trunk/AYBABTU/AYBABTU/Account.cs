@@ -11,6 +11,8 @@ namespace AYBABTU
         private string accountName;
         public AccountInfo accountInfo = new AccountInfo();
         public SortedDictionary<string, Mailbox> accountMailboxes = new SortedDictionary<string, Mailbox>();
+        long imapUIDValidity, maxuid;
+        IMAPHandler imap;
 
         public Account()
         {
@@ -21,6 +23,8 @@ namespace AYBABTU
             accountMailboxes["Trash"] = new Mailbox("Trash");
             accountMailboxes["Sent"] = new Mailbox("Sent");
             accountMailboxes["Drafts"] = new Mailbox("Drafts");
+            imapUIDValidity = -1;
+            maxuid = -1;
         }
 
         public Account(string name)
@@ -57,13 +61,32 @@ namespace AYBABTU
         public TreeNode returnTreeNode()
         {
             // return listing of mailboxes for this account
-            TreeNode[] nodes = new TreeNode[5];
-            
-            nodes[0] = new TreeNode("Inbox");
-            nodes[1] = new TreeNode("Outbox");
-            nodes[2] = new TreeNode("Trash");
-            nodes[3] = new TreeNode("Sent");
-            nodes[4] = new TreeNode("Drafts");
+            TreeNode[] nodes;
+
+            if (accountInfo.IncomingServerType == AccountInfo.ServerType.POP)
+            {
+                nodes = new TreeNode[5];
+
+                nodes[0] = new TreeNode("Inbox");
+                nodes[1] = new TreeNode("Outbox");
+                nodes[2] = new TreeNode("Trash");
+                nodes[3] = new TreeNode("Sent");
+                nodes[4] = new TreeNode("Drafts");
+
+                ContextMenuStrip rightClickMenu = new ContextMenuStrip();
+
+                rightClickMenu.Items.Add("Empty Trash");
+
+                //rightClickMenu.ItemClicked += new ToolStripItemClickedEventHandler(emptryTrashEvent);
+
+                nodes[2].ContextMenuStrip = rightClickMenu;
+            }
+            else
+            {
+                nodes = new TreeNode[1];
+
+                nodes[0] = new TreeNode("Inbox");
+            }
 
             // adding context menu to trash folder
             //nodes[2].ContextMenu = ;
@@ -79,10 +102,14 @@ namespace AYBABTU
             return retval;
         }
 
-        public bool emptyTrash()
+        public void emptyTrash()
         {
             accountMailboxes["Trash"] = new Mailbox("Trash");
-            return true;
+        }
+
+        public void emptyTrashEvent(object sender, ToolStripItemClickedEventArgs e)
+        {
+            accountMailboxes["Trash"] = new Mailbox("Trash");
         }
 
         public void checkForNewMessages()
@@ -141,13 +168,60 @@ namespace AYBABTU
             else //if (accountInfo.IncomingServerType == AccountInfo.ServerType.IMAP)
             {
                 // there will be only one folder accessible to an IMAP acccount (INBOX).  deletions will occur immediately
-                // ****BEGIN TEST CODE****
-                string[] test = { "test", "test", "test" };
-                incomingMessages = MIMEStub.returnMessages(test);
-                depositNewMessagesInInbox(incomingMessages);
+                if (imap == null)
+                {
+                    initializeIMAPHandler();
+                }
+                else
+                {
+                    if (imapUIDValidity == imap.getUIDValidity())
+                    {
+                        depositNewMessagesInInbox(MIMEStub.returnMessages(imap.getNewMessages("INBOX", imapUIDValidity, maxuid)));
+                    }
+                    else
+                    {
+                        synchronize(imap);
+                    }
+                }
+
             }
 
             
+        }
+
+        private void synchronize(IMAPHandler handler)
+        {
+            string[] folders = handler.retrieveFolders();
+            int error = handler.getErrorCode();
+            if (error == IMAPHandler.SUCCESS)
+            {
+                string[] messages = handler.getAllMessages("INBOX", -1);
+                int error2 = handler.getErrorCode();
+                if (error2 == IMAPHandler.SUCCESS)
+                {
+                    imapUIDValidity = handler.getUIDValidity();
+                    accountMailboxes["Inbox"] = new Mailbox("Inbox");
+                    depositNewMessagesInInbox(MIMEStub.returnMessages(messages));
+                }
+                
+            }
+            
+        }
+
+        public void initializeIMAPHandler()
+        {
+            if (imap == null)
+            {
+                if (accountInfo.IncomingSSL)
+                {
+                    imap = new IMAPHandler(accountInfo.IncomingServer, accountInfo.IncomingUsername, accountInfo.IncomingPassword, accountInfo.IncomingPort);
+                }
+                else
+                {
+                    imap = new IMAPHandler(accountInfo.IncomingServer, accountInfo.IncomingUsername, accountInfo.IncomingPassword);
+                }
+                synchronize(imap);
+            }
         }
 
         private void depositNewMessagesInInbox(Message[] newMessages)
@@ -155,21 +229,14 @@ namespace AYBABTU
             foreach (Message msg in newMessages)
             {
                 accountMailboxes["Inbox"].addMessage(msg);
+                if (maxuid < msg.UID)
+                {
+                    maxuid = msg.UID;
+                }
             }
         }
 
-        /*
-         * not doing this right now
-        public void addNewMailbox(string name)
-        {
-            accountMailboxes[name] = new Mailbox(name);
-        }
 
-        public void deleteMailbox(string name, int index)
-        {
-            //confirm deletion, possibly prompt to move messages to a different folder
-            //delete mailbox
-        }
-        */
+
     }
 }

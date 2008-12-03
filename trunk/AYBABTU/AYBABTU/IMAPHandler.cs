@@ -47,7 +47,7 @@ mark as deleted
  * 
  * 
  */
-namespace IMAP
+namespace AYBABTU
 {
     class IMAPHandler
     {
@@ -106,8 +106,8 @@ namespace IMAP
         string[] messages;
 
         #endregion
-
-        IMAPHandler(string serverHostName, string userName, string userPassword)
+        
+        public IMAPHandler(string serverHostName, string userName, string userPassword)
         {
             previousTag = firstTag;
             ssl = false;
@@ -116,7 +116,7 @@ namespace IMAP
             password = userPassword;
         }
 
-        IMAPHandler(string serverHostName, string userName, string userPassword, int serverport)
+        public IMAPHandler(string serverHostName, string userName, string userPassword, int serverport)
         {
             previousTag = firstTag;
             ssl = true;
@@ -132,13 +132,6 @@ namespace IMAP
 
 
         #region publicfinished
-
-
-
-
-
-
-
 
         //returns:
         //SUCCESS
