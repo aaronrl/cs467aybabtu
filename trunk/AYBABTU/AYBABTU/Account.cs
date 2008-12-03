@@ -12,7 +12,7 @@ namespace AYBABTU
         public AccountInfo accountInfo = new AccountInfo();
         public SortedDictionary<string, Mailbox> accountMailboxes = new SortedDictionary<string, Mailbox>();
         long imapUIDValidity, maxuid;
-        IMAPHandler imap;
+        public IMAPHandler imap;
 
         public Account()
         {
@@ -176,7 +176,7 @@ namespace AYBABTU
                 {
                     if (imapUIDValidity == imap.getUIDValidity())
                     {
-                        depositNewMessagesInInbox(MIMEStub.returnMessages(imap.getNewMessages("INBOX", imapUIDValidity, maxuid)));
+                        depositNewMessagesInInbox(MessageParser.returnMessages(imap.getNewMessages("INBOX", imapUIDValidity, maxuid)));
                     }
                     else
                     {
@@ -201,7 +201,7 @@ namespace AYBABTU
                 {
                     imapUIDValidity = handler.getUIDValidity();
                     accountMailboxes["Inbox"] = new Mailbox("Inbox");
-                    depositNewMessagesInInbox(MIMEStub.returnMessages(messages));
+                    depositNewMessagesInInbox(MessageParser.returnMessages(messages));
                 }
                 
             }
