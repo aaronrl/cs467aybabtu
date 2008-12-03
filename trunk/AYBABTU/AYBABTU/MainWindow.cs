@@ -59,7 +59,8 @@ namespace AYBABTU
 
         private void writeMessageBtn_Click(object sender, EventArgs e)
         {
-            WriteWindow writedow = new WriteWindow();
+            string selectedAccount = folderList.SelectedNode.Parent.Text;
+            WriteWindow writedow = new WriteWindow(accounts.findAccountByName(selectedAccount).accountInfo.EmailAddress);
             writedow.Show();
         }
 
@@ -75,7 +76,7 @@ namespace AYBABTU
             string selectedAccount = folderList.SelectedNode.Parent.Text;
             string selectedMailbox = folderList.SelectedNode.Text;
             Message replyMessage = accounts.findAccountByName(selectedAccount).getMailbox(selectedMailbox).getMessage(indices[0]);
-                //(Message)((ArrayList)inbox[indices[0]])[1];
+
             replyMessage.Subject = "RE: " + replyMessage.Subject;
 
             WriteWindow replyToMessageWindow = new WriteWindow(new Message(replyMessage.From, accounts.findAccountByName(selectedAccount).accountInfo.EmailAddress, replyMessage.Subject, replyMessage.MessageBody));
@@ -103,22 +104,7 @@ namespace AYBABTU
             string selectedMailbox = folderList.SelectedNode.Text;
 
             accounts.findAccountByName(selectedAccount).deleteMessage(selectedMailbox, indices[0]);
-/*
-            // delete message and move it to trash  *** INSERT CODE FOR IMAP DELETE ***
-            try
-            {
-                Message deletedMessage = accounts.findAccountByName(selectedAccount).getMailbox(selectedMailbox).deleteMessage(indices[0]);
-                if (accounts.findAccountByName(selectedAccount).accountInfo.IncomingServerType == AccountInfo.ServerType.POP)
-                {
-                    accounts.findAccountByName(selectedAccount).getMailbox("Trash").addMessage(deletedMessage);
-                }
-                
-                
-            }
-            catch (Exception exception)
-            {
-            }
-            */
+
             ListViewItem[] msglist = accounts.findAccountByName(selectedAccount).getMailbox(selectedMailbox).getMessageList();
             loadMessageList(msglist);
         }

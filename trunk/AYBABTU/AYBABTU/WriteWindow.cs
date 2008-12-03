@@ -13,6 +13,7 @@ namespace AYBABTU
     public partial class WriteWindow : Form
     {
         Message msg = new Message();
+        string from;
 
         public WriteWindow()
         {
@@ -22,12 +23,19 @@ namespace AYBABTU
         public WriteWindow(Message incomingMessage)
         {
             msg = incomingMessage;
+            from = msg.From;
+            InitializeComponent();
+        }
+
+        public WriteWindow(string pFrom)
+        {
+            from = pFrom;
             InitializeComponent();
         }
 
         private void WriteWindow_Load(object sender, EventArgs e)
         {
-            fromTxtBox.Text = Properties.Settings.Default.EmailAddress;
+            fromTxtBox.Text = from;
             toTxtBox.Text = msg.To;
             subjectTxtBox.Text = msg.Subject;
             messageBodyTxtBox.Text = msg.MessageBody;
