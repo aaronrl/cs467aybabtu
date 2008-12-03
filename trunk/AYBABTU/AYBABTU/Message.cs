@@ -11,10 +11,13 @@ namespace AYBABTU
     public class Message
     {
         private string to;
-
+        private string toDisplay;
         private string from;
+        private string fromDisplay;
         private string cc;
+        private string ccDisplay;
         private string bcc;
+        private string bccDisplay;
         private string subject;
         private string messageBody;
         private string date;
@@ -25,6 +28,7 @@ namespace AYBABTU
         {
             to = "";
             from = "";
+            fromDisplay = "";
             cc = "";
             bcc = "";
             subject = "";
@@ -68,6 +72,18 @@ namespace AYBABTU
             }
         }
 
+        public string ToDisplay
+        {
+            get
+            {
+                return toDisplay;
+            }
+            set
+            {
+                toDisplay = value;
+            }
+        }
+
         public string From
         {
             get
@@ -77,6 +93,18 @@ namespace AYBABTU
             set
             {
                 from = value;
+            }
+        }
+
+        public string FromDisplay
+        {
+            get
+            {
+                return fromDisplay;
+            }
+            set
+            {
+                fromDisplay = value;
             }
         }
 
@@ -92,6 +120,18 @@ namespace AYBABTU
             }
         }
 
+        public string CCDisplay
+        {
+            get
+            {
+                return ccDisplay;
+            }
+            set
+            {
+                ccDisplay = value;
+            }
+        }
+
         public string BCC
         {
             get
@@ -101,6 +141,18 @@ namespace AYBABTU
             set
             {
                 bcc = value;
+            }
+        }
+
+        public string BCCDisplay
+        {
+            get
+            {
+                return bccDisplay;
+            }
+            set
+            {
+                bccDisplay = value;
             }
         }
 
