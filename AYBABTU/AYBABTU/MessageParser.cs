@@ -15,12 +15,9 @@ namespace AYBABTU
             Message tempMessage;
             String tmpStr;
             int UIDnumber = -1;
-            string patternStrict = @"^(([^<>()[\]\\.,;:\s@\""]+"
-      + @"(\.[^<>()[\]\\.,;:\s@\""]+)*)|(\"".+\""))@"
-      + @"((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"
-      + @"\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+"
-      + @"[a-zA-Z]{2,}))$";
-            Regex reStrict = new Regex(patternStrict);
+            string pattern = @"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
+
+            Regex reStrict = new Regex(pattern);
 
 
 
