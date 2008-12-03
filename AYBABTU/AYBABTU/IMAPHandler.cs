@@ -49,7 +49,8 @@ mark as deleted
  */
 namespace AYBABTU
 {
-    class IMAPHandler
+    [Serializable]
+    public class IMAPHandler
     {
         #region mainstuff
 
@@ -79,10 +80,13 @@ namespace AYBABTU
         string password;
         string serverName;
 
-
+        [NonSerialized]
         Stream stream;
+        [NonSerialized]
         SslStream sslStream;
+        [NonSerialized]
         StreamReader reader;
+        [NonSerialized]
         StreamWriter writer;
 
         int serverPort;

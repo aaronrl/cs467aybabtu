@@ -11,7 +11,7 @@ namespace AYBABTU
     [Serializable]
     public class Accounts
     {
-        private Account[] accounts;
+        public Account[] accounts;
 
         public Accounts()
         {

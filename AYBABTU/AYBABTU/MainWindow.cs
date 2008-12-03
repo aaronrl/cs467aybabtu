@@ -28,31 +28,35 @@ namespace AYBABTU
         #region Buttons
         private void getMessageBtn_Click(object sender, EventArgs e)
         {
-            AccountChecker checker = new AccountChecker(accounts.EmailAccounts);
-            int step;
-            try
+            if (accounts != null)
             {
-                step = 100 / accounts.EmailAccounts.Length;
-            }
-            catch (DivideByZeroException error)
-            {
-                step = 100;
-            }
-            MailChecker window = new MailChecker(checker, step);
-            window.Show();
-            checker.checkMessages();
-            accounts.EmailAccounts = checker.accountsToCheck;
-            window.Close();
-            window.Dispose();
-            try
-            {
-                ListViewItem[] msglist = accounts.findAccountByName(folderList.SelectedNode.Parent.Text).getMailbox(folderList.SelectedNode.Text).getMessageList();
-                loadMessageList(msglist);
-            }
-            catch (NullReferenceException error)
-            {
+                AccountChecker checker = new AccountChecker(accounts.EmailAccounts);
+                int step;
+                try
+                {
+                    step = 100 / accounts.EmailAccounts.Length;
+                }
+                catch (DivideByZeroException error)
+                {
+                    step = 100;
+                }
+                MailChecker window = new MailChecker(checker, step);
+                window.Show();
+                checker.checkMessages();
+                accounts.EmailAccounts = checker.accountsToCheck;
+                window.Close();
+                window.Dispose();
+                try
+                {
+                    ListViewItem[] msglist = accounts.findAccountByName(folderList.SelectedNode.Parent.Text).getMailbox(folderList.SelectedNode.Text).getMessageList();
+                    loadMessageList(msglist);
+                }
+                catch (NullReferenceException error)
+                {
+                }
             }
         }
+
         private void writeMessageBtn_Click(object sender, EventArgs e)
         {
             WriteWindow writedow = new WriteWindow();
@@ -229,6 +233,14 @@ namespace AYBABTU
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
+
+            for (int i = 0; i < accounts.EmailAccounts.Length; i++)
+            {
+                if (accounts.accounts[i].accountInfo.IncomingServerType == AccountInfo.ServerType.IMAP)
+                {
+                    accounts.accounts[i].imap.logout();
+                }
+            }
             saveAccounts();
         }
 
@@ -270,13 +282,21 @@ namespace AYBABTU
             try
             {
                 BinaryFormatter formatter = new BinaryFormatter();
-                loadedAccounts = (Accounts) formatter.Deserialize(fst);
+                object obj = formatter.Deserialize(fst);
+                loadedAccounts = (Accounts) obj;
+                int i;
+                i = 0;
             }
             catch (SerializationException e)
             {
                 //MessageBox.Show(e.ToString());
                 loadedAccounts = new Accounts();
             }
+            //catch (Exception e)
+            //{
+            //    MessageBox.Show(e.ToString());
+            //    loadedAccounts = new Accounts();
+            //}
             finally
             {
                 fst.Close();
