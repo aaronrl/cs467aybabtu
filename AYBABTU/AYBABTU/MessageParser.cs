@@ -124,20 +124,23 @@ namespace AYBABTU
                         }
                         tempMessage.Subject = tmpStr.Trim();
                     }
- 
+
                     //Body Time
                     if (MessageContents[j].Contains(@"text/plain"))
                     {
                         String bodyStr = "";
-                        int original = j+3;
+                        int original = j;
                         //the start of the body is at line j+3
-                        do
+
+                        while (!MessageContents[original].StartsWith("------="))
                         {
-                           bodyStr += MessageContents[original];
+                            if (!MessageContents[original].StartsWith("Content-"))
+                            {
+                                bodyStr += MessageContents[original];
+
+                            }
                             original++;
                         }
-                        while
-                        (!MessageContents[original].StartsWith("------=") || MessageContents[original].StartsWith("Content-"));
 
                         tempMessage.MessageBody = bodyStr.Trim();
                     }
