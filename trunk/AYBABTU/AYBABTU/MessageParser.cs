@@ -132,6 +132,11 @@ namespace AYBABTU
                             //do boundary stuff...hell, I don't remember
                             
                             int original = j;
+
+                            while (MessageContents[original] != "")
+                            {
+                                original++;
+                            }
                             while (original < MessageContents.Length && (!MessageContents[original].Contains(@"text/plain")))
                             {
                                 original++;
@@ -145,6 +150,7 @@ namespace AYBABTU
                                 }
                                 original++;
                             }
+                            
                             tempMessage.MessageBody = bodyStr.Trim();
                         }
                         //email doesn't contain any multipart
