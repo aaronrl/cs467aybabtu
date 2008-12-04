@@ -70,10 +70,6 @@ namespace AYBABTU
             this.writeMessageBtn = new System.Windows.Forms.Button();
             this.addressBookBtn = new System.Windows.Forms.Button();
             this.getMessageBtn = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.getAndSendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.getMessagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sendMessagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.messageList = new System.Windows.Forms.ListView();
             this.fromHeader = new System.Windows.Forms.ColumnHeader();
             this.subjectHeader = new System.Windows.Forms.ColumnHeader();
@@ -89,9 +85,9 @@ namespace AYBABTU
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.messageViewer = new System.Windows.Forms.RichTextBox();
+            this.attachmentsContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip1.SuspendLayout();
             this.userButtonPanel.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.messages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -331,6 +327,7 @@ namespace AYBABTU
             // folderList
             // 
             this.folderList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.folderList.HideSelection = false;
             this.folderList.Location = new System.Drawing.Point(0, 0);
             this.folderList.Name = "folderList";
             this.folderList.Size = new System.Drawing.Size(170, 507);
@@ -434,7 +431,6 @@ namespace AYBABTU
             // 
             this.getMessageBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("getMessageBtn.BackgroundImage")));
             this.getMessageBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.getMessageBtn.ContextMenuStrip = this.contextMenuStrip1;
             this.getMessageBtn.FlatAppearance.BorderSize = 0;
             this.getMessageBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.getMessageBtn.Location = new System.Drawing.Point(3, 3);
@@ -444,34 +440,6 @@ namespace AYBABTU
             this.getMessageBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.getMessageBtn.UseVisualStyleBackColor = true;
             this.getMessageBtn.Click += new System.EventHandler(this.getMessageBtn_Click);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.AllowDrop = true;
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.getAndSendToolStripMenuItem,
-            this.getMessagesToolStripMenuItem,
-            this.sendMessagesToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(155, 70);
-            // 
-            // getAndSendToolStripMenuItem
-            // 
-            this.getAndSendToolStripMenuItem.Name = "getAndSendToolStripMenuItem";
-            this.getAndSendToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.getAndSendToolStripMenuItem.Text = "Get and Send";
-            // 
-            // getMessagesToolStripMenuItem
-            // 
-            this.getMessagesToolStripMenuItem.Name = "getMessagesToolStripMenuItem";
-            this.getMessagesToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.getMessagesToolStripMenuItem.Text = "Get Messages";
-            // 
-            // sendMessagesToolStripMenuItem
-            // 
-            this.sendMessagesToolStripMenuItem.Name = "sendMessagesToolStripMenuItem";
-            this.sendMessagesToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.sendMessagesToolStripMenuItem.Text = "Send Messages";
             // 
             // messageList
             // 
@@ -609,6 +577,7 @@ namespace AYBABTU
             this.attachmentsBtn.Size = new System.Drawing.Size(52, 51);
             this.attachmentsBtn.TabIndex = 2;
             this.attachmentsBtn.UseVisualStyleBackColor = true;
+            this.attachmentsBtn.Click += new System.EventHandler(this.attachmentsBtn_Click);
             // 
             // label2
             // 
@@ -639,6 +608,11 @@ namespace AYBABTU
             this.messageViewer.TabIndex = 0;
             this.messageViewer.Text = "";
             // 
+            // attachmentsContextMenu
+            // 
+            this.attachmentsContextMenu.Name = "attachmentsContextMenu";
+            this.attachmentsContextMenu.Size = new System.Drawing.Size(61, 4);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -657,7 +631,6 @@ namespace AYBABTU
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.userButtonPanel.ResumeLayout(false);
-            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.messages)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -731,10 +704,7 @@ namespace AYBABTU
         private Button attachmentsBtn;
         private Label subjectLbl;
         private Label fromLbl;
-        private ContextMenuStrip contextMenuStrip1;
-        private ToolStripMenuItem getAndSendToolStripMenuItem;
-        private ToolStripMenuItem getMessagesToolStripMenuItem;
-        private ToolStripMenuItem sendMessagesToolStripMenuItem;
+        private ContextMenuStrip attachmentsContextMenu;
     }
 }
 
