@@ -202,9 +202,17 @@ namespace AYBABTU
             string selectedAccount = folderList.SelectedNode.Parent.Text;
             string selectedMailbox = folderList.SelectedNode.Text;
             Message selectedMessage = (Message) accounts.findAccountByName(selectedAccount).getMailbox(selectedMailbox).getMessage(indices[0]);
+            int selectedAttachment = 0;
 
-            ToolStripItem clicked = (ToolStripItem) sender;
-            Attachment attach = selectedMessage.getAttachmentByFileName(clicked.Text);
+            //ToolStripItem clicked = (ToolStripItem) sender;
+            for (int i = 0; i < attachmentsContextMenu.Items.Count; i++)
+            {
+                if (attachmentsContextMenu.Items[i].Selected)
+                {
+                    selectedAttachment = i;
+                }
+            }
+            Attachment attach = selectedMessage.getAttachmentAt(selectedAttachment);
             if (attach != null)
             {
                 saveAttachmentDialog.FileName = attach.FileName;
