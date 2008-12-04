@@ -75,7 +75,7 @@ namespace AYBABTU
             ListView.SelectedIndexCollection indices = messageList.SelectedIndices;
             string selectedAccount = folderList.SelectedNode.Parent.Text;
             string selectedMailbox = folderList.SelectedNode.Text;
-            Message replyMessage = accounts.findAccountByName(selectedAccount).getMailbox(selectedMailbox).getMessage(indices[0]);
+            Message replyMessage = (Message) accounts.findAccountByName(selectedAccount).getMailbox(selectedMailbox).getMessage(indices[0]).Clone();
 
             replyMessage.Subject = "RE: " + replyMessage.Subject;
 
@@ -90,7 +90,7 @@ namespace AYBABTU
             // access root for selected account
             string selectedAccount = folderList.SelectedNode.Parent.Text;
             string selectedMailbox = folderList.SelectedNode.Text;
-            Message forwardMessage = accounts.findAccountByName(selectedAccount).getMailbox(selectedMailbox).getMessage(indices[0]);
+            Message forwardMessage = (Message) accounts.findAccountByName(selectedAccount).getMailbox(selectedMailbox).getMessage(indices[0]).Clone();
             forwardMessage.Subject = "FWD: " + forwardMessage.Subject;
 
             WriteWindow forwardMessageWindow = new WriteWindow(new Message(forwardMessage.From, accounts.findAccountByName(selectedAccount).accountInfo.EmailAddress, forwardMessage.Subject, forwardMessage.MessageBody), accounts.findAccountByName(selectedAccount));
