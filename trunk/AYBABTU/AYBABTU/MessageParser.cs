@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
+
 
 namespace AYBABTU
 {
@@ -196,15 +196,16 @@ namespace AYBABTU
                 binaryData =
                     System.Convert.FromBase64String(data);
                 String decodedString = binaryData.ToString();
+                return decodedString;
             }
             catch (System.ArgumentNullException)
             {
-                System.Windows.Forms.MessageBox("No File Attachment");
+               
                 return "Error in file";
             }
             catch (System.FormatException)
             {
-                System.Windows.Forms.MessageBox("String is not divisible by 4");
+               
                 return "Error converting attachment";
             }
         }
