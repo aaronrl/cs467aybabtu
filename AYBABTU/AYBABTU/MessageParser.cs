@@ -185,37 +185,12 @@ namespace AYBABTU
 
         }// end of main
         #endregion
-
-        public static void grabAttachmentData(String [] incomingMessages)
+        public static void grabAttachmentData(String[] incomingMessages)
         {
-<<<<<<< .mine
-            return "hello";
-        }
-        //public static string base64Decode(string data)
-        //{
-        //    byte[] binaryData;
-        //    try
-        //    {
-        //        binaryData =
-        //            System.Convert.FromBase64String(data);
-        //        String decodedString = binaryData.ToString();
-        //    }
-        //    catch (System.ArgumentNullException)
-        //    {
-        //        System.Windows.Forms.MessageBox("No File Attachment");
-        //        return "Error in file";
-        //    }
-        //    catch (System.FormatException)
-        //    {
-        //        System.Windows.Forms.MessageBox("String is not divisible by 4");
-        //        return "Error converting attachment";
-        //    }
-        //}
-=======
 
-            String []attachmentEmail;
+            String[] attachmentEmail;
             Attachment emailAttachment;
-            
+
 
             for (int a = 0; a < incomingMessages.Length; a++)
             {
@@ -241,7 +216,6 @@ namespace AYBABTU
             }
 
         }
->>>>>>> .r132
 
     }
 }
