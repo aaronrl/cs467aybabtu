@@ -100,6 +100,7 @@
       <DependentUpon>AddressBookWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="AccountInfo.cs" />
+    <Compile Include="Attachment.cs" />
     <Compile Include="ConfirmationWindow.cs">
       <SubType>Form</SubType>
     </Compile>
