@@ -127,6 +127,20 @@ namespace AYBABTU
                         if (MessageContents[j].Contains("multipart"))
                         {
                             //do boundary stuff...hell, I don't remember
+                            String bodyStr = "";
+                            int original = j;
+
+                            while (!MessageContents[original].StartsWith("------="))
+                            {
+                                if (!MessageContents[original].StartsWith("Content-"))
+                                {
+                                    bodyStr += MessageContents[original];
+
+                                }
+                                original++;
+                            }
+
+                            tempMessage.MessageBody = bodyStr.Trim();
                         }
                         //email doesn't contain any nice stuff
                         else if (MessageContents[j].Contains(@"text/plain"))
