@@ -129,13 +129,13 @@ namespace AYBABTU
                             //do boundary stuff...hell, I don't remember
                             String bodyStr = "";
                             int original = j;
-                            while (!MessageContents[original].Contains(@"text/plain"))
+                            while (original < MessageContents.Length && (!MessageContents[original].Contains(@"text/plain")))
                             {
                                 original++;
                             }
-                            while (!MessageContents[original].Contains("------="))
+                            while (original < MessageContents.Length && (!MessageContents[original].Contains("------=")))
                             {
-                                if (!MessageContents[original].Contains("Content-"))
+                                if (original < MessageContents.Length && (!MessageContents[original].Contains("Content-")))
                                 {
                                     bodyStr += MessageContents[original];
 
