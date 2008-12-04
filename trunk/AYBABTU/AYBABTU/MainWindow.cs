@@ -53,6 +53,7 @@ namespace AYBABTU
                 }
                 catch (NullReferenceException error)
                 {
+                    MessageBox.Show(error.ToString());
                 }
             }
         }
