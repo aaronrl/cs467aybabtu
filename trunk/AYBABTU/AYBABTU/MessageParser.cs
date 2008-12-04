@@ -183,7 +183,7 @@ namespace AYBABTU
                         }
                     }
 
-                    tempMessage.addAttach(grabAttachmentData(incomingMessages));
+                    tempMessage.addAttach(grabAttachmentData(incomingMessages[i]));
                     messages[i] = tempMessage;
                 }
             }//end of for loop
@@ -193,7 +193,7 @@ namespace AYBABTU
         }// end of main
         #endregion
 
-        public static Attachment grabAttachmentData(String[] incomingMessages2)
+        public static Attachment grabAttachmentData(String incomingMessages2)
         {
 
             String[] attachmentEmail = { };
@@ -206,7 +206,7 @@ namespace AYBABTU
     //        {
                 for (int a = 0; a < incomingMessages2.Length; a++)
                 {
-                    attachmentEmail = incomingMessages2[a].Split('\n');
+                    attachmentEmail = incomingMessages2.Split('\n');
                 }
 
                 for (int b = 0; b < attachmentEmail.Length; b++)
