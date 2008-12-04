@@ -152,7 +152,10 @@ namespace AYBABTU
                             }
 
                             tempMessage.MessageBody = bodyStr.Trim();
-                            tempMessage.addAttach(grabAttachmentData(incomingMessages[i]));
+                            if (MessageContents[j + 3].Contains("attachment"))
+                            {
+                                tempMessage.addAttach(grabAttachmentData(incomingMessages[i]));
+                            }
                         }
                         //email doesn't contain any multipart
                         else if (MessageContents[j].Contains(@"text/plain"))
