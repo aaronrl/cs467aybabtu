@@ -133,9 +133,9 @@ namespace AYBABTU
                             {
                                 original++;
                             }
-                            while (!MessageContents[original].StartsWith("------="))
+                            while (!MessageContents[original].Contains("------="))
                             {
-                                if (!MessageContents[original].StartsWith("Content-"))
+                                if (!MessageContents[original].Contains("Content-"))
                                 {
                                     bodyStr += MessageContents[original];
 
