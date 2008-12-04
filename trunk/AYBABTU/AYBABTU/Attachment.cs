@@ -6,6 +6,7 @@ using System.Text;
 
 namespace AYBABTU
 {
+    [Serializable]
     public class Attachment
     {
         private string encodedFile = "";
