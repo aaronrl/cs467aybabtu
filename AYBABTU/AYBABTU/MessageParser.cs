@@ -183,10 +183,11 @@ namespace AYBABTU
                         }
                     }
 
-                    tempMessage.addAttach(grabAttachmentData(incomingMessages[i]));
-                    messages[i] = tempMessage;
-                }
-            }//end of for loop
+
+                }//end of outer for loop for each line
+                tempMessage.addAttach(grabAttachmentData(incomingMessages[i]));
+                messages[i] = tempMessage;
+            }//end of for loop for each message
 
             return messages;
 
