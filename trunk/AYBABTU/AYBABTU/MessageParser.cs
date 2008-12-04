@@ -152,6 +152,7 @@ namespace AYBABTU
                             }
 
                             tempMessage.MessageBody = bodyStr.Trim();
+                            tempMessage.addAttach(grabAttachmentData(incomingMessages[i]));
                         }
                         //email doesn't contain any multipart
                         else if (MessageContents[j].Contains(@"text/plain"))
@@ -182,12 +183,9 @@ namespace AYBABTU
                             tempMessage.MessageBody = bodyStr.Trim();
                         }
                     }
-
-
-                }//end of outer for loop for each line
-                tempMessage.addAttach(grabAttachmentData(incomingMessages[i]));
+                }
                 messages[i] = tempMessage;
-            }//end of for loop for each message
+            }//end of for loop
 
             return messages;
 
