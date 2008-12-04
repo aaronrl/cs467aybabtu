@@ -233,12 +233,17 @@ namespace AYBABTU
                     accounts.accounts[i].initializeIMAPHandler();
                 }
             }
+            try
+            {
+                // populate folder list
+                folderList.Nodes.AddRange(accounts.getTreeViewOfAccounts());
+                folderList.ExpandAll();
+                folderList.SelectedNode = folderList.Nodes[0].FirstNode;
+            }
+            catch (Exception ex)
+            {
 
-            // populate folder list
-            folderList.Nodes.AddRange(accounts.getTreeViewOfAccounts());
-            folderList.ExpandAll();
-            folderList.SelectedNode = folderList.Nodes[0].FirstNode;
-            
+            }
             // load the first message into the message viewer
             //messageViewer.Text = ((Message)((ArrayList)inbox[0])[1]).MessageBody;
             
