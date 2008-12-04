@@ -224,6 +224,8 @@ namespace AYBABTU
                         fileName = attachmentEmail[startHere].Trim();
                         //replace the word filename with nothing
                         fileName = fileName.Replace("filename=", "");
+                        fileName = fileName.Replace("Content-Disposition: attachment;", "");
+                        fileName = fileName.Trim();
 
                         char[] remove = fileName.ToCharArray();
 
@@ -252,9 +254,10 @@ namespace AYBABTU
                         }
 
                         attachData = attachData.Trim();
+                        fileattach = new Attachment(attachData, tempFileName);
                     }
              //   }
-                    fileattach = new Attachment(attachData, tempFileName);
+                    
             }
                 return fileattach;
         }//end of get attachment data
