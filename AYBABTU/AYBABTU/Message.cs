@@ -8,7 +8,7 @@ namespace AYBABTU
     /* Class to handle the contents of individual messages */
     // http://www.ondotnet.com/pub/a/dotnet/2002/08/26/serialization.html
     [Serializable]
-    public class Message
+    public class Message : ICloneable
     {
         #region Class Vars
         private string to;
@@ -262,6 +262,11 @@ namespace AYBABTU
         public MailMessage getMailMessage()
         {
             return (new MailMessage(from, to, subject, messageBody));
+        }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
         }
     }
 }
