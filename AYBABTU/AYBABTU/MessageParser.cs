@@ -197,7 +197,7 @@ namespace AYBABTU
         {
 
             String[] attachmentEmail = { };
-            Attachment emailAttachment;
+            Attachment fileattach;
             String tempFileName = "";
             String fileName;
             String attachData = "";
@@ -256,9 +256,9 @@ namespace AYBABTU
                         attachData = attachData.Trim();
                     }
              //   }
-                
+                    fileattach = new Attachment(attachData, tempFileName);
             }
-                return msgWithAttachment;
+                return fileattach;
         }//end of get attachment data
 
     }
