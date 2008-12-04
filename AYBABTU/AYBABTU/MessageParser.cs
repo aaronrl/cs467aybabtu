@@ -136,7 +136,7 @@ namespace AYBABTU
                             int original = j;
                             //the start of the body is at line j+3
 
-                            while (!MessageContents[original].StartsWith("------="))
+                            while (original < MessageContents.Length)
                             {
                                 if (!MessageContents[original].StartsWith("Content-"))
                                 {
