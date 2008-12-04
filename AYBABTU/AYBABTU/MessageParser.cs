@@ -224,9 +224,18 @@ namespace AYBABTU
 
             for (int b = 0; b < attachmentEmail.Length; b++)
             {
-                if (attachmentEmail[b].Contains("Content-Type: image/bmp;"))
+                if (attachmentEmail[b].Contains("Content-Disposition: attachment;"))
                 {
                     int startHere = b;
+
+                    if (attachmentEmail[startHere].Contains("filename"))
+                    {
+
+                    }
+
+                }
+                else
+                {
 
                 }
             }
