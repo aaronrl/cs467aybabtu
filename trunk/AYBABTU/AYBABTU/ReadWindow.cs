@@ -12,14 +12,16 @@ namespace AYBABTU
     public partial class ReadWindow : Form
     {
         private Message msg = new Message();
-        
+        Account acct;
+
         public ReadWindow()
         {
             InitializeComponent();
         }
 
-        public ReadWindow(Message readThisMessage){
+        public ReadWindow(Message readThisMessage, Account account ){
             msg = readThisMessage;
+            acct = account;
             InitializeComponent();
         }
 
@@ -37,7 +39,7 @@ namespace AYBABTU
             Message replyMessage = msg;
             replyMessage.Subject = "RE: " + replyMessage.Subject;
 
-            WriteWindow replyToMessageWindow = new WriteWindow(new Message(Properties.Settings.Default.EmailAddress, replyMessage.To, replyMessage.Subject, replyMessage.MessageBody));
+            WriteWindow replyToMessageWindow = new WriteWindow(new Message(acct.accountInfo.EmailAddress, replyMessage.To, replyMessage.Subject, replyMessage.MessageBody), acct);
             replyToMessageWindow.Show();
             this.Close();
         }
@@ -48,7 +50,7 @@ namespace AYBABTU
             Message forwardMessage = msg;
             forwardMessage.Subject = "FWD: " + forwardMessage.Subject;
 
-            WriteWindow forwardMessageWindow = new WriteWindow(new Message(Properties.Settings.Default.EmailAddress, forwardMessage.To, forwardMessage.Subject, forwardMessage.MessageBody));
+            WriteWindow forwardMessageWindow = new WriteWindow(new Message(acct.accountInfo.EmailAddress, forwardMessage.To, forwardMessage.Subject, forwardMessage.MessageBody), acct);
             forwardMessageWindow.Show();
             this.Close();
         }

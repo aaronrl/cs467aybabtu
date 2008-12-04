@@ -10,6 +10,7 @@ namespace AYBABTU
     [Serializable]
     public class Message
     {
+        #region Class Vars
         private string to;
         private string toDisplay;
         private string from;
@@ -24,7 +25,9 @@ namespace AYBABTU
         private ArrayList attachments;
         private string rawMessage;
         private long uid;
+        #endregion
 
+        #region Constructors
         public Message()
         {
             to = "";
@@ -61,9 +64,11 @@ namespace AYBABTU
             date = pDate;
             uid = -1;
         }
+        #endregion
 
         #region Accessor and Mutator Methods
 
+        #region Properties
         public string To
         {
             get
@@ -219,7 +224,11 @@ namespace AYBABTU
                 uid = value;
             }
         }
+        #endregion
 
+        #endregion
+
+        #region Attachments Section
         public void addAttach(string path)
         {
             this.attachments.Add(path);
@@ -233,7 +242,12 @@ namespace AYBABTU
             }
         }
 
-        public Boolean hasAttachments(string path)
+        public ArrayList getAllAttachments()
+        {
+            return attachments;
+        }
+
+        public bool hasAttachments()
         {
             if (this.attachments.Count == 0)
                 return false;
@@ -242,8 +256,6 @@ namespace AYBABTU
                 return true;
             }
         }
-
-
         #endregion
 
         // return a mailmessage representation of the message for use in the SMTP client

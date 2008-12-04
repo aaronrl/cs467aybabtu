@@ -60,7 +60,7 @@ namespace AYBABTU
         private void writeMessageBtn_Click(object sender, EventArgs e)
         {
             string selectedAccount = folderList.SelectedNode.Parent.Text;
-            WriteWindow writedow = new WriteWindow(accounts.findAccountByName(selectedAccount).accountInfo.EmailAddress);
+            WriteWindow writedow = new WriteWindow(accounts.findAccountByName(selectedAccount));
             writedow.Show();
         }
 
@@ -79,7 +79,7 @@ namespace AYBABTU
 
             replyMessage.Subject = "RE: " + replyMessage.Subject;
 
-            WriteWindow replyToMessageWindow = new WriteWindow(new Message(replyMessage.From, accounts.findAccountByName(selectedAccount).accountInfo.EmailAddress, replyMessage.Subject, replyMessage.MessageBody));
+            WriteWindow replyToMessageWindow = new WriteWindow(new Message(replyMessage.From, accounts.findAccountByName(selectedAccount).accountInfo.EmailAddress, replyMessage.Subject, replyMessage.MessageBody), accounts.findAccountByName(selectedAccount));
             replyToMessageWindow.Show();
         }
 
@@ -93,7 +93,7 @@ namespace AYBABTU
             Message forwardMessage = accounts.findAccountByName(selectedAccount).getMailbox(selectedMailbox).getMessage(indices[0]);
             forwardMessage.Subject = "FWD: " + forwardMessage.Subject;
 
-            WriteWindow forwardMessageWindow = new WriteWindow(new Message(forwardMessage.From, accounts.findAccountByName(selectedAccount).accountInfo.EmailAddress, forwardMessage.Subject, forwardMessage.MessageBody));
+            WriteWindow forwardMessageWindow = new WriteWindow(new Message(forwardMessage.From, accounts.findAccountByName(selectedAccount).accountInfo.EmailAddress, forwardMessage.Subject, forwardMessage.MessageBody), accounts.findAccountByName(selectedAccount));
             forwardMessageWindow.Show();
         }
 
@@ -108,6 +108,12 @@ namespace AYBABTU
             ListViewItem[] msglist = accounts.findAccountByName(selectedAccount).getMailbox(selectedMailbox).getMessageList();
             loadMessageList(msglist);
         }
+
+        private void attachmentsBtn_Click(object sender, EventArgs e)
+        {
+            attachmentsBtn.ContextMenuStrip.Show();
+        }
+
         #endregion  
 
         #region Menu Items
@@ -160,13 +166,29 @@ namespace AYBABTU
             ListView.SelectedIndexCollection indices = messageList.SelectedIndices;
             string selectedAccount = folderList.SelectedNode.Parent.Text;
             string selectedMailbox = folderList.SelectedNode.Text;
+            Message selectedMessage = (Message) accounts.findAccountByName(selectedAccount).getMailbox(selectedMailbox).getMessage(indices[0]);
 
-            //foreach (int index in indices)
+            // gets the selected message from the message list and sets its body to the viewer
+            messageViewer.Text = selectedMessage.MessageBody;
+            subjectLbl.Text = selectedMessage.Subject;
+            fromLbl.Text = selectedMessage.From;
+
+            // populate attachments button
+            if (selectedMessage.hasAttachments())
             {
-                // gets the selected message from the message list and sets its body to the viewer
-                messageViewer.Text = ((Message) accounts.findAccountByName(selectedAccount).getMailbox(selectedMailbox).getMessage(indices[0])).MessageBody;
-                subjectLbl.Text = ((Message)accounts.findAccountByName(selectedAccount).getMailbox(selectedMailbox).getMessage(indices[0])).Subject;
-                fromLbl.Text = ((Message)accounts.findAccountByName(selectedAccount).getMailbox(selectedMailbox).getMessage(indices[0])).From;
+                attachmentsBtn.Enabled = true;
+                attachmentsContextMenu.Items.Clear();
+                ArrayList attachments = selectedMessage.getAllAttachments();
+                foreach (string attachment in attachments)
+                {
+                    attachmentsContextMenu.Items.Add(attachment.ToString());
+                }
+                attachmentsBtn.ContextMenuStrip = attachmentsContextMenu;
+            }
+            else
+            {
+                attachmentsBtn.Enabled = false;
+                attachmentsBtn.ContextMenuStrip = null;
             }
 
         }
@@ -176,7 +198,8 @@ namespace AYBABTU
             ListView.SelectedIndexCollection indices = messageList.SelectedIndices;
             string selectedAccount = folderList.SelectedNode.Parent.Text;
             string selectedMailbox = folderList.SelectedNode.Text;
-            ReadWindow readSelectedMessage = new ReadWindow((Message) accounts.findAccountByName(selectedAccount).getMailbox(selectedMailbox).getMessage(indices[0]));
+            Message msg = (Message) accounts.findAccountByName(selectedAccount).getMailbox(selectedMailbox).getMessage(indices[0]);
+            ReadWindow readSelectedMessage = new ReadWindow(msg, accounts.findAccountByName(selectedAccount));
             readSelectedMessage.Show();
         }
 
@@ -211,18 +234,11 @@ namespace AYBABTU
                 }
             }
 
-            try
-            {
-                // populate folder list
-                folderList.Nodes.AddRange(accounts.getTreeViewOfAccounts());
-                folderList.ExpandAll();
-                folderList.SelectedNode = folderList.Nodes[0].FirstNode;
-            }
-            catch (Exception ex)
-            {
-
-            }
-
+            // populate folder list
+            folderList.Nodes.AddRange(accounts.getTreeViewOfAccounts());
+            folderList.ExpandAll();
+            folderList.SelectedNode = folderList.Nodes[0].FirstNode;
+            
             // load the first message into the message viewer
             //messageViewer.Text = ((Message)((ArrayList)inbox[0])[1]).MessageBody;
             
@@ -319,6 +335,8 @@ namespace AYBABTU
             //Populate the message listing from the inbox array
             messageList.Items.AddRange(messages);
         }
+
+
 
     }
 }

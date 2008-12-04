@@ -12,46 +12,60 @@ namespace AYBABTU
 {
     public partial class WriteWindow : Form
     {
-        Message msg = new Message();
+        Account acct;
+        Message inMsg;
         string from;
+        string signature;
 
-        public WriteWindow()
+        public WriteWindow(Account sendingAccount)
         {
+            acct = sendingAccount;
             InitializeComponent();
         }
 
-        public WriteWindow(Message incomingMessage)
+        public WriteWindow(Message incomingMessage, Account sendingAccount)
         {
-            msg = incomingMessage;
-            from = msg.From;
-            InitializeComponent();
-        }
-
-        public WriteWindow(string pFrom)
-        {
-            from = pFrom;
+            inMsg = incomingMessage;
+            acct = sendingAccount;
             InitializeComponent();
         }
 
         private void WriteWindow_Load(object sender, EventArgs e)
         {
-            fromTxtBox.Text = from;
-            toTxtBox.Text = msg.To;
-            subjectTxtBox.Text = msg.Subject;
-            messageBodyTxtBox.Text = msg.MessageBody;
+            fromTxtBox.Text = acct.accountInfo.EmailAddress;
+            fromTxtBox.Enabled = false;
+            if (inMsg != null)
+            {
+                toTxtBox.Text = inMsg.To;
+                subjectTxtBox.Text = inMsg.Subject;
+                messageBodyTxtBox.Text = "\n\n\n" + acct.accountInfo.Signature + "\n\n\n" + inMsg.MessageBody;
+                messageBodyTxtBox.Focus();
+                messageBodyTxtBox.Select(0, 0);
+            }
+            else
+            {
+                toTxtBox.Focus();
+                messageBodyTxtBox.Text = "\n\n\n" + acct.accountInfo.Signature + "\n";
+                messageBodyTxtBox.Select(0, 0);
+            }
         }
 
         private void sendBtn_Click(object sender, EventArgs e)
         {
-            msg = new Message(toTxtBox.Text, fromTxtBox.Text, subjectTxtBox.Text, messageBodyTxtBox.Text);
-            if (SMTP.sendMessage(msg))
+            Message outMsg = new Message(toTxtBox.Text, fromTxtBox.Text, subjectTxtBox.Text, messageBodyTxtBox.Text);
+            SMTP client;
+            if (acct.accountInfo.OutgoingAuthentication == AccountInfo.AuthenticationType.Password)
             {
-                this.Close();
+                client = new SMTP(acct.accountInfo.OutgoingServer, acct.accountInfo.OutgoingPort, acct.accountInfo.OutgoingUsername, acct.accountInfo.OutgoingPassword);
             }
             else
             {
-
+                client = new SMTP(acct.accountInfo.OutgoingServer, acct.accountInfo.OutgoingPort);
             }
+
+            client.sendMessage(outMsg);
+
+            this.Close();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)

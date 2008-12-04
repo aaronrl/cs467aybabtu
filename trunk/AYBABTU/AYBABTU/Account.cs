@@ -65,6 +65,7 @@ namespace AYBABTU
 
             if (accountInfo.IncomingServerType == AccountInfo.ServerType.POP)
             {
+                /*
                 nodes = new TreeNode[5];
 
                 nodes[0] = new TreeNode("Inbox");
@@ -72,6 +73,10 @@ namespace AYBABTU
                 nodes[2] = new TreeNode("Trash");
                 nodes[3] = new TreeNode("Sent");
                 nodes[4] = new TreeNode("Drafts");
+                */
+                nodes = new TreeNode[2];
+                nodes[0] = new TreeNode("Inbox");
+                nodes[1] = new TreeNode("Trash");
 
                 ContextMenuStrip rightClickMenu = new ContextMenuStrip();
 
@@ -79,7 +84,7 @@ namespace AYBABTU
 
                 //rightClickMenu.ItemClicked += new ToolStripItemClickedEventHandler(emptryTrashEvent);
 
-                nodes[2].ContextMenuStrip = rightClickMenu;
+                nodes[1].ContextMenuStrip = rightClickMenu;
             }
             else
             {
