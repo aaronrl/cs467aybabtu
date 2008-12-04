@@ -236,6 +236,11 @@ namespace AYBABTU
             attachments.Add(attch);
         }
 
+        public void addAttach(Attachment attch)
+        {
+            attachments.Add(attch);
+        }
+
         public void deleteAttach(string path)
         {
             if (this.attachments.Contains(path))
