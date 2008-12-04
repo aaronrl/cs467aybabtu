@@ -9,6 +9,7 @@ namespace AYBABTU
 {
     class MessageParser
     {
+        # region returnMessages
         public static Message[] returnMessages(string[] incomingMessages)
         {
             Message[] messages = new Message[incomingMessages.Length];
@@ -183,31 +184,30 @@ namespace AYBABTU
             return messages;
 
         }// end of main
+        #endregion
 
-        public static String grabAttachmentData(String [] incomingMessages)
+        public static void grabAttachmentData(String [] incomingMessages)
         {
-            return "hello";
+
+            String []attachmentEmail;
+            Attachment emailAttachment;
+            
+
+            for (int a = 0; a < incomingMessages.Length; a++)
+            {
+                attachmentEmail = incomingMessages[a].Split('\n');
+            }
+
+            for (int b = 0; b < attachmentEmail.Length; b++)
+            {
+                if (attachmentEmail[b].Contains("Content-Type: image/bmp;"))
+                {
+                    int startHere = b;
+
+                }
+            }
+
         }
-        public static string base64Decode(string data)
-        {
-            byte[] binaryData;
-            try
-            {
-                binaryData =
-                    System.Convert.FromBase64String(data);
-                String decodedString = binaryData.ToString();
-                return decodedString;
-            }
-            catch (System.ArgumentNullException)
-            {
-               
-                return "Error in file";
-            }
-            catch (System.FormatException)
-            {
-               
-                return "Error converting attachment";
-            }
-        }
+
     }
 }
