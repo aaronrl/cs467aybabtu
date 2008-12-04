@@ -19,12 +19,6 @@ namespace AYBABTU
 
             Regex reStrict = new Regex(pattern);
 
-
-
-            /*
-             * Errors to handle: Not a MIME message
-             * */
-
             // Going through each message
             for (int i = 0; i < incomingMessages.Length; i++)
             {
@@ -125,17 +119,17 @@ namespace AYBABTU
                         }
                         tempMessage.Subject = tmpStr.Trim();
                     }
-                    
+
                     //Body Time
 
                     if (MessageContents[j].Contains(@"Content-Type:"))
                     {
                         if (MessageContents[j].Contains("multipart"))
                         {
-                           //do boundary stuff...hell, I don't remember
+                            //do boundary stuff...hell, I don't remember
                             return messages;
                         }
-                            //email doesn't contain any nice stuff
+                        //email doesn't contain any nice stuff
                         else if (MessageContents[j].Contains(@"text/plain"))
                         {
                             String bodyStr = "";
@@ -158,12 +152,12 @@ namespace AYBABTU
 
                     messages[i] = tempMessage;
                 }
+            }//end of for loop
 
+            return messages;
 
-                return messages;
-            }
-        }
-        public static string base64Decode(string data)
+        }// end of main
+       /* public static string base64Decode(string data)
         {
             try
             {
@@ -181,6 +175,6 @@ namespace AYBABTU
             {
                 throw new Exception("Error in base64Decode" + e.Message);
             }
-        }
+        }*/
     }
 }
