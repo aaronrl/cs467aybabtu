@@ -112,7 +112,9 @@ namespace AYBABTU
 
         private void attachmentsBtn_Click(object sender, EventArgs e)
         {
-            
+            Point menuPos = new Point(attachmentsBtn.Location.X+attachmentsBtn.Size.Width,attachmentsBtn.Location.Y + attachmentsBtn.Size.Height);
+            attachmentsBtn.ContextMenuStrip.Top = menuPos.Y;
+            attachmentsBtn.ContextMenuStrip.Left = menuPos.X - attachmentsBtn.ContextMenuStrip.Size.Width;
             attachmentsBtn.ContextMenuStrip.Show();
         }
 
