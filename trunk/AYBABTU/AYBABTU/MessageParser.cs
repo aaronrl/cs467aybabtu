@@ -18,7 +18,7 @@ namespace AYBABTU
             String tmpStr;
             int UIDnumber = -1;
             string pattern = @"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
-            
+
             Regex reStrict = new Regex(pattern);
 
             // Going through each message
@@ -130,7 +130,7 @@ namespace AYBABTU
                         if (incomingMessages[i].Contains("multipart"))
                         {
                             //do boundary stuff...hell, I don't remember
-                            
+
                             int original = j;
 
                             while (MessageContents[original] != "")
@@ -150,13 +150,13 @@ namespace AYBABTU
                                 }
                                 original++;
                             }
-                            
+
                             tempMessage.MessageBody = bodyStr.Trim();
                         }
                         //email doesn't contain any multipart
                         else if (MessageContents[j].Contains(@"text/plain"))
                         {
-                            
+
                             int original = j;
 
                             while (MessageContents[original] != "")
@@ -183,8 +183,8 @@ namespace AYBABTU
                         }
                     }
 
+                    tempMessage.addAttach(grabAttachmentData(incomingMessages));
                     messages[i] = tempMessage;
-                    grabAttachmentData(incomingMessages);
                 }
             }//end of for loop
 
@@ -193,14 +193,17 @@ namespace AYBABTU
         }// end of main
         #endregion
 
-        public static void grabAttachmentData(String[] incomingMessages2)
+        public static Attachment grabAttachmentData(String[] incomingMessages2)
         {
 
-            String[] attachmentEmail = {};
+            String[] attachmentEmail = { };
             Attachment emailAttachment;
+            String tempFileName = "";
+            String fileName;
+            String attachData = "";
 
-            if (incomingMessages2.Length > 0)
-            {
+     //       if (incomingMessages2.Length > 0)
+    //        {
                 for (int a = 0; a < incomingMessages2.Length; a++)
                 {
                     attachmentEmail = incomingMessages2[a].Split('\n');
@@ -219,8 +222,8 @@ namespace AYBABTU
                             startHere++;
                         }
 
-                        String tempFileName = "";
-                        String fileName = attachmentEmail[startHere].Trim();
+                        
+                        fileName = attachmentEmail[startHere].Trim();
                         //replace the word filename with nothing
                         fileName = fileName.Replace("filename=", "");
 
@@ -234,13 +237,10 @@ namespace AYBABTU
                             }
 
                         }
-
                         fileName = tempFileName;
-
-
                         //We now have the filename, now, we need the attachment details
 
-                        String attachData = "";
+                        
                         startHere++;
                         while (startHere < attachmentEmail.Length - 1)
                         {
@@ -254,15 +254,12 @@ namespace AYBABTU
                         }
 
                         attachData = attachData.Trim();
-
-                        emailAttachment = new Attachment(attachData, fileName);
                     }
-
-                        //if it doesn't have the attachment label...might be inline
-                }
-
+             //   }
+                
             }
-        }
+                return msgWithAttachment;
+        }//end of get attachment data
 
     }
 }
