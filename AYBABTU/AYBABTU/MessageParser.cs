@@ -185,36 +185,70 @@ namespace AYBABTU
 
         }// end of main
         #endregion
-        public static void grabAttachmentData(String[] incomingMessages)
+        public static void grabAttachmentData(String[] incomingMessages2)
         {
 
-            String[] attachmentEmail;
+            String[] attachmentEmail = {};
             Attachment emailAttachment;
 
-
-            for (int a = 0; a < incomingMessages.Length; a++)
+            if (incomingMessages2.Length > 0)
             {
-                attachmentEmail = incomingMessages[a].Split('\n');
-            }
-
-            for (int b = 0; b < attachmentEmail.Length; b++)
-            {
-                if (attachmentEmail[b].Contains("Content-Disposition: attachment;"))
+                for (int a = 0; a < incomingMessages2.Length; a++)
                 {
-                    int startHere = b;
+                    attachmentEmail = incomingMessages2[a].Split('\n');
+                }
 
-                    if (attachmentEmail[startHere].Contains("filename"))
+                for (int b = 0; b < attachmentEmail.Length; b++)
+                {
+                    if (attachmentEmail[b].Contains("Content-Disposition: attachment;"))
                     {
+                        int startHere = b;
 
+                        //trying to avoid an error here
+                        //basically, it starts where it says there's an attachment, and then looks for the name of the attachment
+                        while (!attachmentEmail[startHere].Contains("filename") && startHere < attachmentEmail.Length)
+                        {
+                            startHere++;
+                        }
+
+                        String tempFileName = "";
+                        String fileName = attachmentEmail[startHere].Trim();
+                        //replace the word filename with nothing
+                        fileName = fileName.Replace("filename=", "");
+
+                        char[] remove = fileName.ToCharArray();
+
+                        for (int c = 0; c < remove.Length; c++)
+                        {
+                            if (!remove[c].Equals("\""))
+                            {
+                                tempFileName += remove[c];
+                            }
+
+                        }
+
+                        fileName = tempFileName;
+
+
+                        //We now have the filename, now, we need the attachment details
+
+                        String attachData = "";
+
+                        while (startHere < attachmentEmail.Length || (!attachmentEmail[startHere].Contains("------=")))
+                        {
+                            attachData += attachmentEmail[startHere];
+                            startHere++;
+                        }
+
+                        attachData = attachData.Trim();
+
+                        emailAttachment = new Attachment(attachData, fileName);
                     }
 
+                        //if it doesn't have the attachment label...might be inline
                 }
-                else
-                {
 
-                }
             }
-
         }
 
     }
