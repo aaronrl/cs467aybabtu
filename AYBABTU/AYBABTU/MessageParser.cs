@@ -125,34 +125,43 @@ namespace AYBABTU
                         }
                         tempMessage.Subject = tmpStr.Trim();
                     }
-
+                    
                     //Body Time
-                    if (MessageContents[j].Contains(@"text/plain"))
+
+                    if (MessageContents[j].Contains(@"Content-Type:"))
                     {
-                        String bodyStr = "";
-                        int original = j;
-                        //the start of the body is at line j+3
-
-                        while (!MessageContents[original].StartsWith("------="))
+                        if (MessageContents[j].Contains("multipart"))
                         {
-                            if (!MessageContents[original].StartsWith("Content-"))
-                            {
-                                bodyStr += MessageContents[original];
-
-                            }
-                            original++;
+                           //do boundary stuff...hell, I don't remember
                         }
+                            //email doesn't contain any nice stuff
+                        else if (MessageContents[j].Contains(@"text/plain"))
+                        {
+                            String bodyStr = "";
+                            int original = j;
+                            //the start of the body is at line j+3
 
-                        tempMessage.MessageBody = bodyStr.Trim();
+                            while (!MessageContents[original].StartsWith("------="))
+                            {
+                                if (!MessageContents[original].StartsWith("Content-"))
+                                {
+                                    bodyStr += MessageContents[original];
+
+                                }
+                                original++;
+                            }
+
+                            tempMessage.MessageBody = bodyStr.Trim();
+                        }
                     }
 
+                    messages[i] = tempMessage;
                 }
-                messages[i] = tempMessage;
-            }
 
-            return messages;
+
+                return messages;
+            }
         }
-        
         public static string base64Decode(string data)
         {
             try
