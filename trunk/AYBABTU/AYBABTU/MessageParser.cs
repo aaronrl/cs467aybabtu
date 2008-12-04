@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace AYBABTU
 {
@@ -187,24 +188,25 @@ namespace AYBABTU
         {
             return "hello";
         }
-       /* public static string base64Decode(string data)
+        public static string base64Decode(string data)
         {
+            byte[] binaryData;
             try
             {
-                System.Text.UTF8Encoding encoder = new System.Text.UTF8Encoding();
-                System.Text.Decoder utf8Decode = encoder.GetDecoder();
-
-                byte[] todecode_byte = Convert.FromBase64String(data);
-                int charCount = utf8Decode.GetCharCount(todecode_byte, 0, todecode_byte.Length);
-                char[] decoded_char = new char[charCount];
-                utf8Decode.GetChars(todecode_byte, 0, todecode_byte.Length, decoded_char, 0);
-                string result = new String(decoded_char);
-                return result;
+                binaryData =
+                    System.Convert.FromBase64String(data);
+                String decodedString = binaryData.ToString();
             }
-            catch (Exception e)
+            catch (System.ArgumentNullException)
             {
-                throw new Exception("Error in base64Decode" + e.Message);
+                System.Windows.Forms.MessageBox("No File Attachment");
+                return "Error in file";
             }
-        }*/
+            catch (System.FormatException)
+            {
+                System.Windows.Forms.MessageBox("String is not divisible by 4");
+                return "Error converting attachment";
+            }
+        }
     }
 }
