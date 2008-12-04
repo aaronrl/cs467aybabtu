@@ -204,10 +204,8 @@ namespace AYBABTU
 
      //       if (incomingMessages2.Length > 0)
     //        {
-                for (int a = 0; a < incomingMessages2.Length; a++)
-                {
+
                     attachmentEmail = incomingMessages2.Split('\n');
-                }
 
                 for (int b = 0; b < attachmentEmail.Length; b++)
                 {
