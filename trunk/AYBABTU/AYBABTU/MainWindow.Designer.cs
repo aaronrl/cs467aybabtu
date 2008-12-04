@@ -86,6 +86,7 @@ namespace AYBABTU
             this.label1 = new System.Windows.Forms.Label();
             this.messageViewer = new System.Windows.Forms.RichTextBox();
             this.attachmentsContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.saveAttachmentDialog = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip1.SuspendLayout();
             this.userButtonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.messages)).BeginInit();
@@ -612,6 +613,7 @@ namespace AYBABTU
             // 
             this.attachmentsContextMenu.Name = "attachmentsContextMenu";
             this.attachmentsContextMenu.Size = new System.Drawing.Size(61, 4);
+            this.attachmentsContextMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.attachmentsContextMenu_ItemClicked);
             // 
             // Main
             // 
@@ -705,6 +707,7 @@ namespace AYBABTU
         private Label subjectLbl;
         private Label fromLbl;
         private ContextMenuStrip attachmentsContextMenu;
+        private SaveFileDialog saveAttachmentDialog;
     }
 }
 
