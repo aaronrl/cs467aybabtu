@@ -197,7 +197,7 @@ namespace AYBABTU
         {
 
             String[] attachmentEmail = { };
-            Attachment fileattach;
+            Attachment fileattach = null;
             String tempFileName = "";
             String fileName;
             String attachData = "";
