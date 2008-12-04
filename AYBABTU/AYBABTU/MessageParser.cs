@@ -18,12 +18,13 @@ namespace AYBABTU
             String tmpStr;
             int UIDnumber = -1;
             string pattern = @"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
-
+            
             Regex reStrict = new Regex(pattern);
 
             // Going through each message
             for (int i = 0; i < incomingMessages.Length; i++)
             {
+                String bodyStr = "";
                 tempMessage = new Message();
                 MessageContents = incomingMessages[i].Split('\n');
 
@@ -129,7 +130,7 @@ namespace AYBABTU
                         if (incomingMessages[i].Contains("multipart"))
                         {
                             //do boundary stuff...hell, I don't remember
-                            String bodyStr = "";
+                            
                             int original = j;
                             while (original < MessageContents.Length && (!MessageContents[original].Contains(@"text/plain")))
                             {
@@ -149,9 +150,8 @@ namespace AYBABTU
                         //email doesn't contain any multipart
                         else if (MessageContents[j].Contains(@"text/plain"))
                         {
-                            String bodyStr = "";
+                            
                             int original = j;
-                            //the start of the body is at line j+3
 
                             while (MessageContents[original] != "")
                             {
@@ -178,6 +178,7 @@ namespace AYBABTU
                     }
 
                     messages[i] = tempMessage;
+                    grabAttachmentData(incomingMessages);
                 }
             }//end of for loop
 
@@ -185,6 +186,7 @@ namespace AYBABTU
 
         }// end of main
         #endregion
+
         public static void grabAttachmentData(String[] incomingMessages2)
         {
 
@@ -220,7 +222,7 @@ namespace AYBABTU
 
                         for (int c = 0; c < remove.Length; c++)
                         {
-                            if (!remove[c].Equals("\""))
+                            if (!remove[c].Equals('\"'))
                             {
                                 tempFileName += remove[c];
                             }
@@ -233,11 +235,16 @@ namespace AYBABTU
                         //We now have the filename, now, we need the attachment details
 
                         String attachData = "";
-
-                        while (startHere < attachmentEmail.Length || (!attachmentEmail[startHere].Contains("------=")))
+                        startHere++;
+                        while (startHere < attachmentEmail.Length - 1)
                         {
-                            attachData += attachmentEmail[startHere];
-                            startHere++;
+                            if (!attachmentEmail[startHere].Contains("------="))
+                            {
+                                attachData += attachmentEmail[startHere];
+                                startHere++;
+                            }
+                            else
+                                startHere = attachmentEmail.Length + 12;
                         }
 
                         attachData = attachData.Trim();
