@@ -133,6 +133,7 @@ namespace AYBABTU
                         if (MessageContents[j].Contains("multipart"))
                         {
                            //do boundary stuff...hell, I don't remember
+                            return messages;
                         }
                             //email doesn't contain any nice stuff
                         else if (MessageContents[j].Contains(@"text/plain"))
