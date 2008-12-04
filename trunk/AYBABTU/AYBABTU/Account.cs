@@ -85,6 +85,7 @@ namespace AYBABTU
                 //rightClickMenu.ItemClicked += new ToolStripItemClickedEventHandler(emptryTrashEvent);
 
                 nodes[1].ContextMenuStrip = rightClickMenu;
+                
             }
             else
             {
