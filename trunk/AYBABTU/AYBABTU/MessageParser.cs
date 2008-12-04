@@ -185,7 +185,7 @@ namespace AYBABTU
 
         public static String grabAttachmentData(String [] incomingMessages)
         {
-
+            return "hello";
         }
        /* public static string base64Decode(string data)
         {
