@@ -111,6 +111,7 @@ namespace AYBABTU
 
         private void attachmentsBtn_Click(object sender, EventArgs e)
         {
+            
             attachmentsBtn.ContextMenuStrip.Show();
         }
 
@@ -179,9 +180,10 @@ namespace AYBABTU
                 attachmentsBtn.Enabled = true;
                 attachmentsContextMenu.Items.Clear();
                 ArrayList attachments = selectedMessage.getAllAttachments();
-                foreach (string attachment in attachments)
+                foreach (object attachment in attachments)
                 {
-                    attachmentsContextMenu.Items.Add(attachment.ToString());
+                    Attachment attch = (Attachment)attachment;
+                    attachmentsContextMenu.Items.Add(attch.FileName);
                 }
                 attachmentsBtn.ContextMenuStrip = attachmentsContextMenu;
             }
@@ -191,6 +193,23 @@ namespace AYBABTU
                 attachmentsBtn.ContextMenuStrip = null;
             }
 
+        }
+
+        private void attachmentsContextMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            ListView.SelectedIndexCollection indices = messageList.SelectedIndices;
+            string selectedAccount = folderList.SelectedNode.Parent.Text;
+            string selectedMailbox = folderList.SelectedNode.Text;
+            Message selectedMessage = (Message) accounts.findAccountByName(selectedAccount).getMailbox(selectedMailbox).getMessage(indices[0]);
+
+            ToolStripItem clicked = (ToolStripItem) sender;
+            Attachment attach = selectedMessage.getAttachmentByFileName(clicked.Text);
+            if (attach != null)
+            {
+                saveAttachmentDialog.FileName = attach.FileName;
+                saveAttachmentDialog.ShowDialog();
+                attach.writeFileToSystem(saveAttachmentDialog.FileName);
+            }
         }
 
         private void messageList_MouseDoubleClick(object sender, EventArgs e)
@@ -340,6 +359,8 @@ namespace AYBABTU
             //Populate the message listing from the inbox array
             messageList.Items.AddRange(messages);
         }
+
+        
 
 
 

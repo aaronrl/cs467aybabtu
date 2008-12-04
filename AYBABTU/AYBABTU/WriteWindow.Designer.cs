@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WriteWindow));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,13 +44,9 @@
             this.subjectTxtBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.messageBodyTxtBox = new System.Windows.Forms.RichTextBox();
-            this.attachmentsListBox = new System.Windows.Forms.ListBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.fromTxtBox = new System.Windows.Forms.TextBox();
             this.sendBtn = new System.Windows.Forms.Button();
-            this.attachBtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -74,6 +71,13 @@
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // viewToolStripMenuItem
             // 
@@ -133,21 +137,21 @@
             // 
             this.toTxtBox.Location = new System.Drawing.Point(66, 122);
             this.toTxtBox.Name = "toTxtBox";
-            this.toTxtBox.Size = new System.Drawing.Size(405, 20);
+            this.toTxtBox.Size = new System.Drawing.Size(614, 20);
             this.toTxtBox.TabIndex = 19;
             // 
             // ccTxtBox
             // 
             this.ccTxtBox.Location = new System.Drawing.Point(66, 148);
             this.ccTxtBox.Name = "ccTxtBox";
-            this.ccTxtBox.Size = new System.Drawing.Size(405, 20);
+            this.ccTxtBox.Size = new System.Drawing.Size(614, 20);
             this.ccTxtBox.TabIndex = 20;
             // 
             // subjectTxtBox
             // 
             this.subjectTxtBox.Location = new System.Drawing.Point(66, 174);
             this.subjectTxtBox.Name = "subjectTxtBox";
-            this.subjectTxtBox.Size = new System.Drawing.Size(405, 20);
+            this.subjectTxtBox.Size = new System.Drawing.Size(614, 20);
             this.subjectTxtBox.TabIndex = 21;
             // 
             // label4
@@ -167,28 +171,11 @@
             this.messageBodyTxtBox.TabIndex = 22;
             this.messageBodyTxtBox.Text = "";
             // 
-            // attachmentsListBox
-            // 
-            this.attachmentsListBox.FormattingEnabled = true;
-            this.attachmentsListBox.Location = new System.Drawing.Point(477, 112);
-            this.attachmentsListBox.Name = "attachmentsListBox";
-            this.attachmentsListBox.Size = new System.Drawing.Size(203, 82);
-            this.attachmentsListBox.TabIndex = 23;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(477, 95);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 13);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "Attachments:";
-            // 
             // fromTxtBox
             // 
             this.fromTxtBox.Location = new System.Drawing.Point(66, 95);
             this.fromTxtBox.Name = "fromTxtBox";
-            this.fromTxtBox.Size = new System.Drawing.Size(405, 20);
+            this.fromTxtBox.Size = new System.Drawing.Size(614, 20);
             this.fromTxtBox.TabIndex = 18;
             // 
             // sendBtn
@@ -204,33 +191,13 @@
             this.sendBtn.UseVisualStyleBackColor = true;
             this.sendBtn.Click += new System.EventHandler(this.sendBtn_Click);
             // 
-            // attachBtn
-            // 
-            this.attachBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("attachBtn.BackgroundImage")));
-            this.attachBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.attachBtn.FlatAppearance.BorderSize = 0;
-            this.attachBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.attachBtn.Location = new System.Drawing.Point(69, 3);
-            this.attachBtn.Name = "attachBtn";
-            this.attachBtn.Size = new System.Drawing.Size(60, 55);
-            this.attachBtn.TabIndex = 5;
-            this.attachBtn.UseVisualStyleBackColor = true;
-            // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.attachBtn);
             this.panel1.Controls.Add(this.sendBtn);
             this.panel1.Location = new System.Drawing.Point(12, 27);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(668, 61);
             this.panel1.TabIndex = 2;
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // WriteWindow
             // 
@@ -238,8 +205,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(692, 573);
             this.Controls.Add(this.fromTxtBox);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.attachmentsListBox);
             this.Controls.Add(this.messageBodyTxtBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.subjectTxtBox);
@@ -279,11 +244,8 @@
         private System.Windows.Forms.TextBox subjectTxtBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RichTextBox messageBodyTxtBox;
-        private System.Windows.Forms.ListBox attachmentsListBox;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox fromTxtBox;
         private System.Windows.Forms.Button sendBtn;
-        private System.Windows.Forms.Button attachBtn;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }

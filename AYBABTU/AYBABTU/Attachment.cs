@@ -6,7 +6,7 @@ using System.Text;
 
 namespace AYBABTU
 {
-    class Attachment
+    public class Attachment
     {
         private string encodedFile = "";
         private string fileName = "";
@@ -19,6 +19,30 @@ namespace AYBABTU
             fileName = name;
             decodedFile = Convert.FromBase64String(encodedFile);
             //MessageBox.Show(Convert.ToString(encodedFile.Length % 4));
+        }
+
+        public string FileName
+        {
+            get
+            {
+                return fileName;
+            }
+            set
+            {
+                fileName = value;
+            }
+        }
+
+        public string EncodedFile 
+        {
+            get
+            {
+                return encodedFile;
+            }
+            set
+            {
+                encodedFile = value;
+            }
         }
 
         public void writeFileToSystem(string path)

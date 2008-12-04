@@ -229,9 +229,11 @@ namespace AYBABTU
         #endregion
 
         #region Attachments Section
-        public void addAttach(string path)
+        public void addAttach(string filename, string base64encoding)
         {
-            this.attachments.Add(path);
+            Attachment attch = new Attachment(base64encoding, filename);
+
+            attachments.Add(attch);
         }
 
         public void deleteAttach(string path)
@@ -242,6 +244,23 @@ namespace AYBABTU
             }
         }
 
+        public Attachment getAttachmentAt(int index)
+        {
+            return (Attachment)attachments[index];
+        }
+
+        public Attachment getAttachmentByFileName(string name)
+        {
+            foreach (Attachment attach in attachments)
+            {
+                if (attach.FileName == name)
+                {
+                    return attach;
+                }
+            }
+            return null;
+        }
+
         public ArrayList getAllAttachments()
         {
             return attachments;
@@ -249,7 +268,7 @@ namespace AYBABTU
 
         public bool hasAttachments()
         {
-            if (this.attachments.Count == 0)
+            if (attachments.Count == 0)
                 return false;
             else
             {

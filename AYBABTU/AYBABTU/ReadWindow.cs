@@ -35,7 +35,6 @@ namespace AYBABTU
 
         private void replyBtn_Click(object sender, EventArgs e)
         {
-            
             Message replyMessage = (Message) msg.Clone();
             replyMessage.Subject = "RE: " + replyMessage.Subject;
 
@@ -46,7 +45,6 @@ namespace AYBABTU
 
         private void forwardBtn_Click(object sender, EventArgs e)
         {
-            
             Message forwardMessage = (Message) msg.Clone();
             forwardMessage.Subject = "FWD: " + forwardMessage.Subject;
 
